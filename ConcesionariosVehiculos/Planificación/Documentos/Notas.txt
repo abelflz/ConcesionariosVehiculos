@@ -1,0 +1,2 @@
+De las piezas Extra se guarda el precio para 
+incluirlo en los datos cuando se vende el carro
