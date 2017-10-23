@@ -88,6 +88,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\ConcesionariosVehiculos.vshost.exe" />
     <Content Include="obj\Debug\ConcesionariosVehiculos.csproj.FileListAbsolute.txt" />
+    <Content Include="Planificación\Documentos\Diagrama.PNG" />
     <Content Include="Planificación\Documentos\Notas.txt" />
     <Content Include="Planificación\Query\Query Concesionario.sql" />
   </ItemGroup>
