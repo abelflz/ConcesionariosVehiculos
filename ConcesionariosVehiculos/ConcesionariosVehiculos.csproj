@@ -120,8 +120,9 @@
     <Content Include="obj\Debug\ConcesionariosVehiculos.csproj.FileListAbsolute.txt" />
     <Content Include="Planificación\Documentos\Diagrama.PNG" />
     <Content Include="Planificación\Documentos\Notas.txt" />
-    <Content Include="Planificación\Query\db 25-oct-2017.sql" />
-    <Content Include="Planificación\Query\Query Concesionario.sql" />
+    <Content Include="Planificación\Query\db 25-oct-2017 7pm.sql" />
+    <Content Include="Planificación\Query\Obsoleto\db 25-oct-2017.sql" />
+    <Content Include="Planificación\Query\Obsoleto\Query Concesionario.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
