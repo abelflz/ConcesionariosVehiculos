@@ -82,6 +82,9 @@
     <Compile Include="FrmVendedores.Designer.cs">
       <DependentUpon>FrmVendedores.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAutomovil.resx">
+      <DependentUpon>FrmAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
