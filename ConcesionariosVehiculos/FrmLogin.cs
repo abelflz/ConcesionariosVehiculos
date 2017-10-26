@@ -44,8 +44,8 @@ namespace ConcesionariosVehiculos
 
                 if (compare.Equals("1"))
                 {
-                    /************************************************Llamar al otro formulario******************************************/
-                    MessageBox.Show("Bien, pasó");
+                    FrmMenu menu = new FrmMenu();
+                    menu.ShowDialog();
                 }
                 else
                 {
