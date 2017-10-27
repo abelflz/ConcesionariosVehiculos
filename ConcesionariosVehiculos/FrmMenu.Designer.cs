@@ -29,23 +29,56 @@
         private void InitializeComponent()
         {
             this.btnAutomovil = new System.Windows.Forms.Button();
+            this.btnVendedores = new System.Windows.Forms.Button();
+            this.btnVentAuto = new System.Windows.Forms.Button();
+            this.btnServOfic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAutomovil
             // 
-            this.btnAutomovil.Location = new System.Drawing.Point(25, 12);
+            this.btnAutomovil.Location = new System.Drawing.Point(12, 12);
             this.btnAutomovil.Name = "btnAutomovil";
-            this.btnAutomovil.Size = new System.Drawing.Size(75, 23);
+            this.btnAutomovil.Size = new System.Drawing.Size(87, 39);
             this.btnAutomovil.TabIndex = 0;
             this.btnAutomovil.Text = "Automovil";
             this.btnAutomovil.UseVisualStyleBackColor = true;
             this.btnAutomovil.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnVendedores
+            // 
+            this.btnVendedores.Location = new System.Drawing.Point(105, 57);
+            this.btnVendedores.Name = "btnVendedores";
+            this.btnVendedores.Size = new System.Drawing.Size(87, 39);
+            this.btnVendedores.TabIndex = 1;
+            this.btnVendedores.Text = "Vendedores";
+            this.btnVendedores.UseVisualStyleBackColor = true;
+            // 
+            // btnVentAuto
+            // 
+            this.btnVentAuto.Location = new System.Drawing.Point(12, 57);
+            this.btnVentAuto.Name = "btnVentAuto";
+            this.btnVentAuto.Size = new System.Drawing.Size(87, 39);
+            this.btnVentAuto.TabIndex = 2;
+            this.btnVentAuto.Text = "Venta de Vehiculos";
+            this.btnVentAuto.UseVisualStyleBackColor = true;
+            // 
+            // btnServOfic
+            // 
+            this.btnServOfic.Location = new System.Drawing.Point(105, 12);
+            this.btnServOfic.Name = "btnServOfic";
+            this.btnServOfic.Size = new System.Drawing.Size(87, 39);
+            this.btnServOfic.TabIndex = 3;
+            this.btnServOfic.Text = "Servicios Oficiales";
+            this.btnServOfic.UseVisualStyleBackColor = true;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(210, 118);
+            this.Controls.Add(this.btnServOfic);
+            this.Controls.Add(this.btnVentAuto);
+            this.Controls.Add(this.btnVendedores);
             this.Controls.Add(this.btnAutomovil);
             this.Name = "FrmMenu";
             this.Text = "FrmMenu";
@@ -56,5 +89,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnAutomovil;
+        private System.Windows.Forms.Button btnVendedores;
+        private System.Windows.Forms.Button btnVentAuto;
+        private System.Windows.Forms.Button btnServOfic;
     }
 }
