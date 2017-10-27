@@ -18,7 +18,7 @@ namespace ConcesionariosVehiculos
             InitializeComponent();
         }
 
-        private string x = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+        private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
         private void validacion() {
             string user = txtUsername.Text;
@@ -27,7 +27,7 @@ namespace ConcesionariosVehiculos
             try
             {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = x;
+                con.ConnectionString = CS;
                 con.Open();
 
                 string query = "SELECT COUNT(*) FROM Concesionario WHERE Usuario IN(@User) AND Clave IN(@Password)";
@@ -44,6 +44,7 @@ namespace ConcesionariosVehiculos
 
                 if (compare.Equals("1"))
                 {
+                    this.Hide();
                     FrmMenu menu = new FrmMenu();
                     menu.ShowDialog();
                 }
@@ -54,7 +55,7 @@ namespace ConcesionariosVehiculos
             }
             catch (Exception msg) {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = x;
+                con.ConnectionString = CS;
 
                 string eMessage = msg.ToString();
                 con.Open();
