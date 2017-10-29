@@ -188,25 +188,36 @@ namespace ConcesionariosVehiculos
         {
             try
             {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CS;
+                if (
+                    string.IsNullOrEmpty(txtMarca.Text) || string.IsNullOrEmpty(txtModelo.Text) ||
+                    string.IsNullOrEmpty(txtDescuento.Text) || string.IsNullOrEmpty(txtPrecio.Text) ||
+                    string.IsNullOrEmpty(cbxMotor.Text) || string.IsNullOrEmpty(txtColor.Text) ||
+                    string.IsNullOrEmpty(cbxCombustible.Text) || string.IsNullOrEmpty(cbxTipo.Text) ||
+                    string.IsNullOrEmpty(cbxPuertas.Text) || string.IsNullOrEmpty(cbxPasajeros.Text) ||
+                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtMatricula.Text)
+                    ) {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
 
-                con.Open();
+                    con.Open();
 
-                string query = "INSERT INTO Automovil VALUES(@marca,@modelo,@descuento,@precio,@motor,@color,@combustible,@tipo,@puertas,@pasajeros,@traccion,@matricula)";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
-                cmd.Parameters.Add(new SqlParameter("@",));
+                    string query = "INSERT INTO Automovil VALUES(@marca,@modelo,@descuento,@precio,@motor,@color,@combustible,@tipo,@puertas,@pasajeros,@traccion,@matricula)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@marca", txtMarca.Text));
+                    cmd.Parameters.Add(new SqlParameter("@modelo", txtModelo.Text));
+                    cmd.Parameters.Add(new SqlParameter("@descuento", txtDescuento.Text));
+                    cmd.Parameters.Add(new SqlParameter("@precio", txtPrecio.Text));
+                    cmd.Parameters.Add(new SqlParameter("@motor", cbxMotor.Text));
+                    cmd.Parameters.Add(new SqlParameter("@color", txtColor.Text));
+                    cmd.Parameters.Add(new SqlParameter("@combustible", cbxCombustible.Text));
+                    cmd.Parameters.Add(new SqlParameter("@tipo", cbxTipo.Text));
+                    cmd.Parameters.Add(new SqlParameter("@puertas", cbxPuertas.Text));
+                    cmd.Parameters.Add(new SqlParameter("@pasajeros", cbxPasajeros.Text));
+                    cmd.Parameters.Add(new SqlParameter("@traccion", cbxTraccion.Text));
+                    cmd.Parameters.Add(new SqlParameter("@matricula", txtMatricula.Text));
+
+                    MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
+                }
             }
             catch (Exception msg)
             {
