@@ -115,7 +115,7 @@ namespace ConcesionariosVehiculos
             try
             {
                 cbxMatriculaBorrar.Items.Clear();
-                cbxMatriculaEditar.Items.Clear();
+                cbxChasisEditar.Items.Clear();
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
@@ -125,7 +125,7 @@ namespace ConcesionariosVehiculos
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    cbxMatriculaEditar.Items.Add(reader["Matricula"].ToString());
+                    cbxChasisEditar.Items.Add(reader["Matricula"].ToString());
                     cbxMatriculaBorrar.Items.Add(reader["Matricula"].ToString());
                 }
             }
@@ -233,7 +233,7 @@ namespace ConcesionariosVehiculos
                     string.IsNullOrEmpty(cbxMotor.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
                     string.IsNullOrEmpty(cbxCombustible.Text) || string.IsNullOrEmpty(cbxTipo.Text) ||
                     string.IsNullOrEmpty(cbxPuertas.Text) || string.IsNullOrEmpty(cbxPasajeros.Text) ||
-                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtMatricula.Text)
+                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtChasis.Text)
                     )
                 {
                     MessageBox.Show("Todos los campos deben de ser llenados");
@@ -257,7 +257,7 @@ namespace ConcesionariosVehiculos
                     cmd.Parameters.Add(new SqlParameter("@puertas", cbxPuertas.Text));
                     cmd.Parameters.Add(new SqlParameter("@pasajeros", cbxPasajeros.Text));
                     cmd.Parameters.Add(new SqlParameter("@traccion", cbxTraccion.Text));
-                    cmd.Parameters.Add(new SqlParameter("@matricula", txtMatricula.Text));
+                    cmd.Parameters.Add(new SqlParameter("@matricula", txtChasis.Text));
 
                     MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
                     con.Close();
