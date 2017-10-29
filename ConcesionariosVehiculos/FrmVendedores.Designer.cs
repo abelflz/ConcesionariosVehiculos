@@ -42,7 +42,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txbBuscar = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -59,6 +58,9 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblNIF = new System.Windows.Forms.Label();
             this.vendedoresTableAdapter = new ConcesionariosVehiculos.ConcesionarioDataSetTableAdapters.VendedoresTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendedoresBindingSource)).BeginInit();
@@ -161,7 +163,9 @@
             // 
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnModificar);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnBorrar);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnCrear);
             this.groupBox2.Controls.Add(this.dtpFechaNacimiento);
             this.groupBox2.Controls.Add(this.txbVentaRealizada);
@@ -180,16 +184,6 @@
             this.groupBox2.Size = new System.Drawing.Size(350, 306);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(136, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 18);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Modificar";
             // 
             // btnModificar
             // 
@@ -318,6 +312,36 @@
             // 
             this.vendedoresTableAdapter.ClearBeforeFill = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(82, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 18);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Crear";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(215, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 18);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Borrar";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(136, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 18);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Modificar";
+            // 
             // btnBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,12 +388,14 @@
         private System.Windows.Forms.Label lblDomicilio;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblNIF;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.TextBox txbVentaRealizada;
         private System.Windows.Forms.TextBox txbConcensionario;
         private System.Windows.Forms.TextBox TxbDomicilio;
         private System.Windows.Forms.TextBox txbNombre;
         private System.Windows.Forms.TextBox txbNIF;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
