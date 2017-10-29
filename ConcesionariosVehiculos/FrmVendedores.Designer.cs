@@ -138,6 +138,7 @@
             // 
             // dtpFechaNacimientoModificar
             // 
+            this.dtpFechaNacimientoModificar.Enabled = false;
             this.dtpFechaNacimientoModificar.Location = new System.Drawing.Point(9, 192);
             this.dtpFechaNacimientoModificar.Name = "dtpFechaNacimientoModificar";
             this.dtpFechaNacimientoModificar.Size = new System.Drawing.Size(147, 20);
@@ -147,6 +148,7 @@
             // 
             this.txtConcesionarioModificar.Location = new System.Drawing.Point(9, 234);
             this.txtConcesionarioModificar.Name = "txtConcesionarioModificar";
+            this.txtConcesionarioModificar.ReadOnly = true;
             this.txtConcesionarioModificar.Size = new System.Drawing.Size(147, 20);
             this.txtConcesionarioModificar.TabIndex = 24;
             // 
@@ -162,6 +164,7 @@
             // 
             this.txtDomicilioModificar.Location = new System.Drawing.Point(9, 150);
             this.txtDomicilioModificar.Name = "txtDomicilioModificar";
+            this.txtDomicilioModificar.ReadOnly = true;
             this.txtDomicilioModificar.Size = new System.Drawing.Size(147, 20);
             this.txtDomicilioModificar.TabIndex = 22;
             // 
@@ -198,6 +201,7 @@
             // 
             this.txtNombreModificar.Location = new System.Drawing.Point(9, 111);
             this.txtNombreModificar.Name = "txtNombreModificar";
+            this.txtNombreModificar.ReadOnly = true;
             this.txtNombreModificar.Size = new System.Drawing.Size(147, 20);
             this.txtNombreModificar.TabIndex = 7;
             // 
@@ -295,6 +299,7 @@
             // 
             // dtpFechaNacimiento
             // 
+            this.dtpFechaNacimiento.Enabled = false;
             this.dtpFechaNacimiento.Location = new System.Drawing.Point(6, 192);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(149, 20);

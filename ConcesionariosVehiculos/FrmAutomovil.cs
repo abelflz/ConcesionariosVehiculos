@@ -162,22 +162,69 @@ namespace ConcesionariosVehiculos
             {
                 try
                 {
-                    SqlConnection Conn = new SqlConnection();
-                    Conn.ConnectionString = CS;
-                    Conn.Open();
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+                    con.Open();
 
                     string query = "DELETE FROM Automovil WHERE Matricula = @matricula";
-                    SqlCommand cmd = new SqlCommand(query, Conn);
+                    SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@matricula", cbxMatriculaBorrar.Text));
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("1 Automóvil Eliminado");
-                    Conn.Close();
+                    con.Close();
+
+                    FillCarsMat();
+                    FillCarsDGV();
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Debe eliminar todas las transacciones que tienen dicho artículo para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Debe eliminar todas las transacciones que tienen dicho vehículo para eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cbxMatriculaBorrar.SelectedIndex = -1;
                 }
+            }
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                con.Open();
+
+                string query = "INSERT INTO Automovil VALUES(@marca,@modelo,@descuento,@precio,@motor,@color,@combustible,@tipo,@puertas,@pasajeros,@traccion,@matricula)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+                cmd.Parameters.Add(new SqlParameter("@",));
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
             }
         }
     }
