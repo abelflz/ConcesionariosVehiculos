@@ -120,13 +120,13 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Matricula FROM Automovil";
+                string query = "SELECT Chasis FROM Automovil";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    cbxMatriculaEditar.Items.Add(reader["Matricula"].ToString());
-                    cbxMatriculaBorrar.Items.Add(reader["Matricula"].ToString());
+                    cbxMatriculaEditar.Items.Add(reader["Chasis"].ToString());
+                    cbxMatriculaBorrar.Items.Add(reader["Chasis"].ToString());
                 }
             }
             catch (Exception msg)
@@ -233,7 +233,7 @@ namespace ConcesionariosVehiculos
                     string.IsNullOrEmpty(cbxMotor.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
                     string.IsNullOrEmpty(cbxCombustible.Text) || string.IsNullOrEmpty(cbxTipo.Text) ||
                     string.IsNullOrEmpty(cbxPuertas.Text) || string.IsNullOrEmpty(cbxPasajeros.Text) ||
-                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtMatricula.Text)
+                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtChasis.Text)
                     )
                 {
                     MessageBox.Show("Todos los campos deben de ser llenados");
@@ -257,7 +257,7 @@ namespace ConcesionariosVehiculos
                     cmd.Parameters.Add(new SqlParameter("@puertas", cbxPuertas.Text));
                     cmd.Parameters.Add(new SqlParameter("@pasajeros", cbxPasajeros.Text));
                     cmd.Parameters.Add(new SqlParameter("@traccion", cbxTraccion.Text));
-                    cmd.Parameters.Add(new SqlParameter("@matricula", txtMatricula.Text));
+                    cmd.Parameters.Add(new SqlParameter("@matricula", txtChasis.Text));
 
                     MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
                     con.Close();
@@ -285,14 +285,48 @@ namespace ConcesionariosVehiculos
 
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxModelo.Items.Clear();
-            cbxModeloEditar.Items.Clear();
+            try
+            {
+                if(cbxMarca.SelectedIndex != -1)
+                {
+                    cbxModelo.Items.Clear();
+                    cbxModelo.Enabled = true;
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CS;
-            con.Open();
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+                    con.Open();
 
+                    string query = "SELECT Modelos.ModeloDescripcion Modelo FROM Modelos JOIN Marcas ON Modelos.MarcaId = Marcas.MarcaId WHERE Marcas.MarcaDescripcion IN(@Marca) ";
 
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbxModelo.Items.Add(reader["Modelo"].ToString());
+                    }
+
+                    con.Close();
+                }
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
         }
     }
 }
