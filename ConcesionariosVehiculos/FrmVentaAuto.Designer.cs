@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dtpFechaEntrega = new System.Windows.Forms.DateTimePicker();
             this.rbNo = new System.Windows.Forms.RadioButton();
             this.rbSi = new System.Windows.Forms.RadioButton();
@@ -47,7 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,18 @@
             this.groupBox2.Size = new System.Drawing.Size(316, 286);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Contado",
+            "Financiado"});
+            this.comboBox1.Location = new System.Drawing.Point(163, 160);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 41;
             // 
             // dtpFechaEntrega
             // 
@@ -162,11 +174,11 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(117, 250);
+            this.btnGuardar.Location = new System.Drawing.Point(103, 247);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(97, 23);
             this.btnGuardar.TabIndex = 29;
-            this.btnGuardar.Text = "Guardar Venta";
+            this.btnGuardar.Text = "Realizar Venta";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // label14
@@ -240,18 +252,6 @@
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Automovil";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Contado",
-            "Financiado"});
-            this.comboBox1.Location = new System.Drawing.Point(163, 160);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 41;
             // 
             // FrmVentaAuto
             // 

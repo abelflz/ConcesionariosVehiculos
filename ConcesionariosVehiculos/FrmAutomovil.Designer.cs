@@ -63,13 +63,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbxMatriculaEditar = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
@@ -91,11 +92,10 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cbxMatriculaBorrar = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.btnBorrarAutomovil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -521,7 +521,7 @@
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.comboBox2);
-            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.cbxMatriculaEditar);
             this.groupBox3.Controls.Add(this.comboBox4);
             this.groupBox3.Controls.Add(this.comboBox5);
             this.groupBox3.Controls.Add(this.comboBox6);
@@ -548,6 +548,20 @@
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
+            // comboBox8
+            // 
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.Enabled = false;
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "Gasolina",
+            "Gasoil/Diesel",
+            "Gas/GPL"});
+            this.comboBox8.Location = new System.Drawing.Point(160, 70);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(121, 21);
+            this.comboBox8.TabIndex = 34;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -560,6 +574,7 @@
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "1975",
@@ -642,6 +657,7 @@
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "2",
@@ -654,22 +670,19 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 26;
             // 
-            // comboBox3
+            // cbxMatriculaEditar
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Gasolina",
-            "Gasoil/Diesel",
-            "Gas/GPL"});
-            this.comboBox3.Location = new System.Drawing.Point(158, 70);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 25;
+            this.cbxMatriculaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMatriculaEditar.FormattingEnabled = true;
+            this.cbxMatriculaEditar.Location = new System.Drawing.Point(25, 70);
+            this.cbxMatriculaEditar.Name = "cbxMatriculaEditar";
+            this.cbxMatriculaEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxMatriculaEditar.TabIndex = 25;
             // 
             // comboBox4
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.Enabled = false;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "Sedán",
@@ -687,6 +700,7 @@
             // comboBox5
             // 
             this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.Enabled = false;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
             "2",
@@ -699,6 +713,7 @@
             // comboBox6
             // 
             this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.Enabled = false;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             "Trasera",
@@ -715,6 +730,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(158, 121);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 21;
             // 
@@ -722,6 +738,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(26, 342);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(121, 20);
             this.textBox3.TabIndex = 20;
             // 
@@ -729,6 +746,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(159, 306);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(121, 20);
             this.textBox4.TabIndex = 19;
             // 
@@ -736,6 +754,7 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(26, 215);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(120, 20);
             this.textBox5.TabIndex = 17;
             // 
@@ -743,6 +762,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(26, 121);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(120, 20);
             this.textBox6.TabIndex = 16;
             // 
@@ -750,6 +770,7 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(26, 170);
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(120, 20);
             this.textBox7.TabIndex = 15;
             // 
@@ -839,9 +860,9 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(156, 290);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(59, 13);
+            this.label31.Size = new System.Drawing.Size(76, 13);
             this.label31.TabIndex = 5;
-            this.label31.Text = "Descuento";
+            this.label31.Text = "Descuento (%)";
             // 
             // label32
             // 
@@ -854,28 +875,24 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBox7);
+            this.groupBox4.Controls.Add(this.cbxMatriculaBorrar);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label20);
-            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.btnBorrarAutomovil);
             this.groupBox4.Location = new System.Drawing.Point(12, 396);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(507, 55);
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             // 
-            // comboBox7
+            // cbxMatriculaBorrar
             // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "Gasolina",
-            "Gasoil/Diesel",
-            "Gas/GPL"});
-            this.comboBox7.Location = new System.Drawing.Point(184, 24);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(202, 21);
-            this.comboBox7.TabIndex = 34;
+            this.cbxMatriculaBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMatriculaBorrar.FormattingEnabled = true;
+            this.cbxMatriculaBorrar.Location = new System.Drawing.Point(184, 24);
+            this.cbxMatriculaBorrar.Name = "cbxMatriculaBorrar";
+            this.cbxMatriculaBorrar.Size = new System.Drawing.Size(202, 21);
+            this.cbxMatriculaBorrar.TabIndex = 34;
             // 
             // label12
             // 
@@ -890,33 +907,21 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 22);
+            this.label20.Location = new System.Drawing.Point(21, 22);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 18);
             this.label20.TabIndex = 18;
             this.label20.Text = "Eliminar";
             // 
-            // button4
+            // btnBorrarAutomovil
             // 
-            this.button4.Location = new System.Drawing.Point(392, 22);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(109, 23);
-            this.button4.TabIndex = 29;
-            this.button4.Text = "Borrar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
-            "Gasolina",
-            "Gasoil/Diesel",
-            "Gas/GPL"});
-            this.comboBox8.Location = new System.Drawing.Point(25, 69);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 21);
-            this.comboBox8.TabIndex = 34;
+            this.btnBorrarAutomovil.Location = new System.Drawing.Point(392, 22);
+            this.btnBorrarAutomovil.Name = "btnBorrarAutomovil";
+            this.btnBorrarAutomovil.Size = new System.Drawing.Size(109, 23);
+            this.btnBorrarAutomovil.TabIndex = 29;
+            this.btnBorrarAutomovil.Text = "Borrar Automóvil";
+            this.btnBorrarAutomovil.UseVisualStyleBackColor = true;
+            this.btnBorrarAutomovil.Click += new System.EventHandler(this.btnBorrarAutomovil_Click);
             // 
             // FrmAutomovil
             // 
@@ -986,7 +991,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbxMatriculaEditar;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox6;
@@ -1008,10 +1013,10 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cbxMatriculaBorrar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnBorrarAutomovil;
         private System.Windows.Forms.ComboBox comboBox8;
     }
 }
