@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxMotor = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.cbxAño = new System.Windows.Forms.ComboBox();
@@ -48,9 +49,6 @@
             this.cbxTraccion = new System.Windows.Forms.ComboBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.txtColor = new System.Windows.Forms.TextBox();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.txtMarca = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbxMotorEditar = new System.Windows.Forms.ComboBox();
             this.cbxCombustibleEditar = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cbxAñoEditar = new System.Windows.Forms.ComboBox();
@@ -75,9 +74,6 @@
             this.cbxTraccionEditar = new System.Windows.Forms.ComboBox();
             this.txtPrecioEditar = new System.Windows.Forms.TextBox();
             this.txtDescuentoEditar = new System.Windows.Forms.TextBox();
-            this.txtColorEditar = new System.Windows.Forms.TextBox();
-            this.txtModeloEditar = new System.Windows.Forms.TextBox();
-            this.txtMarcaEditar = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -94,8 +90,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnBorrarAutomovil = new System.Windows.Forms.Button();
-            this.cbxMotor = new System.Windows.Forms.ComboBox();
-            this.cbxMotorEditar = new System.Windows.Forms.ComboBox();
+            this.cbxColor = new System.Windows.Forms.ComboBox();
+            this.cbxColorEditar = new System.Windows.Forms.ComboBox();
+            this.cbxMarca = new System.Windows.Forms.ComboBox();
+            this.cbxModelo = new System.Windows.Forms.ComboBox();
+            this.cbxMarcaEditar = new System.Windows.Forms.ComboBox();
+            this.cbxModeloEditar = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -156,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(157, 104);
+            this.label1.Location = new System.Drawing.Point(24, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 4;
@@ -176,6 +176,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbxModelo);
+            this.groupBox2.Controls.Add(this.cbxMarca);
+            this.groupBox2.Controls.Add(this.cbxColor);
             this.groupBox2.Controls.Add(this.cbxMotor);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.txtMatricula);
@@ -190,9 +193,6 @@
             this.groupBox2.Controls.Add(this.cbxTraccion);
             this.groupBox2.Controls.Add(this.txtPrecio);
             this.groupBox2.Controls.Add(this.txtDescuento);
-            this.groupBox2.Controls.Add(this.txtColor);
-            this.groupBox2.Controls.Add(this.txtModelo);
-            this.groupBox2.Controls.Add(this.txtMarca);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
@@ -209,6 +209,23 @@
             this.groupBox2.Size = new System.Drawing.Size(316, 439);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
+            // 
+            // cbxMotor
+            // 
+            this.cbxMotor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMotor.FormattingEnabled = true;
+            this.cbxMotor.Items.AddRange(new object[] {
+            "V2",
+            "V4",
+            "V6",
+            "V8",
+            "V10",
+            "V12",
+            "V16"});
+            this.cbxMotor.Location = new System.Drawing.Point(27, 169);
+            this.cbxMotor.Name = "cbxMotor";
+            this.cbxMotor.Size = new System.Drawing.Size(121, 21);
+            this.cbxMotor.TabIndex = 34;
             // 
             // label16
             // 
@@ -395,27 +412,6 @@
             this.txtDescuento.Size = new System.Drawing.Size(121, 20);
             this.txtDescuento.TabIndex = 19;
             // 
-            // txtColor
-            // 
-            this.txtColor.Location = new System.Drawing.Point(27, 217);
-            this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(120, 20);
-            this.txtColor.TabIndex = 17;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.Location = new System.Drawing.Point(26, 122);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(120, 20);
-            this.txtModelo.TabIndex = 16;
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(159, 122);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(120, 20);
-            this.txtMarca.TabIndex = 15;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -491,7 +487,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 106);
+            this.label3.Location = new System.Drawing.Point(161, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 6;
@@ -508,6 +504,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbxModeloEditar);
+            this.groupBox3.Controls.Add(this.cbxMarcaEditar);
+            this.groupBox3.Controls.Add(this.cbxColorEditar);
             this.groupBox3.Controls.Add(this.cbxMotorEditar);
             this.groupBox3.Controls.Add(this.cbxCombustibleEditar);
             this.groupBox3.Controls.Add(this.label17);
@@ -522,9 +521,6 @@
             this.groupBox3.Controls.Add(this.cbxTraccionEditar);
             this.groupBox3.Controls.Add(this.txtPrecioEditar);
             this.groupBox3.Controls.Add(this.txtDescuentoEditar);
-            this.groupBox3.Controls.Add(this.txtColorEditar);
-            this.groupBox3.Controls.Add(this.txtModeloEditar);
-            this.groupBox3.Controls.Add(this.txtMarcaEditar);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.label24);
@@ -541,6 +537,23 @@
             this.groupBox3.Size = new System.Drawing.Size(316, 439);
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
+            // 
+            // cbxMotorEditar
+            // 
+            this.cbxMotorEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMotorEditar.FormattingEnabled = true;
+            this.cbxMotorEditar.Items.AddRange(new object[] {
+            "V2",
+            "V4",
+            "V6",
+            "V8",
+            "V10",
+            "V12",
+            "V16"});
+            this.cbxMotorEditar.Location = new System.Drawing.Point(160, 120);
+            this.cbxMotorEditar.Name = "cbxMotorEditar";
+            this.cbxMotorEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxMotorEditar.TabIndex = 35;
             // 
             // cbxCombustibleEditar
             // 
@@ -736,30 +749,6 @@
             this.txtDescuentoEditar.Size = new System.Drawing.Size(121, 20);
             this.txtDescuentoEditar.TabIndex = 19;
             // 
-            // txtColorEditar
-            // 
-            this.txtColorEditar.Location = new System.Drawing.Point(26, 215);
-            this.txtColorEditar.Name = "txtColorEditar";
-            this.txtColorEditar.ReadOnly = true;
-            this.txtColorEditar.Size = new System.Drawing.Size(120, 20);
-            this.txtColorEditar.TabIndex = 17;
-            // 
-            // txtModeloEditar
-            // 
-            this.txtModeloEditar.Location = new System.Drawing.Point(26, 121);
-            this.txtModeloEditar.Name = "txtModeloEditar";
-            this.txtModeloEditar.ReadOnly = true;
-            this.txtModeloEditar.Size = new System.Drawing.Size(120, 20);
-            this.txtModeloEditar.TabIndex = 16;
-            // 
-            // txtMarcaEditar
-            // 
-            this.txtMarcaEditar.Location = new System.Drawing.Point(26, 170);
-            this.txtMarcaEditar.Name = "txtMarcaEditar";
-            this.txtMarcaEditar.ReadOnly = true;
-            this.txtMarcaEditar.Size = new System.Drawing.Size(120, 20);
-            this.txtMarcaEditar.TabIndex = 15;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -835,7 +824,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(23, 105);
+            this.label30.Location = new System.Drawing.Point(24, 155);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(42, 13);
             this.label30.TabIndex = 6;
@@ -853,7 +842,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(23, 154);
+            this.label32.Location = new System.Drawing.Point(23, 102);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(37, 13);
             this.label32.TabIndex = 4;
@@ -909,39 +898,83 @@
             this.btnBorrarAutomovil.UseVisualStyleBackColor = true;
             this.btnBorrarAutomovil.Click += new System.EventHandler(this.btnBorrarAutomovil_Click);
             // 
-            // cbxMotor
+            // cbxColor
             // 
-            this.cbxMotor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMotor.FormattingEnabled = true;
-            this.cbxMotor.Items.AddRange(new object[] {
-            "V2",
-            "V4",
-            "V6",
-            "V8",
-            "V10",
-            "V12",
-            "V16"});
-            this.cbxMotor.Location = new System.Drawing.Point(27, 169);
-            this.cbxMotor.Name = "cbxMotor";
-            this.cbxMotor.Size = new System.Drawing.Size(121, 21);
-            this.cbxMotor.TabIndex = 34;
+            this.cbxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxColor.FormattingEnabled = true;
+            this.cbxColor.Items.AddRange(new object[] {
+            "Negro",
+            "Azul",
+            "Amarillo",
+            "Rojo",
+            "Verde",
+            "Gris",
+            "Blanco",
+            "Dorado",
+            "Marrón",
+            "Rosado"});
+            this.cbxColor.Location = new System.Drawing.Point(26, 215);
+            this.cbxColor.Name = "cbxColor";
+            this.cbxColor.Size = new System.Drawing.Size(121, 21);
+            this.cbxColor.TabIndex = 35;
             // 
-            // cbxMotorEditar
+            // cbxColorEditar
             // 
-            this.cbxMotorEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMotorEditar.FormattingEnabled = true;
-            this.cbxMotorEditar.Items.AddRange(new object[] {
-            "V2",
-            "V4",
-            "V6",
-            "V8",
-            "V10",
-            "V12",
-            "V16"});
-            this.cbxMotorEditar.Location = new System.Drawing.Point(160, 120);
-            this.cbxMotorEditar.Name = "cbxMotorEditar";
-            this.cbxMotorEditar.Size = new System.Drawing.Size(121, 21);
-            this.cbxMotorEditar.TabIndex = 35;
+            this.cbxColorEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxColorEditar.Enabled = false;
+            this.cbxColorEditar.FormattingEnabled = true;
+            this.cbxColorEditar.Items.AddRange(new object[] {
+            "Negro",
+            "Azul",
+            "Amarillo",
+            "Rojo",
+            "Verde",
+            "Gris",
+            "Blanco",
+            "Dorado",
+            "Marrón",
+            "Rosado"});
+            this.cbxColorEditar.Location = new System.Drawing.Point(25, 215);
+            this.cbxColorEditar.Name = "cbxColorEditar";
+            this.cbxColorEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxColorEditar.TabIndex = 36;
+            // 
+            // cbxMarca
+            // 
+            this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMarca.FormattingEnabled = true;
+            this.cbxMarca.Location = new System.Drawing.Point(26, 119);
+            this.cbxMarca.Name = "cbxMarca";
+            this.cbxMarca.Size = new System.Drawing.Size(121, 21);
+            this.cbxMarca.TabIndex = 36;
+            this.cbxMarca.SelectedIndexChanged += new System.EventHandler(this.cbxMarca_SelectedIndexChanged);
+            // 
+            // cbxModelo
+            // 
+            this.cbxModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxModelo.FormattingEnabled = true;
+            this.cbxModelo.Location = new System.Drawing.Point(159, 119);
+            this.cbxModelo.Name = "cbxModelo";
+            this.cbxModelo.Size = new System.Drawing.Size(121, 21);
+            this.cbxModelo.TabIndex = 37;
+            // 
+            // cbxMarcaEditar
+            // 
+            this.cbxMarcaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMarcaEditar.FormattingEnabled = true;
+            this.cbxMarcaEditar.Location = new System.Drawing.Point(25, 121);
+            this.cbxMarcaEditar.Name = "cbxMarcaEditar";
+            this.cbxMarcaEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxMarcaEditar.TabIndex = 38;
+            // 
+            // cbxModeloEditar
+            // 
+            this.cbxModeloEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxModeloEditar.FormattingEnabled = true;
+            this.cbxModeloEditar.Location = new System.Drawing.Point(25, 171);
+            this.cbxModeloEditar.Name = "cbxModeloEditar";
+            this.cbxModeloEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxModeloEditar.TabIndex = 38;
             // 
             // FrmAutomovil
             // 
@@ -977,8 +1010,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtModelo;
-        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -991,7 +1022,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.TextBox txtColor;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.ComboBox cbxPasajeros;
         private System.Windows.Forms.ComboBox cbxCombustible;
@@ -1016,9 +1046,6 @@
         private System.Windows.Forms.ComboBox cbxTraccionEditar;
         private System.Windows.Forms.TextBox txtPrecioEditar;
         private System.Windows.Forms.TextBox txtDescuentoEditar;
-        private System.Windows.Forms.TextBox txtColorEditar;
-        private System.Windows.Forms.TextBox txtModeloEditar;
-        private System.Windows.Forms.TextBox txtMarcaEditar;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -1038,5 +1065,11 @@
         private System.Windows.Forms.ComboBox cbxCombustibleEditar;
         private System.Windows.Forms.ComboBox cbxMotor;
         private System.Windows.Forms.ComboBox cbxMotorEditar;
+        private System.Windows.Forms.ComboBox cbxColor;
+        private System.Windows.Forms.ComboBox cbxColorEditar;
+        private System.Windows.Forms.ComboBox cbxModelo;
+        private System.Windows.Forms.ComboBox cbxMarca;
+        private System.Windows.Forms.ComboBox cbxModeloEditar;
+        private System.Windows.Forms.ComboBox cbxMarcaEditar;
     }
 }
