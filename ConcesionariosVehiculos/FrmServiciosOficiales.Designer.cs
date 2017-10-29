@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtConcensionario = new System.Windows.Forms.TextBox();
+            this.txtNIF = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -40,10 +44,7 @@
             this.dgvAutomovil = new System.Windows.Forms.DataGridView();
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNIF = new System.Windows.Forms.TextBox();
-            this.txtConcensionario = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
@@ -51,6 +52,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtConcensionario);
             this.groupBox2.Controls.Add(this.txtNIF);
@@ -67,6 +69,38 @@
             this.groupBox2.Size = new System.Drawing.Size(168, 341);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 186);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Concensionario";
+            // 
+            // txtConcensionario
+            // 
+            this.txtConcensionario.Location = new System.Drawing.Point(26, 202);
+            this.txtConcensionario.Name = "txtConcensionario";
+            this.txtConcensionario.Size = new System.Drawing.Size(120, 20);
+            this.txtConcensionario.TabIndex = 32;
+            // 
+            // txtNIF
+            // 
+            this.txtNIF.Location = new System.Drawing.Point(26, 158);
+            this.txtNIF.Name = "txtNIF";
+            this.txtNIF.Size = new System.Drawing.Size(120, 20);
+            this.txtNIF.TabIndex = 31;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "NIF";
             // 
             // btnBorrar
             // 
@@ -166,37 +200,15 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "NIF";
-            // 
-            // txtNIF
-            // 
-            this.txtNIF.Location = new System.Drawing.Point(26, 158);
-            this.txtNIF.Name = "txtNIF";
-            this.txtNIF.Size = new System.Drawing.Size(120, 20);
-            this.txtNIF.TabIndex = 31;
-            // 
-            // txtConcensionario
-            // 
-            this.txtConcensionario.Location = new System.Drawing.Point(26, 202);
-            this.txtConcensionario.Name = "txtConcensionario";
-            this.txtConcensionario.Size = new System.Drawing.Size(120, 20);
-            this.txtConcensionario.TabIndex = 32;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 186);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Concensionario";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(22, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 20);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Servicios Oficiales";
             // 
             // FrmServiciosOficiales
             // 
@@ -234,5 +246,6 @@
         private System.Windows.Forms.TextBox txtConcensionario;
         private System.Windows.Forms.TextBox txtNIF;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
     }
 }

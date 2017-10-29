@@ -22,5 +22,23 @@ namespace ConcesionariosVehiculos
             FrmAutomovil movil = new FrmAutomovil();
             movil.ShowDialog();
         }
+
+        private void btnServOfic_Click(object sender, EventArgs e)
+        {
+            FrmServiciosOficiales SO = new FrmServiciosOficiales();
+            SO.ShowDialog();
+        }
+
+        private void btnVendedores_Click(object sender, EventArgs e)
+        {
+            FrmVendedores Vendedores = new FrmVendedores();
+            Vendedores.ShowDialog();
+        }
+
+        private void btnVentAuto_Click(object sender, EventArgs e)
+        {
+            FrmVentaAuto VA = new FrmVentaAuto();
+            VA.ShowDialog();
+        }
     }
 }

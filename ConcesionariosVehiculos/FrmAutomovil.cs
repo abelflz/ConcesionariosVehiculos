@@ -18,11 +18,14 @@ namespace ConcesionariosVehiculos
             InitializeComponent();
         }
 
+        //Conexion a la Base de datos
         private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
         private void FrmAutomovil_Load(object sender, EventArgs e)
         {
-            try {
+            try
+            {
+                //Ejecucucion de Query para mostrar los datos de la Vista de Automoviles en el DataGrid
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
@@ -41,7 +44,9 @@ namespace ConcesionariosVehiculos
 
                 con.Close();
             }
-            catch (Exception msg) {
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
 
@@ -63,6 +68,7 @@ namespace ConcesionariosVehiculos
         {
             try
             {
+                //desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
@@ -70,7 +76,7 @@ namespace ConcesionariosVehiculos
                 string Filter = cbxFilter.Text;
                 string Value = txtValueFilter.Text;
 
-                string query = "SELECT * FROM vw_Automovil WHERE "+Filter+" LIKE ('%"+Value+"%') ";
+                string query = "SELECT * FROM vw_Automovil WHERE " + Filter + " LIKE ('%" + Value + "%') ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
                 da.Fill(data);
@@ -85,6 +91,7 @@ namespace ConcesionariosVehiculos
             }
             catch (Exception msg)
             {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
 

@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace ConcesionariosVehiculos
 {
-    public partial class btnBuscar : Form
+    public partial class FrmVendedores : Form
     {
-        public btnBuscar()
+        public FrmVendedores()
         {
             InitializeComponent();
-        }
-
-        private void btnBuscar_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'concesionarioDataSet.Vendedores' table. You can move, or remove it, as needed.
-            this.vendedoresTableAdapter.Fill(this.concesionarioDataSet.Vendedores);
-
         }
     }
 }

@@ -52,6 +52,7 @@
             this.btnVendedores.TabIndex = 1;
             this.btnVendedores.Text = "Vendedores";
             this.btnVendedores.UseVisualStyleBackColor = true;
+            this.btnVendedores.Click += new System.EventHandler(this.btnVendedores_Click);
             // 
             // btnVentAuto
             // 
@@ -61,6 +62,7 @@
             this.btnVentAuto.TabIndex = 2;
             this.btnVentAuto.Text = "Venta de Vehiculos";
             this.btnVentAuto.UseVisualStyleBackColor = true;
+            this.btnVentAuto.Click += new System.EventHandler(this.btnVentAuto_Click);
             // 
             // btnServOfic
             // 
@@ -70,6 +72,7 @@
             this.btnServOfic.TabIndex = 3;
             this.btnServOfic.Text = "Servicios Oficiales";
             this.btnServOfic.UseVisualStyleBackColor = true;
+            this.btnServOfic.Click += new System.EventHandler(this.btnServOfic_Click);
             // 
             // FrmMenu
             // 
