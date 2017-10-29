@@ -34,7 +34,6 @@
             this.rbSi = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtEquipamientos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,17 +47,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.dtpFechaEntrega);
             this.groupBox2.Controls.Add(this.rbNo);
             this.groupBox2.Controls.Add(this.rbSi);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtMatricula);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtEquipamientos);
             this.groupBox2.Controls.Add(this.label2);
@@ -125,13 +125,6 @@
             this.label6.Size = new System.Drawing.Size(92, 13);
             this.label6.TabIndex = 35;
             this.label6.Text = "Fecha de Entrega";
-            // 
-            // txtMatricula
-            // 
-            this.txtMatricula.Location = new System.Drawing.Point(164, 160);
-            this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(120, 20);
-            this.txtMatricula.TabIndex = 34;
             // 
             // label4
             // 
@@ -248,6 +241,18 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Automovil";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Contado",
+            "Financiado"});
+            this.comboBox1.Location = new System.Drawing.Point(163, 160);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 41;
+            // 
             // FrmVentaAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,7 +261,6 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmVentaAuto";
             this.Text = "FrmVentaAuto";
-            this.Load += new System.EventHandler(this.FrmVentaAuto_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -281,9 +285,9 @@
         private System.Windows.Forms.RadioButton rbSi;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEquipamientos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

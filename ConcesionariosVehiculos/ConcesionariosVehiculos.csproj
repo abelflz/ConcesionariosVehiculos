@@ -47,11 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcesionarioDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConcesionarioDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FrmAutomovil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,17 +118,6 @@
     <None Include="bin\Debug\ConcesionariosVehiculos.exe.config" />
     <None Include="bin\Debug\ConcesionariosVehiculos.vshost.exe.config" />
     <None Include="bin\Debug\ConcesionariosVehiculos.vshost.exe.manifest" />
-    <None Include="ConcesionarioDataSet.xsc">
-      <DependentUpon>ConcesionarioDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ConcesionarioDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ConcesionarioDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ConcesionarioDataSet.xss">
-      <DependentUpon>ConcesionarioDataSet.xsd</DependentUpon>
-    </None>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="Planificación\Documentos\Pagina 1.pdf" />
     <None Include="Planificación\Documentos\Pagina 2.pdf" />
