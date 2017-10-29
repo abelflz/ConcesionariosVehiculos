@@ -39,18 +39,18 @@
             this.ventasRealizadasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.concesionarioDataSet = new ConcesionariosVehiculos.ConcesionarioDataSet();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txbBuscar = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.txbVentaRealizada = new System.Windows.Forms.TextBox();
-            this.txbConcensionario = new System.Windows.Forms.TextBox();
-            this.TxbDomicilio = new System.Windows.Forms.TextBox();
-            this.txbNombre = new System.Windows.Forms.TextBox();
-            this.txbNIF = new System.Windows.Forms.TextBox();
+            this.txtVentaRealizada = new System.Windows.Forms.TextBox();
+            this.txtConcensionario = new System.Windows.Forms.TextBox();
+            this.txtDomicilio = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNIF = new System.Windows.Forms.TextBox();
             this.lblConcensionario = new System.Windows.Forms.Label();
             this.lblVentaRealizada = new System.Windows.Forms.Label();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
@@ -71,8 +71,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.txbBuscar);
+            this.groupBox1.Controls.Add(this.btnFiltrar);
+            this.groupBox1.Controls.Add(this.txtBuscar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(602, 306);
@@ -143,21 +143,21 @@
             this.concesionarioDataSet.DataSetName = "ConcesionarioDataSet";
             this.concesionarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button1
+            // btnFiltrar
             // 
-            this.button1.Location = new System.Drawing.Point(332, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Location = new System.Drawing.Point(332, 19);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(128, 23);
+            this.btnFiltrar.TabIndex = 1;
+            this.btnFiltrar.Text = "Buscar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
             // 
-            // txbBuscar
+            // txtBuscar
             // 
-            this.txbBuscar.Location = new System.Drawing.Point(7, 20);
-            this.txbBuscar.Name = "txbBuscar";
-            this.txbBuscar.Size = new System.Drawing.Size(319, 20);
-            this.txbBuscar.TabIndex = 0;
+            this.txtBuscar.Location = new System.Drawing.Point(7, 20);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(319, 20);
+            this.txtBuscar.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -168,11 +168,11 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnCrear);
             this.groupBox2.Controls.Add(this.dtpFechaNacimiento);
-            this.groupBox2.Controls.Add(this.txbVentaRealizada);
-            this.groupBox2.Controls.Add(this.txbConcensionario);
-            this.groupBox2.Controls.Add(this.TxbDomicilio);
-            this.groupBox2.Controls.Add(this.txbNombre);
-            this.groupBox2.Controls.Add(this.txbNIF);
+            this.groupBox2.Controls.Add(this.txtVentaRealizada);
+            this.groupBox2.Controls.Add(this.txtConcensionario);
+            this.groupBox2.Controls.Add(this.txtDomicilio);
+            this.groupBox2.Controls.Add(this.txtNombre);
+            this.groupBox2.Controls.Add(this.txtNIF);
             this.groupBox2.Controls.Add(this.lblConcensionario);
             this.groupBox2.Controls.Add(this.lblVentaRealizada);
             this.groupBox2.Controls.Add(this.lblFechaNacimiento);
@@ -219,40 +219,40 @@
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(197, 20);
             this.dtpFechaNacimiento.TabIndex = 12;
             // 
-            // txbVentaRealizada
+            // txtVentaRealizada
             // 
-            this.txbVentaRealizada.Location = new System.Drawing.Point(136, 211);
-            this.txbVentaRealizada.Name = "txbVentaRealizada";
-            this.txbVentaRealizada.Size = new System.Drawing.Size(197, 20);
-            this.txbVentaRealizada.TabIndex = 11;
+            this.txtVentaRealizada.Location = new System.Drawing.Point(136, 211);
+            this.txtVentaRealizada.Name = "txtVentaRealizada";
+            this.txtVentaRealizada.Size = new System.Drawing.Size(197, 20);
+            this.txtVentaRealizada.TabIndex = 11;
             // 
-            // txbConcensionario
+            // txtConcensionario
             // 
-            this.txbConcensionario.Location = new System.Drawing.Point(136, 185);
-            this.txbConcensionario.Name = "txbConcensionario";
-            this.txbConcensionario.Size = new System.Drawing.Size(197, 20);
-            this.txbConcensionario.TabIndex = 10;
+            this.txtConcensionario.Location = new System.Drawing.Point(136, 185);
+            this.txtConcensionario.Name = "txtConcensionario";
+            this.txtConcensionario.Size = new System.Drawing.Size(197, 20);
+            this.txtConcensionario.TabIndex = 10;
             // 
-            // TxbDomicilio
+            // txtDomicilio
             // 
-            this.TxbDomicilio.Location = new System.Drawing.Point(136, 133);
-            this.TxbDomicilio.Name = "TxbDomicilio";
-            this.TxbDomicilio.Size = new System.Drawing.Size(197, 20);
-            this.TxbDomicilio.TabIndex = 8;
+            this.txtDomicilio.Location = new System.Drawing.Point(136, 133);
+            this.txtDomicilio.Name = "txtDomicilio";
+            this.txtDomicilio.Size = new System.Drawing.Size(197, 20);
+            this.txtDomicilio.TabIndex = 8;
             // 
-            // txbNombre
+            // txtNombre
             // 
-            this.txbNombre.Location = new System.Drawing.Point(136, 107);
-            this.txbNombre.Name = "txbNombre";
-            this.txbNombre.Size = new System.Drawing.Size(197, 20);
-            this.txbNombre.TabIndex = 7;
+            this.txtNombre.Location = new System.Drawing.Point(136, 107);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(197, 20);
+            this.txtNombre.TabIndex = 7;
             // 
-            // txbNIF
+            // txtNIF
             // 
-            this.txbNIF.Location = new System.Drawing.Point(136, 81);
-            this.txbNIF.Name = "txbNIF";
-            this.txbNIF.Size = new System.Drawing.Size(197, 20);
-            this.txbNIF.TabIndex = 6;
+            this.txtNIF.Location = new System.Drawing.Point(136, 81);
+            this.txtNIF.Name = "txtNIF";
+            this.txtNIF.Size = new System.Drawing.Size(197, 20);
+            this.txtNIF.TabIndex = 6;
             // 
             // lblConcensionario
             // 
@@ -366,8 +366,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txbBuscar;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnModificar;
@@ -389,11 +389,11 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblNIF;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.TextBox txbVentaRealizada;
-        private System.Windows.Forms.TextBox txbConcensionario;
-        private System.Windows.Forms.TextBox TxbDomicilio;
-        private System.Windows.Forms.TextBox txbNombre;
-        private System.Windows.Forms.TextBox txbNIF;
+        private System.Windows.Forms.TextBox txtVentaRealizada;
+        private System.Windows.Forms.TextBox txtConcensionario;
+        private System.Windows.Forms.TextBox txtDomicilio;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNIF;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

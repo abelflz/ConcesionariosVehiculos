@@ -102,8 +102,14 @@
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmServiciosOficiales.resx">
+      <DependentUpon>FrmServiciosOficiales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVendedores.resx">
       <DependentUpon>FrmVendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentaAuto.resx">
+      <DependentUpon>FrmVentaAuto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
