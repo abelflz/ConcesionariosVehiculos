@@ -63,23 +63,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.cbxCombustibleEditar = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxAñoEditar = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.cbxPasajerosEditar = new System.Windows.Forms.ComboBox();
             this.cbxMatriculaEditar = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cbxTipoEditar = new System.Windows.Forms.ComboBox();
+            this.cbxPuertasEditar = new System.Windows.Forms.ComboBox();
+            this.cbxTraccionEditar = new System.Windows.Forms.ComboBox();
+            this.txtMotorEditar = new System.Windows.Forms.TextBox();
+            this.txtPrecioEditar = new System.Windows.Forms.TextBox();
+            this.txtDescuentoEditar = new System.Windows.Forms.TextBox();
+            this.txtColorEditar = new System.Windows.Forms.TextBox();
+            this.txtModeloEditar = new System.Windows.Forms.TextBox();
+            this.txtMarcaEditar = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -319,7 +319,7 @@
             "5",
             "7",
             "8"});
-            this.cbxPasajeros.Location = new System.Drawing.Point(158, 214);
+            this.cbxPasajeros.Location = new System.Drawing.Point(159, 217);
             this.cbxPasajeros.Name = "cbxPasajeros";
             this.cbxPasajeros.Size = new System.Drawing.Size(121, 21);
             this.cbxPasajeros.TabIndex = 26;
@@ -509,29 +509,29 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(156, 289);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Descuento";
+            this.label2.Text = "Descuento (%)";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox8);
+            this.groupBox3.Controls.Add(this.cbxCombustibleEditar);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbxAñoEditar);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.btnModificar);
+            this.groupBox3.Controls.Add(this.cbxPasajerosEditar);
             this.groupBox3.Controls.Add(this.cbxMatriculaEditar);
-            this.groupBox3.Controls.Add(this.comboBox4);
-            this.groupBox3.Controls.Add(this.comboBox5);
-            this.groupBox3.Controls.Add(this.comboBox6);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.cbxTipoEditar);
+            this.groupBox3.Controls.Add(this.cbxPuertasEditar);
+            this.groupBox3.Controls.Add(this.cbxTraccionEditar);
+            this.groupBox3.Controls.Add(this.txtMotorEditar);
+            this.groupBox3.Controls.Add(this.txtPrecioEditar);
+            this.groupBox3.Controls.Add(this.txtDescuentoEditar);
+            this.groupBox3.Controls.Add(this.txtColorEditar);
+            this.groupBox3.Controls.Add(this.txtModeloEditar);
+            this.groupBox3.Controls.Add(this.txtMarcaEditar);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.label24);
@@ -549,19 +549,19 @@
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
-            // comboBox8
+            // cbxCombustibleEditar
             // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.Enabled = false;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.cbxCombustibleEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCombustibleEditar.Enabled = false;
+            this.cbxCombustibleEditar.FormattingEnabled = true;
+            this.cbxCombustibleEditar.Items.AddRange(new object[] {
             "Gasolina",
             "Gasoil/Diesel",
             "Gas/GPL"});
-            this.comboBox8.Location = new System.Drawing.Point(160, 70);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 21);
-            this.comboBox8.TabIndex = 34;
+            this.cbxCombustibleEditar.Location = new System.Drawing.Point(160, 70);
+            this.cbxCombustibleEditar.Name = "cbxCombustibleEditar";
+            this.cbxCombustibleEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxCombustibleEditar.TabIndex = 34;
             // 
             // label17
             // 
@@ -572,12 +572,12 @@
             this.label17.TabIndex = 33;
             this.label17.Text = "Matrícula";
             // 
-            // comboBox1
+            // cbxAñoEditar
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxAñoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxAñoEditar.Enabled = false;
+            this.cbxAñoEditar.FormattingEnabled = true;
+            this.cbxAñoEditar.Items.AddRange(new object[] {
             "1975",
             "1976",
             "1977",
@@ -622,10 +622,10 @@
             "2016",
             "2017",
             "2018"});
-            this.comboBox1.Location = new System.Drawing.Point(158, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 31;
+            this.cbxAñoEditar.Location = new System.Drawing.Point(158, 170);
+            this.cbxAñoEditar.Name = "cbxAñoEditar";
+            this.cbxAñoEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxAñoEditar.TabIndex = 31;
             // 
             // label18
             // 
@@ -646,30 +646,30 @@
             this.label19.TabIndex = 18;
             this.label19.Text = "Modificar";
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.Location = new System.Drawing.Point(123, 401);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(123, 401);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 28;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cbxPasajerosEditar
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbxPasajerosEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPasajerosEditar.Enabled = false;
+            this.cbxPasajerosEditar.FormattingEnabled = true;
+            this.cbxPasajerosEditar.Items.AddRange(new object[] {
             "2",
             "4",
             "5",
             "7",
             "8"});
-            this.comboBox2.Location = new System.Drawing.Point(158, 216);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 26;
+            this.cbxPasajerosEditar.Location = new System.Drawing.Point(158, 216);
+            this.cbxPasajerosEditar.Name = "cbxPasajerosEditar";
+            this.cbxPasajerosEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxPasajerosEditar.TabIndex = 26;
             // 
             // cbxMatriculaEditar
             // 
@@ -680,12 +680,12 @@
             this.cbxMatriculaEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxMatriculaEditar.TabIndex = 25;
             // 
-            // comboBox4
+            // cbxTipoEditar
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Enabled = false;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cbxTipoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoEditar.Enabled = false;
+            this.cbxTipoEditar.FormattingEnabled = true;
+            this.cbxTipoEditar.Items.AddRange(new object[] {
             "Sedán",
             "Compacto",
             "Jeepeta",
@@ -693,87 +693,87 @@
             "Coupé/Sport",
             "Caminon",
             "Autobuses"});
-            this.comboBox4.Location = new System.Drawing.Point(26, 263);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 24;
+            this.cbxTipoEditar.Location = new System.Drawing.Point(26, 263);
+            this.cbxTipoEditar.Name = "cbxTipoEditar";
+            this.cbxTipoEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxTipoEditar.TabIndex = 24;
             // 
-            // comboBox5
+            // cbxPuertasEditar
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.Enabled = false;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.cbxPuertasEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPuertasEditar.Enabled = false;
+            this.cbxPuertasEditar.FormattingEnabled = true;
+            this.cbxPuertasEditar.Items.AddRange(new object[] {
             "2",
             "4"});
-            this.comboBox5.Location = new System.Drawing.Point(26, 304);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 23;
+            this.cbxPuertasEditar.Location = new System.Drawing.Point(26, 304);
+            this.cbxPuertasEditar.Name = "cbxPuertasEditar";
+            this.cbxPuertasEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxPuertasEditar.TabIndex = 23;
             // 
-            // comboBox6
+            // cbxTraccionEditar
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.Enabled = false;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.cbxTraccionEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTraccionEditar.Enabled = false;
+            this.cbxTraccionEditar.FormattingEnabled = true;
+            this.cbxTraccionEditar.Items.AddRange(new object[] {
             "Trasera",
             "Delantera",
             "2WD",
             "4WD",
             "4WD Full Time"});
-            this.comboBox6.Location = new System.Drawing.Point(159, 264);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
-            this.comboBox6.TabIndex = 22;
+            this.cbxTraccionEditar.Location = new System.Drawing.Point(159, 264);
+            this.cbxTraccionEditar.Name = "cbxTraccionEditar";
+            this.cbxTraccionEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxTraccionEditar.TabIndex = 22;
             // 
-            // textBox2
+            // txtMotorEditar
             // 
-            this.textBox2.Location = new System.Drawing.Point(158, 121);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 21;
+            this.txtMotorEditar.Location = new System.Drawing.Point(158, 121);
+            this.txtMotorEditar.Name = "txtMotorEditar";
+            this.txtMotorEditar.ReadOnly = true;
+            this.txtMotorEditar.Size = new System.Drawing.Size(121, 20);
+            this.txtMotorEditar.TabIndex = 21;
             // 
-            // textBox3
+            // txtPrecioEditar
             // 
-            this.textBox3.Location = new System.Drawing.Point(26, 342);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 20;
+            this.txtPrecioEditar.Location = new System.Drawing.Point(26, 342);
+            this.txtPrecioEditar.Name = "txtPrecioEditar";
+            this.txtPrecioEditar.ReadOnly = true;
+            this.txtPrecioEditar.Size = new System.Drawing.Size(121, 20);
+            this.txtPrecioEditar.TabIndex = 20;
             // 
-            // textBox4
+            // txtDescuentoEditar
             // 
-            this.textBox4.Location = new System.Drawing.Point(159, 306);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(121, 20);
-            this.textBox4.TabIndex = 19;
+            this.txtDescuentoEditar.Location = new System.Drawing.Point(159, 306);
+            this.txtDescuentoEditar.Name = "txtDescuentoEditar";
+            this.txtDescuentoEditar.ReadOnly = true;
+            this.txtDescuentoEditar.Size = new System.Drawing.Size(121, 20);
+            this.txtDescuentoEditar.TabIndex = 19;
             // 
-            // textBox5
+            // txtColorEditar
             // 
-            this.textBox5.Location = new System.Drawing.Point(26, 215);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 17;
+            this.txtColorEditar.Location = new System.Drawing.Point(26, 215);
+            this.txtColorEditar.Name = "txtColorEditar";
+            this.txtColorEditar.ReadOnly = true;
+            this.txtColorEditar.Size = new System.Drawing.Size(120, 20);
+            this.txtColorEditar.TabIndex = 17;
             // 
-            // textBox6
+            // txtModeloEditar
             // 
-            this.textBox6.Location = new System.Drawing.Point(26, 121);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(120, 20);
-            this.textBox6.TabIndex = 16;
+            this.txtModeloEditar.Location = new System.Drawing.Point(26, 121);
+            this.txtModeloEditar.Name = "txtModeloEditar";
+            this.txtModeloEditar.ReadOnly = true;
+            this.txtModeloEditar.Size = new System.Drawing.Size(120, 20);
+            this.txtModeloEditar.TabIndex = 16;
             // 
-            // textBox7
+            // txtMarcaEditar
             // 
-            this.textBox7.Location = new System.Drawing.Point(26, 170);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(120, 20);
-            this.textBox7.TabIndex = 15;
+            this.txtMarcaEditar.Location = new System.Drawing.Point(26, 170);
+            this.txtMarcaEditar.Name = "txtMarcaEditar";
+            this.txtMarcaEditar.ReadOnly = true;
+            this.txtMarcaEditar.Size = new System.Drawing.Size(120, 20);
+            this.txtMarcaEditar.TabIndex = 15;
             // 
             // label22
             // 
@@ -987,21 +987,21 @@
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxAñoEditar;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.ComboBox cbxPasajerosEditar;
         private System.Windows.Forms.ComboBox cbxMatriculaEditar;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cbxTipoEditar;
+        private System.Windows.Forms.ComboBox cbxPuertasEditar;
+        private System.Windows.Forms.ComboBox cbxTraccionEditar;
+        private System.Windows.Forms.TextBox txtMotorEditar;
+        private System.Windows.Forms.TextBox txtPrecioEditar;
+        private System.Windows.Forms.TextBox txtDescuentoEditar;
+        private System.Windows.Forms.TextBox txtColorEditar;
+        private System.Windows.Forms.TextBox txtModeloEditar;
+        private System.Windows.Forms.TextBox txtMarcaEditar;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -1018,6 +1018,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnBorrarAutomovil;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox cbxCombustibleEditar;
     }
 }

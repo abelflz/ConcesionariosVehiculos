@@ -258,6 +258,7 @@
             // 
             this.txtConcesionarioModificar.Location = new System.Drawing.Point(26, 202);
             this.txtConcesionarioModificar.Name = "txtConcesionarioModificar";
+            this.txtConcesionarioModificar.ReadOnly = true;
             this.txtConcesionarioModificar.Size = new System.Drawing.Size(120, 20);
             this.txtConcesionarioModificar.TabIndex = 32;
             // 
@@ -274,6 +275,7 @@
             // 
             this.txtDomilicioModificar.Location = new System.Drawing.Point(26, 158);
             this.txtDomilicioModificar.Name = "txtDomilicioModificar";
+            this.txtDomilicioModificar.ReadOnly = true;
             this.txtDomilicioModificar.Size = new System.Drawing.Size(120, 20);
             this.txtDomilicioModificar.TabIndex = 31;
             // 
@@ -299,6 +301,7 @@
             // 
             this.txtNombreModificar.Location = new System.Drawing.Point(26, 119);
             this.txtNombreModificar.Name = "txtNombreModificar";
+            this.txtNombreModificar.ReadOnly = true;
             this.txtNombreModificar.Size = new System.Drawing.Size(120, 20);
             this.txtNombreModificar.TabIndex = 16;
             // 
