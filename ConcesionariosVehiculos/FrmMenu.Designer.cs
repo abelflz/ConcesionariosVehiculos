@@ -47,7 +47,7 @@
             this.btnAutomovil.Name = "btnAutomovil";
             this.btnAutomovil.Size = new System.Drawing.Size(87, 39);
             this.btnAutomovil.TabIndex = 0;
-            this.btnAutomovil.Text = "Automovil";
+            this.btnAutomovil.Text = "Automóvil";
             this.btnAutomovil.UseVisualStyleBackColor = true;
             this.btnAutomovil.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -67,7 +67,7 @@
             this.btnVentAuto.Name = "btnVentAuto";
             this.btnVentAuto.Size = new System.Drawing.Size(87, 39);
             this.btnVentAuto.TabIndex = 2;
-            this.btnVentAuto.Text = "Venta de Vehiculos";
+            this.btnVentAuto.Text = "Venta de Vehículos";
             this.btnVentAuto.UseVisualStyleBackColor = true;
             this.btnVentAuto.Click += new System.EventHandler(this.btnVentAuto_Click);
             // 

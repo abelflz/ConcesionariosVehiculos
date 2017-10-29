@@ -30,7 +30,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT COUNT(*) FROM Concesionario WHERE Usuario IN(@User) AND Clave IN(@Password)";
+                string query = "SELECT COUNT(*) FROM Usuarios WHERE Nombre IN(@User) AND Contrasena IN(@Password)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.Add(new SqlParameter("@User", user));
