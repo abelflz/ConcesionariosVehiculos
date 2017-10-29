@@ -156,7 +156,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM vw_Automovil";
+                string query = "SELECT * FROM vw_VEHICULOS";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
