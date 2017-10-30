@@ -16,5 +16,10 @@ namespace ConcesionariosVehiculos
         {
             InitializeComponent();
         }
+
+        private void txtMontoTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
