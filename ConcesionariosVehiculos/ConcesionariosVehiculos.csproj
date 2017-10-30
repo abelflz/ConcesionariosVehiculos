@@ -53,6 +53,12 @@
     <Compile Include="FrmAutomovil.Designer.cs">
       <DependentUpon>FrmAutomovil.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAutoxEquipamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutoxEquipamiento.Designer.cs">
+      <DependentUpon>FrmAutoxEquipamiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="FrmAutomovil.resx">
       <DependentUpon>FrmAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutoxEquipamiento.resx">
+      <DependentUpon>FrmAutoxEquipamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

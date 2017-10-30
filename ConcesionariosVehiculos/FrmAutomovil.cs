@@ -670,5 +670,11 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmAutoxEquipamiento autoequip = new FrmAutoxEquipamiento();
+            autoequip.ShowDialog();
+        }
     }
 }
