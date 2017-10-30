@@ -146,9 +146,17 @@
             this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFilter.FormattingEnabled = true;
             this.cbxFilter.Items.AddRange(new object[] {
-            "Chasis",
             "Marca",
-            "Modelo"});
+            "Modelo",
+            "Descuento",
+            "Precio",
+            "Motor",
+            "Color",
+            "Combustible",
+            "Tipo",
+            "Puertas",
+            "Pasajeros",
+            "Tracción"});
             this.cbxFilter.Location = new System.Drawing.Point(213, 19);
             this.cbxFilter.Name = "cbxFilter";
             this.cbxFilter.Size = new System.Drawing.Size(147, 21);
@@ -220,13 +228,25 @@
             this.cbxPotMax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPotMax.FormattingEnabled = true;
             this.cbxPotMax.Items.AddRange(new object[] {
-            "V2",
-            "V4",
-            "V6",
-            "V8",
-            "V10",
-            "V12",
-            "V16"});
+            "100CV",
+            "300CV",
+            "500CV",
+            "700CV",
+            "900CV",
+            "1100CV",
+            "1300CV",
+            "1500CV",
+            "1700CV",
+            "1900CV",
+            "2100CV",
+            "2300CV",
+            "2500CV",
+            "2700CV",
+            "2900CV",
+            "3100CV",
+            "3300CV",
+            "3500CV",
+            "3700CV"});
             this.cbxPotMax.Location = new System.Drawing.Point(133, 170);
             this.cbxPotMax.Name = "cbxPotMax";
             this.cbxPotMax.Size = new System.Drawing.Size(121, 21);
@@ -638,15 +658,28 @@
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "V2",
-            "V4",
-            "V6",
-            "V8",
-            "V10",
-            "V12",
-            "V16"});
+            "100CV",
+            "300CV",
+            "500CV",
+            "700CV",
+            "900CV",
+            "1100CV",
+            "1300CV",
+            "1500CV",
+            "1700CV",
+            "1900CV",
+            "2100CV",
+            "2300CV",
+            "2500CV",
+            "2700CV",
+            "2900CV",
+            "3100CV",
+            "3300CV",
+            "3500CV",
+            "3700CV"});
             this.comboBox1.Location = new System.Drawing.Point(134, 170);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -691,6 +724,7 @@
             // cbxModeloEditar
             // 
             this.cbxModeloEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxModeloEditar.Enabled = false;
             this.cbxModeloEditar.FormattingEnabled = true;
             this.cbxModeloEditar.Location = new System.Drawing.Point(133, 120);
             this.cbxModeloEditar.Name = "cbxModeloEditar";
@@ -752,6 +786,7 @@
             // cbxMarcaEditar
             // 
             this.cbxMarcaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMarcaEditar.Enabled = false;
             this.cbxMarcaEditar.FormattingEnabled = true;
             this.cbxMarcaEditar.Location = new System.Drawing.Point(6, 121);
             this.cbxMarcaEditar.Name = "cbxMarcaEditar";
@@ -761,6 +796,7 @@
             // cbxEstadoEditar
             // 
             this.cbxEstadoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEstadoEditar.Enabled = false;
             this.cbxEstadoEditar.FormattingEnabled = true;
             this.cbxEstadoEditar.Items.AddRange(new object[] {
             "Si",
@@ -812,6 +848,7 @@
             // cbxCilindradaEditar
             // 
             this.cbxCilindradaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCilindradaEditar.Enabled = false;
             this.cbxCilindradaEditar.FormattingEnabled = true;
             this.cbxCilindradaEditar.Items.AddRange(new object[] {
             "V2",

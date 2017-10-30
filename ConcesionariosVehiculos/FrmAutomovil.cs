@@ -120,13 +120,13 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Chasis FROM Vehiculos";
+                string query = "SELECT Matricula FROM Automovil";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    cbxChasisEditar.Items.Add(reader["Chasis"].ToString());
-                    cbxChasisBorrar.Items.Add(reader["Chasis"].ToString());
+                    cbxChasisEditar.Items.Add(reader["Matricula"].ToString());
+                    cbxChasisBorrar.Items.Add(reader["Matricula"].ToString());
                 }
             }
             catch (Exception msg)
@@ -156,7 +156,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM vw_VEHICULOS";
+                string query = "SELECT * FROM vw_Automovil";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
