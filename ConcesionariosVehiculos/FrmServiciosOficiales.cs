@@ -25,6 +25,8 @@ namespace ConcesionariosVehiculos
             FillServOfic();
             FillServOficNIF();
             ClearValues();
+            ClearValuesModificar();
+            BlockValuesModificar();
 
         }
 
@@ -114,6 +116,19 @@ namespace ConcesionariosVehiculos
             txtNIF.Text = "";
             txtNombre.Text = "";
             txtDomicilio.Text = "";
+
+        }
+        private void ClearValuesModificar()
+        {
+            txtNombreModificar.Text = "";
+            txtDomilicioModificar.Text = "";
+            cbxNIFModificar.SelectedIndex = -1;
+
+        }
+        private void BlockValuesModificar()
+        {
+            txtNombreModificar.ReadOnly = true;
+            txtDomilicioModificar.ReadOnly = true;
 
         }
 
@@ -254,6 +269,114 @@ namespace ConcesionariosVehiculos
             if (!Regex.IsMatch(txtNIF.Text, @"(^([0-9]*|\d*\d{1}?\d*)$)"))
             {
                 txtNIF.Text = string.Empty;
+            }
+        }
+        private string AutoEdit(string query)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CS;
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            string Valor = cmd.ExecuteScalar().ToString();
+
+            con.Close();
+
+            return Valor;
+        }
+
+        private void cbxNIFModificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxNIFModificar.SelectedIndex != -1)
+            {
+
+                txtDomilicioModificar.ReadOnly = false;
+                txtNombreModificar.ReadOnly = false;
+
+                try
+                {
+                    string query = "SELECT Nombre FROM ServiciosOficiales WHERE NIF = '" + cbxNIFModificar.Text + "'";
+                    txtNombreModificar.Text = AutoEdit(query);
+                    
+                    query = "SELECT Direccion FROM ServiciosOficiales WHERE NIF = '" + cbxNIFModificar.Text + "'";
+                    txtDomilicioModificar.Text = AutoEdit(query);
+
+
+                }
+                catch(Exception msgex)
+                {
+                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    string eMessage = msgex.ToString();
+                    con.Open();
+
+                    string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                    MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                
+            }
+            else
+            {
+                BlockValuesModificar();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (
+                    string.IsNullOrEmpty(txtDomilicioModificar.Text) || string.IsNullOrEmpty(txtNombreModificar.Text)
+                    )
+                {
+                    MessageBox.Show("Todos los campos deben ser llenados");
+                }
+                else
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    con.Open();
+
+                    string query = "UPDATE ServiciosOficiales SET Nombre = @nombre, Direccion = @Direccion WHERE NIF = @NIF";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", txtNombreModificar.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Direccion", txtDomilicioModificar.Text));
+                    cmd.Parameters.Add(new SqlParameter("@NIF", cbxNIFModificar.Text));
+                    
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Servicio Oficial Modificado");
+                    FillServOfic();
+                    ClearValuesModificar();
+                    BlockValuesModificar();
+                    con.Close();
+                    
+                }
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
             }
         }
     }

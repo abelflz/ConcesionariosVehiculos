@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxFilter = new System.Windows.Forms.ComboBox();
             this.dgvServOfic = new System.Windows.Forms.DataGridView();
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbxFilter = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServOfic)).BeginInit();
@@ -162,6 +162,19 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // cbxFilter
+            // 
+            this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFilter.FormattingEnabled = true;
+            this.cbxFilter.Items.AddRange(new object[] {
+            "NIF",
+            "Nombre",
+            "Domicilio"});
+            this.cbxFilter.Location = new System.Drawing.Point(131, 18);
+            this.cbxFilter.Name = "cbxFilter";
+            this.cbxFilter.Size = new System.Drawing.Size(103, 21);
+            this.cbxFilter.TabIndex = 38;
+            // 
             // dgvServOfic
             // 
             this.dgvServOfic.AllowUserToAddRows = false;
@@ -215,6 +228,7 @@
             this.cbxNIFModificar.Name = "cbxNIFModificar";
             this.cbxNIFModificar.Size = new System.Drawing.Size(121, 21);
             this.cbxNIFModificar.TabIndex = 37;
+            this.cbxNIFModificar.SelectedIndexChanged += new System.EventHandler(this.cbxNIFModificar_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -260,6 +274,7 @@
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtNombreModificar
             // 
@@ -337,19 +352,6 @@
             this.label12.Size = new System.Drawing.Size(353, 42);
             this.label12.TabIndex = 37;
             this.label12.Text = "Servicios Generales";
-            // 
-            // cbxFilter
-            // 
-            this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxFilter.FormattingEnabled = true;
-            this.cbxFilter.Items.AddRange(new object[] {
-            "NIF",
-            "Nombre",
-            "Domicilio"});
-            this.cbxFilter.Location = new System.Drawing.Point(131, 18);
-            this.cbxFilter.Name = "cbxFilter";
-            this.cbxFilter.Size = new System.Drawing.Size(103, 21);
-            this.cbxFilter.TabIndex = 38;
             // 
             // FrmServiciosOficiales
             // 
