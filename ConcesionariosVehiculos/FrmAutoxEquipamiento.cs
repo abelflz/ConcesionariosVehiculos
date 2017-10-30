@@ -71,9 +71,12 @@ namespace ConcesionariosVehiculos
                     con.ConnectionString = CS;
                     con.Open();
 
-                    string query = "";
-                    SqlCommand cmd = new SqlCommand();
-                    
+                    string query = "SELECT Descripcion FROM VehiculosEquipamientos ve JOIN Equipamientos e ON e.EquipamientoId = ve.EquipamientoId WHERE VehiculoId IN(SELECT VehiculoId FROM Vehiculos WHERE Chasis IN(@Chasis))";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@Chasis", cbxChasis.Text));
+
+
+                    con.Close();
                 }
                 catch (Exception msg)
                 {
@@ -98,7 +101,7 @@ namespace ConcesionariosVehiculos
 
         private void chkVidriosTintados_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(chkVidriosTintados.ToString());
+            MessageBox.Show(chkVidriosTintados.CheckState.ToString());
         }
     }
 }
