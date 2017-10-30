@@ -158,7 +158,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT *, Precio * (1 - Descuento) [Precio Calculado] FROM vw_VEHICULOS";
+                string query = "SELECT * FROM vw_VEHICULOS2";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
@@ -330,7 +330,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM Modelos JOIN Marcas ON Modelos.MarcaId = Marcas.MarcaId WHERE Marcas.MarcaDescripcion IN(@marca)";
+                string query = "SELECT ModeloDescripcion FROM Modelos JOIN Marcas ON Modelos.MarcaId = Marcas.MarcaId WHERE Marcas.MarcaDescripcion IN(@marca)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.Add(new SqlParameter("@marca", cbxMarca.Text));
