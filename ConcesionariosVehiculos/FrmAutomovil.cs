@@ -114,19 +114,19 @@ namespace ConcesionariosVehiculos
         {
             try
             {
-                cbxMatriculaBorrar.Items.Clear();
+                cbxChasisBorrar.Items.Clear();
                 cbxChasisEditar.Items.Clear();
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Matricula FROM Automovil";
+                string query = "SELECT Chasis FROM Vehiculos";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    cbxChasisEditar.Items.Add(reader["Matricula"].ToString());
-                    cbxMatriculaBorrar.Items.Add(reader["Matricula"].ToString());
+                    cbxChasisEditar.Items.Add(reader["Chasis"].ToString());
+                    cbxChasisBorrar.Items.Add(reader["Chasis"].ToString());
                 }
             }
             catch (Exception msg)
@@ -156,7 +156,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM vw_Automovil";
+                string query = "SELECT * FROM vw_VEHICULOS";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
@@ -192,10 +192,10 @@ namespace ConcesionariosVehiculos
 
         private void btnBorrarAutomovil_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cbxMatriculaBorrar.Text))
+            if (string.IsNullOrEmpty(cbxChasisBorrar.Text))
             {
                 MessageBox.Show("Debe insertar una matrícula para a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cbxMatriculaBorrar.Focus();
+                cbxChasisBorrar.Focus();
             }
             else
             {
@@ -207,7 +207,7 @@ namespace ConcesionariosVehiculos
 
                     string query = "DELETE FROM Automovil WHERE Matricula = @matricula";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add(new SqlParameter("@matricula", cbxMatriculaBorrar.Text));
+                    cmd.Parameters.Add(new SqlParameter("@matricula", cbxChasisBorrar.Text));
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("1 Automóvil Eliminado");
                     con.Close();
@@ -218,7 +218,7 @@ namespace ConcesionariosVehiculos
                 catch (Exception)
                 {
                     MessageBox.Show("Debe eliminar todas las transacciones que tienen dicho vehículo para eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cbxMatriculaBorrar.SelectedIndex = -1;
+                    cbxChasisBorrar.SelectedIndex = -1;
                 }
             }
         }
