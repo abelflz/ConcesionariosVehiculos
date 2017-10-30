@@ -228,7 +228,7 @@ namespace ConcesionariosVehiculos
             try
             {
                 if (
-                    string.IsNullOrEmpty(txtChasis.Text) || string.IsNullOrEmpty(cbxCombustible.Text)
+                    string.IsNullOrEmpty(txtChasis.Text) || string.IsNullOrEmpty(cbxCombustible.Text) ||
                     string.IsNullOrEmpty(cbxMarca.Text) || string.IsNullOrEmpty(cbxModelo.Text) ||
                     string.IsNullOrEmpty(txtDescuento.Text) || string.IsNullOrEmpty(txtPrecio.Text) ||
                     string.IsNullOrEmpty(cbxCilindrada.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
