@@ -105,7 +105,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnBorrarAutomovil = new System.Windows.Forms.Button();
-            this.btnAutoEquip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -147,20 +146,17 @@
             this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFilter.FormattingEnabled = true;
             this.cbxFilter.Items.AddRange(new object[] {
-            "Chasis",
-            "Combustible",
             "Marca",
             "Modelo",
-            "Cilindrada",
-            "Potencia Maxima",
-            "Año",
-            "Color",
-            "Pasajeros",
-            "Puertas",
-            "Tipo",
-            "Tracción",
+            "Descuento",
             "Precio",
-            "Descuento"});
+            "Motor",
+            "Color",
+            "Combustible",
+            "Tipo",
+            "Puertas",
+            "Pasajeros",
+            "Tracción"});
             this.cbxFilter.Location = new System.Drawing.Point(213, 19);
             this.cbxFilter.Name = "cbxFilter";
             this.cbxFilter.Size = new System.Drawing.Size(147, 21);
@@ -726,7 +722,6 @@
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // cbxModeloEditar
             // 
@@ -799,7 +794,6 @@
             this.cbxMarcaEditar.Name = "cbxMarcaEditar";
             this.cbxMarcaEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxMarcaEditar.TabIndex = 38;
-            this.cbxMarcaEditar.SelectedIndexChanged += new System.EventHandler(this.cbxMarcaEditar_SelectedIndexChanged);
             // 
             // cbxEstadoEditar
             // 
@@ -892,7 +886,7 @@
             this.cbxCombustibleEditar.Items.AddRange(new object[] {
             "Gasolina",
             "Gasoil/Diesel",
-            "Gas/GLP"});
+            "Gas/GPL"});
             this.cbxCombustibleEditar.Location = new System.Drawing.Point(159, 69);
             this.cbxCombustibleEditar.Name = "cbxCombustibleEditar";
             this.cbxCombustibleEditar.Size = new System.Drawing.Size(121, 21);
@@ -1014,7 +1008,6 @@
             this.txtPrecioEditar.ReadOnly = true;
             this.txtPrecioEditar.Size = new System.Drawing.Size(121, 20);
             this.txtPrecioEditar.TabIndex = 20;
-            this.txtPrecioEditar.TextChanged += new System.EventHandler(this.txtPrecioEditar_TextChanged);
             // 
             // txtDescuentoEditar
             // 
@@ -1023,7 +1016,6 @@
             this.txtDescuentoEditar.ReadOnly = true;
             this.txtDescuentoEditar.Size = new System.Drawing.Size(121, 20);
             this.txtDescuentoEditar.TabIndex = 19;
-            this.txtDescuentoEditar.TextChanged += new System.EventHandler(this.txtDescuentoEditar_TextChanged);
             // 
             // label26
             // 
@@ -1096,7 +1088,7 @@
             this.groupBox4.Controls.Add(this.btnBorrarAutomovil);
             this.groupBox4.Location = new System.Drawing.Point(12, 386);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(392, 55);
+            this.groupBox4.Size = new System.Drawing.Size(507, 55);
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             // 
@@ -1104,15 +1096,15 @@
             // 
             this.cbxChasisBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxChasisBorrar.FormattingEnabled = true;
-            this.cbxChasisBorrar.Location = new System.Drawing.Point(135, 22);
+            this.cbxChasisBorrar.Location = new System.Drawing.Point(184, 24);
             this.cbxChasisBorrar.Name = "cbxChasisBorrar";
-            this.cbxChasisBorrar.Size = new System.Drawing.Size(133, 21);
+            this.cbxChasisBorrar.Size = new System.Drawing.Size(202, 21);
             this.cbxChasisBorrar.TabIndex = 34;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(91, 26);
+            this.label12.Location = new System.Drawing.Point(128, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 33;
@@ -1122,7 +1114,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 21);
+            this.label20.Location = new System.Drawing.Point(21, 22);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 18);
             this.label20.TabIndex = 18;
@@ -1130,7 +1122,7 @@
             // 
             // btnBorrarAutomovil
             // 
-            this.btnBorrarAutomovil.Location = new System.Drawing.Point(274, 21);
+            this.btnBorrarAutomovil.Location = new System.Drawing.Point(392, 22);
             this.btnBorrarAutomovil.Name = "btnBorrarAutomovil";
             this.btnBorrarAutomovil.Size = new System.Drawing.Size(109, 23);
             this.btnBorrarAutomovil.TabIndex = 29;
@@ -1138,22 +1130,11 @@
             this.btnBorrarAutomovil.UseVisualStyleBackColor = true;
             this.btnBorrarAutomovil.Click += new System.EventHandler(this.btnBorrarAutomovil_Click);
             // 
-            // btnAutoEquip
-            // 
-            this.btnAutoEquip.Location = new System.Drawing.Point(411, 390);
-            this.btnAutoEquip.Name = "btnAutoEquip";
-            this.btnAutoEquip.Size = new System.Drawing.Size(102, 51);
-            this.btnAutoEquip.TabIndex = 36;
-            this.btnAutoEquip.Text = "Agregar Equipos";
-            this.btnAutoEquip.UseVisualStyleBackColor = true;
-            this.btnAutoEquip.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 446);
-            this.Controls.Add(this.btnAutoEquip);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1253,6 +1234,5 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ComboBox cbxPotMaxEditar;
-        private System.Windows.Forms.Button btnAutoEquip;
     }
 }

@@ -35,6 +35,7 @@
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCedulaEditar = new System.Windows.Forms.TextBox();
+            this.txtServOficEditar = new System.Windows.Forms.TextBox();
             this.txtVentasRealizadasModificar = new System.Windows.Forms.TextBox();
             this.txtApellidoModificar = new System.Windows.Forms.TextBox();
             this.cbxNIF = new System.Windows.Forms.ComboBox();
@@ -57,6 +58,7 @@
             this.cbxCedulaBorrar = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbxServicioOficial = new System.Windows.Forms.ComboBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNIF = new System.Windows.Forms.TextBox();
@@ -67,8 +69,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbxServOfic = new System.Windows.Forms.ComboBox();
-            this.cbxServOficEditar = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendedores)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -132,8 +132,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbxServOficEditar);
             this.groupBox2.Controls.Add(this.txtCedulaEditar);
+            this.groupBox2.Controls.Add(this.txtServOficEditar);
             this.groupBox2.Controls.Add(this.txtVentasRealizadasModificar);
             this.groupBox2.Controls.Add(this.txtApellidoModificar);
             this.groupBox2.Controls.Add(this.cbxNIF);
@@ -160,6 +160,14 @@
             this.txtCedulaEditar.Size = new System.Drawing.Size(147, 20);
             this.txtCedulaEditar.TabIndex = 23;
             // 
+            // txtServOficEditar
+            // 
+            this.txtServOficEditar.Location = new System.Drawing.Point(9, 234);
+            this.txtServOficEditar.Name = "txtServOficEditar";
+            this.txtServOficEditar.ReadOnly = true;
+            this.txtServOficEditar.Size = new System.Drawing.Size(147, 20);
+            this.txtServOficEditar.TabIndex = 24;
+            // 
             // txtVentasRealizadasModificar
             // 
             this.txtVentasRealizadasModificar.Location = new System.Drawing.Point(9, 275);
@@ -179,6 +187,7 @@
             // cbxNIF
             // 
             this.cbxNIF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNIF.Enabled = false;
             this.cbxNIF.FormattingEnabled = true;
             this.cbxNIF.Location = new System.Drawing.Point(9, 71);
             this.cbxNIF.Name = "cbxNIF";
@@ -352,7 +361,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cbxServOfic);
+            this.groupBox4.Controls.Add(this.cbxServicioOficial);
             this.groupBox4.Controls.Add(this.txtCedula);
             this.groupBox4.Controls.Add(this.txtNombre);
             this.groupBox4.Controls.Add(this.txtNIF);
@@ -371,6 +380,15 @@
             this.groupBox4.Size = new System.Drawing.Size(161, 342);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
+            // 
+            // cbxServicioOficial
+            // 
+            this.cbxServicioOficial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxServicioOficial.FormattingEnabled = true;
+            this.cbxServicioOficial.Location = new System.Drawing.Point(7, 233);
+            this.cbxServicioOficial.Name = "cbxServicioOficial";
+            this.cbxServicioOficial.Size = new System.Drawing.Size(147, 21);
+            this.cbxServicioOficial.TabIndex = 23;
             // 
             // txtCedula
             // 
@@ -457,25 +475,6 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Vendedores";
             // 
-            // cbxServOfic
-            // 
-            this.cbxServOfic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxServOfic.FormattingEnabled = true;
-            this.cbxServOfic.Location = new System.Drawing.Point(8, 235);
-            this.cbxServOfic.Name = "cbxServOfic";
-            this.cbxServOfic.Size = new System.Drawing.Size(147, 21);
-            this.cbxServOfic.TabIndex = 25;
-            // 
-            // cbxServOficEditar
-            // 
-            this.cbxServOficEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxServOficEditar.Enabled = false;
-            this.cbxServOficEditar.FormattingEnabled = true;
-            this.cbxServOficEditar.Location = new System.Drawing.Point(10, 234);
-            this.cbxServOficEditar.Name = "cbxServOficEditar";
-            this.cbxServOficEditar.Size = new System.Drawing.Size(147, 21);
-            this.cbxServOficEditar.TabIndex = 26;
-            // 
             // FrmVendedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,6 +534,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtServOficEditar;
         private System.Windows.Forms.TextBox txtVentasRealizadasModificar;
         private System.Windows.Forms.TextBox txtApellidoModificar;
         private System.Windows.Forms.ComboBox cbxNIF;
@@ -544,7 +544,6 @@
         private System.Windows.Forms.TextBox txtCedulaEditar;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.ComboBox cbxFilter;
-        private System.Windows.Forms.ComboBox cbxServOficEditar;
-        private System.Windows.Forms.ComboBox cbxServOfic;
+        private System.Windows.Forms.ComboBox cbxServicioOficial;
     }
 }
