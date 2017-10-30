@@ -38,7 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvAutomovil = new System.Windows.Forms.DataGridView();
+            this.dgvServOfic = new System.Windows.Forms.DataGridView();
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -58,7 +58,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServOfic)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -92,9 +92,11 @@
             // txtNIF
             // 
             this.txtNIF.Location = new System.Drawing.Point(26, 79);
+            this.txtNIF.MaxLength = 10;
             this.txtNIF.Name = "txtNIF";
             this.txtNIF.Size = new System.Drawing.Size(120, 20);
             this.txtNIF.TabIndex = 31;
+            this.txtNIF.TextChanged += new System.EventHandler(this.txtNIF_TextChanged);
             // 
             // label2
             // 
@@ -149,7 +151,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvAutomovil);
+            this.groupBox1.Controls.Add(this.dgvServOfic);
             this.groupBox1.Controls.Add(this.txtValueFilter);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Location = new System.Drawing.Point(11, 50);
@@ -158,17 +160,17 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // dgvAutomovil
+            // dgvServOfic
             // 
-            this.dgvAutomovil.AllowUserToAddRows = false;
-            this.dgvAutomovil.AllowUserToDeleteRows = false;
-            this.dgvAutomovil.AllowUserToOrderColumns = true;
-            this.dgvAutomovil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAutomovil.Location = new System.Drawing.Point(6, 45);
-            this.dgvAutomovil.Name = "dgvAutomovil";
-            this.dgvAutomovil.ReadOnly = true;
-            this.dgvAutomovil.Size = new System.Drawing.Size(430, 243);
-            this.dgvAutomovil.TabIndex = 2;
+            this.dgvServOfic.AllowUserToAddRows = false;
+            this.dgvServOfic.AllowUserToDeleteRows = false;
+            this.dgvServOfic.AllowUserToOrderColumns = true;
+            this.dgvServOfic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServOfic.Location = new System.Drawing.Point(6, 45);
+            this.dgvServOfic.Name = "dgvServOfic";
+            this.dgvServOfic.ReadOnly = true;
+            this.dgvServOfic.Size = new System.Drawing.Size(430, 243);
+            this.dgvServOfic.TabIndex = 2;
             // 
             // txtValueFilter
             // 
@@ -322,6 +324,7 @@
             this.btnBorrar.TabIndex = 29;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // label12
             // 
@@ -345,11 +348,12 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmServiciosOficiales";
             this.Text = "Servicios Oficiales";
+            this.Load += new System.EventHandler(this.FrmServiciosOficiales_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvServOfic)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -368,7 +372,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvAutomovil;
+        private System.Windows.Forms.DataGridView dgvServOfic;
         private System.Windows.Forms.TextBox txtValueFilter;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNIF;
