@@ -571,7 +571,66 @@ namespace ConcesionariosVehiculos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
 
+                int Estado;
+                con.Open();
+
+                string query = "UPDATE Vehiculos SET ModeloId = (SELECT m.ModeloId FROM Vehiculos v JOIN Modelos m ON m.ModeloId = v.ModeloId WHERE m.ModeloDescripcion IN(@Modelo)), "+
+                " Color = @Color, Descuento = @Descuento, Precio = @Precio, Cilindrada = @Cilindrada, " + 
+                " PotenciaMaxima = @PotMax, Puertas = @Puertas, Combustible = @Combustible, Ano = @Ano, VehiculoTipo = @Tipo, Estado = @Estado, Traccion = @Traccion, "+
+                " Pasajeros = @Pasajeros WHERE Chasis = @Chasis ";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@Modelo", cbxModeloEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Color", cbxColorEditar.Text));
+
+                float Descuento = float.Parse(txtDescuento.Text) / 100;
+
+                cmd.Parameters.Add(new SqlParameter("@Descuento", Descuento));
+                cmd.Parameters.Add(new SqlParameter("@Precio", txtPrecioEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Cilindrada", cbxCilindradaEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@PotMax", cbxPotMaxEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Puertas", cbxPuertasEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Combustible", cbxCombustibleEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Ano", cbxAñoEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Tipo", cbxTipoEditar.Text));
+
+                if (cbxEstadoEditar.Text == "Si")
+                {
+                    Estado = 1;
+                }else
+                {
+                    Estado = 0;
+                }
+
+                cmd.Parameters.Add(new SqlParameter("@Estado", Estado));
+                cmd.Parameters.Add(new SqlParameter("@Traccion", cbxTraccionEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Pasajeros", cbxPasajerosEditar.Text));
+
+                MessageBox.Show(cmd.ExecuteNonQuery() + " Artículo Actualizado Satisfactoriamente");
+           }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
         }
     }
 }
