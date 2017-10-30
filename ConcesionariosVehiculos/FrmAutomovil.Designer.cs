@@ -146,17 +146,21 @@
             this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFilter.FormattingEnabled = true;
             this.cbxFilter.Items.AddRange(new object[] {
+            "Chasis",
+            "Combustible",
             "Marca",
             "Modelo",
-            "Descuento",
-            "Precio",
-            "Motor",
+            "Cilindrada",
+            "Potencia Maxima",
+            "Año",
             "Color",
-            "Combustible",
-            "Tipo",
-            "Puertas",
             "Pasajeros",
-            "Tracción"});
+            "Puertas",
+            "Tipo",
+            "Tracción",
+            "Estado",
+            "Precio",
+            "Descuento"});
             this.cbxFilter.Location = new System.Drawing.Point(213, 19);
             this.cbxFilter.Name = "cbxFilter";
             this.cbxFilter.Size = new System.Drawing.Size(147, 21);
