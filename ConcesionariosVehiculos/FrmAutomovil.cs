@@ -79,7 +79,8 @@ namespace ConcesionariosVehiculos
                 string Filter = cbxFilter.Text;
                 string Value = txtValueFilter.Text;
 
-                string query = "SELECT * FROM vw_VEHICULOS WHERE " + Filter + " LIKE ('%" + Value + "%') ";
+                string query = "SELECT *, Precio * (1 - Descuento) [Precio Calculado] FROM vw_VEHICULOS WHERE "+Filter+" LIKE ('%" + Value + "%') ";
+                
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
                 da.Fill(data);
@@ -288,6 +289,7 @@ namespace ConcesionariosVehiculos
                         MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
 
                         FillCarsDGV();
+                        FillCarsChasis();
                         ClearCreateValues();
 
                         con.Close();
@@ -588,7 +590,7 @@ namespace ConcesionariosVehiculos
                 cmd.Parameters.Add(new SqlParameter("@Modelo", cbxModeloEditar.Text));
                 cmd.Parameters.Add(new SqlParameter("@Color", cbxColorEditar.Text));
 
-                float Descuento = float.Parse(txtDescuento.Text) / 100;
+                double Descuento = double.Parse(txtDescuentoEditar.Text) / 100;
 
                 cmd.Parameters.Add(new SqlParameter("@Descuento", Descuento));
                 cmd.Parameters.Add(new SqlParameter("@Precio", txtPrecioEditar.Text));
@@ -610,9 +612,45 @@ namespace ConcesionariosVehiculos
                 cmd.Parameters.Add(new SqlParameter("@Estado", Estado));
                 cmd.Parameters.Add(new SqlParameter("@Traccion", cbxTraccionEditar.Text));
                 cmd.Parameters.Add(new SqlParameter("@Pasajeros", cbxPasajerosEditar.Text));
+                cmd.Parameters.Add(new SqlParameter("@Chasis", cbxChasisEditar.Text));
 
                 MessageBox.Show(cmd.ExecuteNonQuery() + " Artículo Actualizado Satisfactoriamente");
-           }
+
+                FillCarsDGV();
+
+                cbxChasisEditar.SelectedIndex = -1;
+                cbxCombustibleEditar.SelectedIndex = -1;
+                cbxMarcaEditar.SelectedIndex = -1;
+                cbxModeloEditar.SelectedIndex = -1;
+                cbxCilindradaEditar.SelectedIndex = -1;
+                cbxPotMaxEditar.SelectedIndex = -1;
+                cbxAñoEditar.SelectedIndex = -1;
+                cbxColorEditar.SelectedIndex = -1;
+                cbxPasajerosEditar.SelectedIndex = -1;
+                cbxPuertasEditar.SelectedIndex = -1;
+                cbxTipoEditar.SelectedIndex = -1;
+                cbxTraccionEditar.SelectedIndex = -1;
+                cbxEstadoEditar.SelectedIndex = -1;
+                txtPrecioEditar.Text = "";
+                txtDescuentoEditar.Text = "";
+
+                cbxCombustibleEditar.Enabled = false;
+                cbxMarcaEditar.Enabled = false;
+                cbxModeloEditar.Enabled = false;
+                cbxCilindradaEditar.Enabled = false;
+                cbxPotMaxEditar.Enabled = false;
+                cbxAñoEditar.Enabled = false;
+                cbxColorEditar.Enabled = false;
+                cbxPasajerosEditar.Enabled = false;
+                cbxPuertasEditar.Enabled = false;
+                cbxTipoEditar.Enabled = false;
+                cbxTraccionEditar.Enabled = false;
+                cbxEstadoEditar.Enabled = false;
+                txtPrecioEditar.ReadOnly = true;
+                txtDescuentoEditar.ReadOnly = true;
+
+                con.Close();
+            }
             catch (Exception msg)
             {
                 //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
