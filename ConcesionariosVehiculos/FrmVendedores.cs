@@ -262,7 +262,7 @@ namespace ConcesionariosVehiculos
 
                     if (int.Parse(cantidad) == 0)
                     {
-                       
+
                         string query2 = "INSERT INTO VENDEDORES VALUES(@Nombres, @Apellidos, (SELECT ServOficialId FROM ServiciosOficiales WHERE Nombre IN(@ServicioOficial)), @Cedula, @VentasRealizadas, @NIF)";
                         SqlCommand cmd = new SqlCommand(query2, con);
                         cmd.Parameters.Add(new SqlParameter("@Nombres", txtNombre.Text));
@@ -282,7 +282,6 @@ namespace ConcesionariosVehiculos
                 }
 
             }
-
             catch (Exception msg)
             {
                 //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
@@ -302,8 +301,5 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
-
-     }
+    }
 }
-
- 
