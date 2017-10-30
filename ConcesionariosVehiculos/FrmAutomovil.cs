@@ -362,7 +362,7 @@ namespace ConcesionariosVehiculos
 
         private void txtDescuento_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(txtDescuento.Text,@"(^([0-9]*|\d*\d{1}?\d*)$)"))
+            if (!Regex.IsMatch(txtDescuento.Text,@"[0-9]+(\.[0-9][0-9]?)?"))
             {
                 txtDescuento.Text = string.Empty;
             }
@@ -370,7 +370,7 @@ namespace ConcesionariosVehiculos
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(txtPrecio.Text, @"(^([0-9]*|\d*\d{1}?\d*)$)"))
+            if (!Regex.IsMatch(txtPrecio.Text, @"[0-9]+(\.[0-9][0-9]?)?"))
             {
                 txtPrecio.Text = string.Empty;
             }
@@ -394,29 +394,184 @@ namespace ConcesionariosVehiculos
             txtDescuento.Text = "";
         }
 
+        private string AutoEdit(string query) {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CS;
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            string Valor = cmd.ExecuteScalar().ToString();
+
+            con.Close();
+
+            return Valor;
+        }
+
         private void cbxChasisEditar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxChasisEditar.SelectedIndex != -1)
             {
+                cbxCombustibleEditar.Enabled = true;
+                cbxMarcaEditar.Enabled = true;
+                cbxCilindradaEditar.Enabled = true;
+                cbxPotMaxEditar.Enabled = true;
+                cbxAñoEditar.Enabled = true;
+                cbxColorEditar.Enabled = true;
+                cbxPasajerosEditar.Enabled = true;
+                cbxPuertasEditar.Enabled = true;
+                cbxTipoEditar.Enabled = true;
+                cbxTraccionEditar.Enabled = true;
+                cbxEstadoEditar.Enabled = true;
+                txtPrecioEditar.ReadOnly = false;
+                txtDescuentoEditar.ReadOnly = false;
 
+                try
+                {
+                    string query = "SELECT Combustible FROM Vehiculos WHERE Chasis = '"+ cbxChasisEditar.Text + "'";
+                    cbxCombustibleEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Marcas.MarcaDescripcion FROM VEHICULOS JOIN Modelos ON Modelos.ModeloId = Vehiculos.ModeloId JOIN Marcas ON Marcas.MarcaId = Modelos.MarcaId WHERE Vehiculos.Chasis = '"+ cbxChasisEditar.Text + "'";
+                    cbxMarcaEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Modelos.ModeloDescripcion FROM VEHICULOS JOIN Modelos ON Modelos.ModeloId = Vehiculos.ModeloId WHERE Vehiculos.Chasis = '"+cbxChasisEditar.Text+"'";
+                    cbxModeloEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Cilindrada FROM VEHICULOS WHERE Chasis = '"+cbxChasisEditar.Text+"'";
+                    cbxCilindradaEditar.Text = AutoEdit(query);
+
+                    query = "SELECT PotenciaMaxima FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxPotMaxEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Ano FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxAñoEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Color FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxColorEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Pasajeros FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxPasajerosEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Puertas FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxPuertasEditar.Text = AutoEdit(query);
+
+                    query = "SELECT VehiculoTipo FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxTipoEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Traccion FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxTraccionEditar.Text = AutoEdit(query);
+
+                    query = "SELECT IIF(Estado = 1,'Si','No') FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    cbxEstadoEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Precio FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    txtPrecioEditar.Text = AutoEdit(query);
+
+                    query = "SELECT Descuento*100 FROM VEHICULOS WHERE Chasis = '" + cbxChasisEditar.Text + "'";
+                    txtDescuentoEditar.Text = AutoEdit(query);
+                }
+                catch (Exception msg)
+                {
+                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    string eMessage = msg.ToString();
+                    con.Open();
+
+                    string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                    MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
             }
             else {
                 cbxCombustibleEditar.Enabled = false;
                 cbxMarcaEditar.Enabled = false;
+                cbxModeloEditar.Enabled = false;
                 cbxCilindradaEditar.Enabled = false;
                 cbxPotMaxEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-                cbxCombustibleEditar.Enabled = false;
-
+                cbxAñoEditar.Enabled = false;
+                cbxColorEditar.Enabled = false;
+                cbxPasajerosEditar.Enabled = false;
+                cbxPuertasEditar.Enabled = false;
+                cbxTipoEditar.Enabled = false;
+                cbxTraccionEditar.Enabled = false;
+                cbxEstadoEditar.Enabled = false;
                 txtPrecioEditar.ReadOnly = true;
                 txtDescuentoEditar.ReadOnly = true;
             }
+        }
+
+        private void cbxMarcaEditar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxMarcaEditar.SelectedIndex != -1)
+            {
+                cbxModeloEditar.Enabled = true;
+                try
+                {
+                    cbxModeloEditar.Items.Clear();
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+                    con.Open();
+
+                    string query = "SELECT Modelos.ModeloDescripcion modelo FROM Modelos FULL JOIN Marcas ON Modelos.MarcaId = Marcas.MarcaId WHERE Marcas.MarcaDescripcion IN(@marca)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@marca", cbxMarcaEditar.Text));
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cbxModeloEditar.Items.Add(reader["modelo"].ToString());
+                    }
+                    con.Close();
+                }
+                catch (Exception msg)
+                {
+                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    string eMessage = msg.ToString();
+                    con.Open();
+
+                    string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                    MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+            }
+            else {
+                cbxModeloEditar.Enabled = false;
+            }
+        }
+
+        private void txtPrecioEditar_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(txtPrecioEditar.Text, @"[0-9]+(\.[0-9][0-9]?)?"))
+            {
+                txtPrecioEditar.Text = string.Empty;
+            }
+        }
+
+        private void txtDescuentoEditar_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(txtDescuentoEditar.Text, @"[0-9]+(\.[0-9][0-9]?)?"))
+            {
+                txtDescuentoEditar.Text = string.Empty;
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

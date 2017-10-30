@@ -141,9 +141,13 @@
     <Content Include="obj\Debug\ConcesionariosVehiculos.csproj.FileListAbsolute.txt" />
     <Content Include="Planificación\Documentos\Diagrama.PNG" />
     <Content Include="Planificación\Documentos\Notas.txt" />
-    <Content Include="Planificación\Query\dbn29-oct-2017.sql" />
+    <Content Include="Planificación\Query\2dbn29-oct-2017.sql" />
     <Content Include="Planificación\Query\Obsoleto\db 25-oct-2017 7pm.sql" />
     <Content Include="Planificación\Query\Obsoleto\db 25-oct-2017.sql" />
+    <Content Include="Planificación\Query\Obsoleto\db 26-oct-2017.sql" />
+    <Content Include="Planificación\Query\Obsoleto\db 29-oct-2017.sql" />
+    <Content Include="Planificación\Query\Obsoleto\db 30-oct-2017.sql" />
+    <Content Include="Planificación\Query\Obsoleto\dbn29-oct-2017.sql" />
     <Content Include="Planificación\Query\Obsoleto\Query Concesionario.sql" />
   </ItemGroup>
   <ItemGroup>
