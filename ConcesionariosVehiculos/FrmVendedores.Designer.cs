@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvVendedores = new System.Windows.Forms.DataGridView();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCedulaEditar = new System.Windows.Forms.TextBox();
             this.txtServOficEditar = new System.Windows.Forms.TextBox();
             this.txtVentasRealizadasModificar = new System.Windows.Forms.TextBox();
             this.txtApellidoModificar = new System.Windows.Forms.TextBox();
@@ -47,16 +48,17 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblNIF = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnBorrarVendedor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
             this.txtVentaRealizada = new System.Windows.Forms.TextBox();
             this.txtServOfic = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbxNIFBorrar = new System.Windows.Forms.ComboBox();
+            this.cbxCedulaBorrar = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNIF = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,10 +68,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtCedulaEditar = new System.Windows.Forms.TextBox();
+            this.cbxFilter = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendedores)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -77,42 +78,44 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.cbxFilter);
+            this.groupBox1.Controls.Add(this.dgvVendedores);
             this.groupBox1.Controls.Add(this.btnFiltrar);
-            this.groupBox1.Controls.Add(this.txtBuscar);
+            this.groupBox1.Controls.Add(this.txtValueFilter);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(387, 322);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // dataGridView1
+            // dgvVendedores
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 58);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(370, 258);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvVendedores.AllowUserToAddRows = false;
+            this.dgvVendedores.AllowUserToDeleteRows = false;
+            this.dgvVendedores.AllowUserToOrderColumns = true;
+            this.dgvVendedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVendedores.Location = new System.Drawing.Point(6, 58);
+            this.dgvVendedores.Name = "dgvVendedores";
+            this.dgvVendedores.ReadOnly = true;
+            this.dgvVendedores.Size = new System.Drawing.Size(370, 258);
+            this.dgvVendedores.TabIndex = 5;
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(248, 20);
+            this.btnFiltrar.Location = new System.Drawing.Point(286, 22);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(128, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(90, 23);
             this.btnFiltrar.TabIndex = 1;
             this.btnFiltrar.Text = "Buscar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // txtBuscar
+            // txtValueFilter
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(7, 20);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(235, 20);
-            this.txtBuscar.TabIndex = 0;
+            this.txtValueFilter.Location = new System.Drawing.Point(7, 24);
+            this.txtValueFilter.Name = "txtValueFilter";
+            this.txtValueFilter.Size = new System.Drawing.Size(148, 20);
+            this.txtValueFilter.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -135,6 +138,14 @@
             this.groupBox2.Size = new System.Drawing.Size(162, 342);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // txtCedulaEditar
+            // 
+            this.txtCedulaEditar.Location = new System.Drawing.Point(9, 191);
+            this.txtCedulaEditar.Name = "txtCedulaEditar";
+            this.txtCedulaEditar.ReadOnly = true;
+            this.txtCedulaEditar.Size = new System.Drawing.Size(147, 20);
+            this.txtCedulaEditar.TabIndex = 23;
             // 
             // txtServOficEditar
             // 
@@ -261,14 +272,15 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Borrar";
             // 
-            // btnBorrar
+            // btnBorrarVendedor
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(263, 13);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
-            this.btnBorrar.TabIndex = 3;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrarVendedor.Location = new System.Drawing.Point(263, 13);
+            this.btnBorrarVendedor.Name = "btnBorrarVendedor";
+            this.btnBorrarVendedor.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrarVendedor.TabIndex = 3;
+            this.btnBorrarVendedor.Text = "Borrar";
+            this.btnBorrarVendedor.UseVisualStyleBackColor = true;
+            this.btnBorrarVendedor.Click += new System.EventHandler(this.btnBorrarVendedor_Click_1);
             // 
             // label1
             // 
@@ -312,33 +324,33 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cbxNIFBorrar);
+            this.groupBox3.Controls.Add(this.cbxCedulaBorrar);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.btnBorrar);
+            this.groupBox3.Controls.Add(this.btnBorrarVendedor);
             this.groupBox3.Location = new System.Drawing.Point(12, 340);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(387, 41);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             // 
-            // cbxNIFBorrar
+            // cbxCedulaBorrar
             // 
-            this.cbxNIFBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxNIFBorrar.FormattingEnabled = true;
-            this.cbxNIFBorrar.Location = new System.Drawing.Point(145, 13);
-            this.cbxNIFBorrar.Name = "cbxNIFBorrar";
-            this.cbxNIFBorrar.Size = new System.Drawing.Size(112, 21);
-            this.cbxNIFBorrar.TabIndex = 26;
+            this.cbxCedulaBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCedulaBorrar.FormattingEnabled = true;
+            this.cbxCedulaBorrar.Location = new System.Drawing.Point(145, 13);
+            this.cbxCedulaBorrar.Name = "cbxCedulaBorrar";
+            this.cbxCedulaBorrar.Size = new System.Drawing.Size(112, 21);
+            this.cbxCedulaBorrar.TabIndex = 26;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(115, 16);
+            this.label11.Location = new System.Drawing.Point(103, 18);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(24, 13);
+            this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 25;
-            this.label11.Text = "NIF";
+            this.label11.Text = "Cédula";
             // 
             // groupBox4
             // 
@@ -361,6 +373,13 @@
             this.groupBox4.Size = new System.Drawing.Size(161, 342);
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(6, 192);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(149, 20);
+            this.txtCedula.TabIndex = 22;
             // 
             // txtNombre
             // 
@@ -440,20 +459,18 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Vendedores";
             // 
-            // txtCedula
+            // cbxFilter
             // 
-            this.txtCedula.Location = new System.Drawing.Point(6, 192);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(149, 20);
-            this.txtCedula.TabIndex = 22;
-            // 
-            // txtCedulaEditar
-            // 
-            this.txtCedulaEditar.Location = new System.Drawing.Point(9, 191);
-            this.txtCedulaEditar.Name = "txtCedulaEditar";
-            this.txtCedulaEditar.ReadOnly = true;
-            this.txtCedulaEditar.Size = new System.Drawing.Size(147, 20);
-            this.txtCedulaEditar.TabIndex = 23;
+            this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFilter.FormattingEnabled = true;
+            this.cbxFilter.Items.AddRange(new object[] {
+            "Nombres",
+            "Apellidos",
+            "Cedula"});
+            this.cbxFilter.Location = new System.Drawing.Point(161, 23);
+            this.cbxFilter.Name = "cbxFilter";
+            this.cbxFilter.Size = new System.Drawing.Size(119, 21);
+            this.cbxFilter.TabIndex = 6;
             // 
             // FrmVendedores
             // 
@@ -467,9 +484,10 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmVendedores";
             this.Text = "Vendedores";
+            this.Load += new System.EventHandler(this.FrmVendedores_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendedores)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -485,11 +503,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtValueFilter;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvVendedores;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnBorrarVendedor;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Label lblConcensionario;
         private System.Windows.Forms.Label lblVentaRealizada;
@@ -518,10 +536,11 @@
         private System.Windows.Forms.TextBox txtVentasRealizadasModificar;
         private System.Windows.Forms.TextBox txtApellidoModificar;
         private System.Windows.Forms.ComboBox cbxNIF;
-        private System.Windows.Forms.ComboBox cbxNIFBorrar;
+        private System.Windows.Forms.ComboBox cbxCedulaBorrar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCedulaEditar;
         private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.ComboBox cbxFilter;
     }
 }
