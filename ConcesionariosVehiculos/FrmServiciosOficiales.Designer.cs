@@ -30,8 +30,6 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtConcensionario = new System.Windows.Forms.TextBox();
             this.txtNIF = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
@@ -46,8 +44,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbxNIFModificar = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtConcesionarioModificar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDomilicioModificar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,8 +66,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtConcensionario);
             this.groupBox2.Controls.Add(this.txtNIF);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.btnCrear);
@@ -81,7 +75,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(459, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(168, 280);
+            this.groupBox2.Size = new System.Drawing.Size(168, 234);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             // 
@@ -94,22 +88,6 @@
             this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 34;
             this.label5.Text = "Crear";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 186);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Concesionario";
-            // 
-            // txtConcensionario
-            // 
-            this.txtConcensionario.Location = new System.Drawing.Point(26, 202);
-            this.txtConcensionario.Name = "txtConcensionario";
-            this.txtConcensionario.Size = new System.Drawing.Size(120, 20);
-            this.txtConcensionario.TabIndex = 32;
             // 
             // txtNIF
             // 
@@ -129,12 +107,13 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(39, 234);
+            this.btnCrear.Location = new System.Drawing.Point(44, 194);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(75, 23);
             this.btnCrear.TabIndex = 27;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // txtDomicilio
             // 
@@ -175,7 +154,7 @@
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Location = new System.Drawing.Point(11, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(442, 280);
+            this.groupBox1.Size = new System.Drawing.Size(442, 294);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
@@ -188,7 +167,7 @@
             this.dgvAutomovil.Location = new System.Drawing.Point(6, 45);
             this.dgvAutomovil.Name = "dgvAutomovil";
             this.dgvAutomovil.ReadOnly = true;
-            this.dgvAutomovil.Size = new System.Drawing.Size(430, 235);
+            this.dgvAutomovil.Size = new System.Drawing.Size(430, 243);
             this.dgvAutomovil.TabIndex = 2;
             // 
             // txtValueFilter
@@ -206,13 +185,12 @@
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbxNIFModificar);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.txtConcesionarioModificar);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.txtDomilicioModificar);
             this.groupBox3.Controls.Add(this.label8);
@@ -221,14 +199,13 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Location = new System.Drawing.Point(633, 50);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(168, 280);
+            this.groupBox3.Size = new System.Drawing.Size(168, 234);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             // 
             // cbxNIFModificar
             // 
             this.cbxNIFModificar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxNIFModificar.Enabled = false;
             this.cbxNIFModificar.FormattingEnabled = true;
             this.cbxNIFModificar.Location = new System.Drawing.Point(25, 79);
             this.cbxNIFModificar.Name = "cbxNIFModificar";
@@ -244,23 +221,6 @@
             this.label6.Size = new System.Drawing.Size(51, 20);
             this.label6.TabIndex = 34;
             this.label6.Text = "Editar";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 186);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Concesionario";
-            // 
-            // txtConcesionarioModificar
-            // 
-            this.txtConcesionarioModificar.Location = new System.Drawing.Point(26, 202);
-            this.txtConcesionarioModificar.Name = "txtConcesionarioModificar";
-            this.txtConcesionarioModificar.ReadOnly = true;
-            this.txtConcesionarioModificar.Size = new System.Drawing.Size(120, 20);
-            this.txtConcesionarioModificar.TabIndex = 32;
             // 
             // label10
             // 
@@ -290,7 +250,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(48, 234);
+            this.btnModificar.Location = new System.Drawing.Point(48, 194);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 28;
@@ -320,9 +280,9 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.btnBorrar);
-            this.groupBox4.Location = new System.Drawing.Point(807, 112);
+            this.groupBox4.Location = new System.Drawing.Point(459, 290);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(168, 155);
+            this.groupBox4.Size = new System.Drawing.Size(342, 54);
             this.groupBox4.TabIndex = 36;
             this.groupBox4.TabStop = false;
             // 
@@ -330,7 +290,7 @@
             // 
             this.cbxNIFBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNIFBorrar.FormattingEnabled = true;
-            this.cbxNIFBorrar.Location = new System.Drawing.Point(26, 80);
+            this.cbxNIFBorrar.Location = new System.Drawing.Point(134, 21);
             this.cbxNIFBorrar.Name = "cbxNIFBorrar";
             this.cbxNIFBorrar.Size = new System.Drawing.Size(121, 21);
             this.cbxNIFBorrar.TabIndex = 38;
@@ -339,7 +299,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(57, 30);
+            this.label11.Location = new System.Drawing.Point(6, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 20);
             this.label11.TabIndex = 34;
@@ -348,7 +308,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(23, 64);
+            this.label13.Location = new System.Drawing.Point(104, 24);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(24, 13);
             this.label13.TabIndex = 30;
@@ -356,7 +316,7 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(48, 111);
+            this.btnBorrar.Location = new System.Drawing.Point(261, 19);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 29;
@@ -367,7 +327,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(364, 5);
+            this.label12.Location = new System.Drawing.Point(252, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(353, 42);
             this.label12.TabIndex = 37;
@@ -377,7 +337,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 359);
+            this.ClientSize = new System.Drawing.Size(811, 353);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -411,16 +371,12 @@
         private System.Windows.Forms.DataGridView dgvAutomovil;
         private System.Windows.Forms.TextBox txtValueFilter;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtConcensionario;
         private System.Windows.Forms.TextBox txtNIF;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbxNIFModificar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtConcesionarioModificar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDomilicioModificar;
         private System.Windows.Forms.Label label8;
