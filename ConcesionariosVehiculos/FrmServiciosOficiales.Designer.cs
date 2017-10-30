@@ -56,6 +56,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.cbxFilter = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServOfic)).BeginInit();
@@ -73,7 +74,7 @@
             this.groupBox2.Controls.Add(this.txtNombre);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(459, 50);
+            this.groupBox2.Location = new System.Drawing.Point(362, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(168, 234);
             this.groupBox2.TabIndex = 8;
@@ -151,12 +152,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxFilter);
             this.groupBox1.Controls.Add(this.dgvServOfic);
             this.groupBox1.Controls.Add(this.txtValueFilter);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Location = new System.Drawing.Point(11, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(442, 294);
+            this.groupBox1.Size = new System.Drawing.Size(345, 294);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
@@ -169,21 +171,21 @@
             this.dgvServOfic.Location = new System.Drawing.Point(6, 45);
             this.dgvServOfic.Name = "dgvServOfic";
             this.dgvServOfic.ReadOnly = true;
-            this.dgvServOfic.Size = new System.Drawing.Size(430, 243);
+            this.dgvServOfic.Size = new System.Drawing.Size(330, 243);
             this.dgvServOfic.TabIndex = 2;
             // 
             // txtValueFilter
             // 
             this.txtValueFilter.Location = new System.Drawing.Point(6, 19);
             this.txtValueFilter.Name = "txtValueFilter";
-            this.txtValueFilter.Size = new System.Drawing.Size(286, 20);
+            this.txtValueFilter.Size = new System.Drawing.Size(119, 20);
             this.txtValueFilter.TabIndex = 0;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(298, 16);
+            this.btnBuscar.Location = new System.Drawing.Point(240, 19);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(124, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(96, 23);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -199,7 +201,7 @@
             this.groupBox3.Controls.Add(this.btnModificar);
             this.groupBox3.Controls.Add(this.txtNombreModificar);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(633, 50);
+            this.groupBox3.Location = new System.Drawing.Point(536, 50);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(168, 234);
             this.groupBox3.TabIndex = 35;
@@ -282,7 +284,7 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.btnBorrar);
-            this.groupBox4.Location = new System.Drawing.Point(459, 290);
+            this.groupBox4.Location = new System.Drawing.Point(362, 290);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(342, 54);
             this.groupBox4.TabIndex = 36;
@@ -330,17 +332,30 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(252, 5);
+            this.label12.Location = new System.Drawing.Point(194, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(353, 42);
             this.label12.TabIndex = 37;
             this.label12.Text = "Servicios Generales";
             // 
+            // cbxFilter
+            // 
+            this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxFilter.FormattingEnabled = true;
+            this.cbxFilter.Items.AddRange(new object[] {
+            "NIF",
+            "Nombre",
+            "Domicilio"});
+            this.cbxFilter.Location = new System.Drawing.Point(131, 18);
+            this.cbxFilter.Name = "cbxFilter";
+            this.cbxFilter.Size = new System.Drawing.Size(103, 21);
+            this.cbxFilter.TabIndex = 38;
+            // 
             // FrmServiciosOficiales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 353);
+            this.ClientSize = new System.Drawing.Size(714, 353);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -393,5 +408,6 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbxNIFBorrar;
+        private System.Windows.Forms.ComboBox cbxFilter;
     }
 }

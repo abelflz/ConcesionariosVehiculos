@@ -86,7 +86,7 @@ namespace ConcesionariosVehiculos
                 while (reader.Read())
                 {
                     cbxNIFBorrar.Items.Add(reader["NIF"].ToString());
-                  //  cbxNIFModificar.Items.Add(reader["NIF"].ToString());
+                    cbxNIFModificar.Items.Add(reader["NIF"].ToString());
                 }
             }
             catch (Exception msg)
@@ -119,8 +119,49 @@ namespace ConcesionariosVehiculos
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+                try
+                {
+                    //desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+                    con.Open();
 
-        }
+                    string Filter = cbxFilter.Text;
+                    string Value = txtValueFilter.Text;
+
+                    string query = "SELECT * FROM vw_ServOfic WHERE " + Filter + " LIKE ('%" + Value + "%') ";
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);
+                    DataTable data = new DataTable();
+                    da.Fill(data);
+
+                    dgvServOfic.DataSource = data;
+                    dgvServOfic.AutoResizeColumns();
+
+                    dgvServOfic.Refresh();
+                    dgvServOfic.Update();
+
+                    con.Close();
+                }
+                catch (Exception msg)
+                {
+                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    string eMessage = msg.ToString();
+                    con.Open();
+
+                    string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                    MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
+
+            }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
