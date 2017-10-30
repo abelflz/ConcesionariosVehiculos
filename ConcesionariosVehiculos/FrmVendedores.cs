@@ -25,6 +25,7 @@ namespace ConcesionariosVehiculos
         {
             FillVendedorCedula();
             FillVendedoresDVG();
+            FillServiciosOficiales();
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
@@ -159,6 +160,47 @@ namespace ConcesionariosVehiculos
         }
 
 
+        private void FillServiciosOficiales()
+        {
+            try
+            {
+                cbxServicioOficial.Items.Clear();
+                cbxServicioOficial.Items.Clear();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+                con.Open();
+
+                string query = "SELECT Nombre FROM ServiciosOficiales";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cbxServicioOficial.Items.Add(reader["Nombre"].ToString());
+                    //cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
+                }
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+        }
+
+
         private void btnBorrarVendedor_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbxCedulaBorrar.Text))
@@ -192,6 +234,76 @@ namespace ConcesionariosVehiculos
             }
         }
 
-    
-    }
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (
+                        string.IsNullOrEmpty(txtNIF.Text) || string.IsNullOrEmpty(txtNombre.Text) ||
+                        string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(txtCedula.Text) ||
+                        string.IsNullOrEmpty(cbxServicioOficial.Text) || string.IsNullOrEmpty(txtVentaRealizada.Text)
+                        )
+                {
+                    MessageBox.Show("Todos los campos deben de ser llenados");
+                }
+
+                else
+                {
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    con.Open();
+
+                    string query = "SELECT COUNT(*) FROM concesionarios.dbo.Vendedores WHERE Cedula IN(@Cedula)";
+                    SqlCommand validacmd = new SqlCommand(query, con);
+                    validacmd.Parameters.Add(new SqlParameter("@cedula", txtCedula.Text));
+                    var cantidad = validacmd.ExecuteScalar().ToString();
+
+
+                    if (int.Parse(cantidad) == 0)
+                    {
+                       
+                        string query2 = "INSERT INTO VENDEDORES VALUES(@Nombres, @Apellidos, (SELECT ServOficialId FROM ServiciosOficiales WHERE Nombre IN(@ServicioOficial)), @Cedula, @VentasRealizadas, @NIF)";
+                        SqlCommand cmd = new SqlCommand(query2, con);
+                        cmd.Parameters.Add(new SqlParameter("@Nombres", txtNombre.Text));
+                        cmd.Parameters.Add(new SqlParameter("@Apellidos", txtApellido.Text));
+                        cmd.Parameters.Add(new SqlParameter("@ServicioOficial", cbxServicioOficial.Text));
+                        cmd.Parameters.Add(new SqlParameter("@Cedula", txtCedula.Text));
+                        cmd.Parameters.Add(new SqlParameter("@VentasRealizadas", txtVentaRealizada.Text));
+                        cmd.Parameters.Add(new SqlParameter("@NIF", txtNIF.Text));
+                        MessageBox.Show(" Se ha agregado un vendedor satisfactoriamente");
+
+                        FillVendedoresDVG();
+                        // ClearCreateValues();
+
+                        con.Close();
+                        //
+                    }
+                }
+
+            }
+
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+        }
+
+     }
 }
+
+ 
