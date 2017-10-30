@@ -42,7 +42,7 @@
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.cbxColor = new System.Windows.Forms.ComboBox();
-            this.cbxMotor = new System.Windows.Forms.ComboBox();
+            this.cbxCilindrada = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtChasis = new System.Windows.Forms.TextBox();
             this.cbxAño = new System.Windows.Forms.ComboBox();
@@ -184,7 +184,7 @@
             this.groupBox2.Controls.Add(this.cbxModelo);
             this.groupBox2.Controls.Add(this.cbxMarca);
             this.groupBox2.Controls.Add(this.cbxColor);
-            this.groupBox2.Controls.Add(this.cbxMotor);
+            this.groupBox2.Controls.Add(this.cbxCilindrada);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.txtChasis);
             this.groupBox2.Controls.Add(this.cbxAño);
@@ -246,7 +246,7 @@
             this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Items.AddRange(new object[] {
-            "Si",
+            "Sí",
             "No"});
             this.cbxEstado.Location = new System.Drawing.Point(8, 349);
             this.cbxEstado.Name = "cbxEstado";
@@ -265,6 +265,7 @@
             // cbxModelo
             // 
             this.cbxModelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxModelo.Enabled = false;
             this.cbxModelo.FormattingEnabled = true;
             this.cbxModelo.Location = new System.Drawing.Point(133, 121);
             this.cbxModelo.Name = "cbxModelo";
@@ -301,11 +302,11 @@
             this.cbxColor.Size = new System.Drawing.Size(121, 21);
             this.cbxColor.TabIndex = 35;
             // 
-            // cbxMotor
+            // cbxCilindrada
             // 
-            this.cbxMotor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMotor.FormattingEnabled = true;
-            this.cbxMotor.Items.AddRange(new object[] {
+            this.cbxCilindrada.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCilindrada.FormattingEnabled = true;
+            this.cbxCilindrada.Items.AddRange(new object[] {
             "V2",
             "V4",
             "V6",
@@ -313,10 +314,10 @@
             "V10",
             "V12",
             "V16"});
-            this.cbxMotor.Location = new System.Drawing.Point(6, 170);
-            this.cbxMotor.Name = "cbxMotor";
-            this.cbxMotor.Size = new System.Drawing.Size(121, 21);
-            this.cbxMotor.TabIndex = 34;
+            this.cbxCilindrada.Location = new System.Drawing.Point(6, 170);
+            this.cbxCilindrada.Name = "cbxCilindrada";
+            this.cbxCilindrada.Size = new System.Drawing.Size(121, 21);
+            this.cbxCilindrada.TabIndex = 34;
             // 
             // label16
             // 
@@ -1176,7 +1177,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnBorrarAutomovil;
         private System.Windows.Forms.ComboBox cbxCombustibleEditar;
-        private System.Windows.Forms.ComboBox cbxMotor;
+        private System.Windows.Forms.ComboBox cbxCilindrada;
         private System.Windows.Forms.ComboBox cbxCilindradaEditar;
         private System.Windows.Forms.ComboBox cbxColor;
         private System.Windows.Forms.ComboBox cbxColorEditar;
