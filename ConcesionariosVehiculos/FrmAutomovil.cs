@@ -79,7 +79,8 @@ namespace ConcesionariosVehiculos
                 string Filter = cbxFilter.Text;
                 string Value = txtValueFilter.Text;
 
-                string query = "SELECT * FROM vw_VEHICULOS WHERE " + Filter + " LIKE ('%" + Value + "%') ";
+                string query = "SELECT *, Precio * (1 - Descuento) [Precio Calculado] FROM vw_VEHICULOS WHERE "+Filter+" LIKE ('%" + Value + "%') ";
+                
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
                 da.Fill(data);
@@ -288,6 +289,7 @@ namespace ConcesionariosVehiculos
                         MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
 
                         FillCarsDGV();
+                        FillCarsChasis();
                         ClearCreateValues();
 
                         con.Close();

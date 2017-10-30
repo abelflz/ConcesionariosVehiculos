@@ -158,7 +158,6 @@
             "Puertas",
             "Tipo",
             "Tracción",
-            "Estado",
             "Precio",
             "Descuento"});
             this.cbxFilter.Location = new System.Drawing.Point(213, 19);
