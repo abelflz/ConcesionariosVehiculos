@@ -23,7 +23,7 @@ namespace ConcesionariosVehiculos
 
         private void FrmAutomovil_Load(object sender, EventArgs e)
         {
-            FillCarsMat();
+            FillCarsChasis();
             FillCarsDGV();
             FillCarMarks();
         }
@@ -78,7 +78,7 @@ namespace ConcesionariosVehiculos
                 string Filter = cbxFilter.Text;
                 string Value = txtValueFilter.Text;
 
-                string query = "SELECT * FROM vw_Automovil WHERE " + Filter + " LIKE ('%" + Value + "%') ";
+                string query = "SELECT * FROM vw_VEHICULOS WHERE " + Filter + " LIKE ('%" + Value + "%') ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
                 da.Fill(data);
@@ -110,7 +110,7 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
-        private void FillCarsMat()
+        private void FillCarsChasis()
         {
             try
             {
@@ -120,13 +120,13 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Matricula FROM Automovil";
+                string query = "SELECT Chasis FROM Vehiculos";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    cbxChasisEditar.Items.Add(reader["Matricula"].ToString());
-                    cbxChasisBorrar.Items.Add(reader["Matricula"].ToString());
+                    cbxChasisEditar.Items.Add(reader["Chasis"].ToString());
+                    cbxChasisBorrar.Items.Add(reader["Chasis"].ToString());
                 }
             }
             catch (Exception msg)
@@ -156,7 +156,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM vw_Automovil";
+                string query = "SELECT *, Precio * (1 + Descuento) [Precio Calculado] FROM vw_VEHICULOS";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
@@ -194,7 +194,7 @@ namespace ConcesionariosVehiculos
         {
             if (string.IsNullOrEmpty(cbxChasisBorrar.Text))
             {
-                MessageBox.Show("Debe insertar una matrícula para a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar un chasis para a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbxChasisBorrar.Focus();
             }
             else
@@ -212,7 +212,7 @@ namespace ConcesionariosVehiculos
                     MessageBox.Show("1 Automóvil Eliminado");
                     con.Close();
 
-                    FillCarsMat();
+                    FillCarsChasis();
                     FillCarsDGV();
                 }
                 catch (Exception)
@@ -228,12 +228,14 @@ namespace ConcesionariosVehiculos
             try
             {
                 if (
+                    string.IsNullOrEmpty(txtChasis.Text) || string.IsNullOrEmpty(cbxCombustible.Text) ||
                     string.IsNullOrEmpty(cbxMarca.Text) || string.IsNullOrEmpty(cbxModelo.Text) ||
-                    string.IsNullOrEmpty(txtDescuento.Text) || string.IsNullOrEmpty(txtPrecio.Text) ||
-                    string.IsNullOrEmpty(cbxMotor.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
-                    string.IsNullOrEmpty(cbxCombustible.Text) || string.IsNullOrEmpty(cbxTipo.Text) ||
-                    string.IsNullOrEmpty(cbxPuertas.Text) || string.IsNullOrEmpty(cbxPasajeros.Text) ||
-                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtChasis.Text)
+                    string.IsNullOrEmpty(cbxCilindrada.Text) || string.IsNullOrEmpty(cbxPotMax.Text) ||
+                    string.IsNullOrEmpty(cbxAño.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
+                    string.IsNullOrEmpty(cbxPasajeros.Text) || string.IsNullOrEmpty(cbxPuertas.Text) ||
+                    string.IsNullOrEmpty(cbxTipo.Text) || string.IsNullOrEmpty(cbxTraccion.Text) ||
+                    string.IsNullOrEmpty(cbxEstado.Text) || string.IsNullOrEmpty(txtPrecio.Text) ||
+                    string.IsNullOrEmpty(txtDescuento.Text)
                     )
                 {
                     MessageBox.Show("Todos los campos deben de ser llenados");
@@ -244,20 +246,34 @@ namespace ConcesionariosVehiculos
 
                     con.Open();
 
-                    string query = "INSERT INTO Automovil VALUES(@marca,@modelo,@descuento,@precio,@motor,@color,@combustible,@tipo,@puertas,@pasajeros,@traccion,@matricula)";
+                    int EstadoNum;
+
+                    string query = "INSERT INTO VEHICULOS VALUES((SELECT ModeloId FROM Modelos WHERE ModeloDescripcion IN(@Modelo)),@Color, @Descuento, @Precio, @Cilindrada, @PotenciaMaxima, @Puertas, @Combustible,@Ano, @VehiculoTipo, @Estado, @Chasis, @Traccion, @Pasajeros)";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add(new SqlParameter("@marca", cbxMarca.Text));
-                    cmd.Parameters.Add(new SqlParameter("@modelo", cbxModelo.Text));
-                    cmd.Parameters.Add(new SqlParameter("@descuento", txtDescuento.Text));
-                    cmd.Parameters.Add(new SqlParameter("@precio", txtPrecio.Text));
-                    cmd.Parameters.Add(new SqlParameter("@motor", cbxMotor.Text));
-                    cmd.Parameters.Add(new SqlParameter("@color", cbxColor.Text));
-                    cmd.Parameters.Add(new SqlParameter("@combustible", cbxCombustible.Text));
-                    cmd.Parameters.Add(new SqlParameter("@tipo", cbxTipo.Text));
-                    cmd.Parameters.Add(new SqlParameter("@puertas", cbxPuertas.Text));
-                    cmd.Parameters.Add(new SqlParameter("@pasajeros", cbxPasajeros.Text));
-                    cmd.Parameters.Add(new SqlParameter("@traccion", cbxTraccion.Text));
-                    cmd.Parameters.Add(new SqlParameter("@matricula", txtChasis.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Modelo", cbxModelo.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Color", cbxColor.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Descuento", txtDescuento.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Precio", txtPrecio.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Cilindrada", cbxCilindrada.Text));
+                    cmd.Parameters.Add(new SqlParameter("@PotenciaMaxima", cbxPotMax.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Puertas", cbxPuertas.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Combustible", cbxCombustible.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Ano", cbxAño.Text));
+                    cmd.Parameters.Add(new SqlParameter("@VehiculoTipo",cbxTipo.Text));
+
+                    if(cbxEstado.Text == "Sí")
+                    {
+                        EstadoNum = 1;
+                    }
+                    else
+                    {
+                        EstadoNum = 0;
+                    }
+
+                    cmd.Parameters.Add(new SqlParameter("@Estado", EstadoNum));
+                    cmd.Parameters.Add(new SqlParameter("@Chasis", txtChasis.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Traccion", cbxTraccion.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Pasajeros", cbxPasajeros.Text));
 
                     MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
                     con.Close();
@@ -285,14 +301,44 @@ namespace ConcesionariosVehiculos
 
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxModelo.Items.Clear();
-            cbxModeloEditar.Items.Clear();
+            try {
+                cbxModelo.Items.Clear();
+                cbxModelo.Enabled = true;
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CS;
-            con.Open();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+                con.Open();
 
+                string query = "SELECT * FROM Modelos JOIN Marcas ON Modelos.MarcaId = Marcas.MarcaId WHERE Marcas.MarcaDescripcion IN(@marca)";
 
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@marca", cbxMarca.Text));
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cbxModelo.Items.Add(reader["ModeloDescripcion"].ToString());
+                }
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
         }
     }
 }
