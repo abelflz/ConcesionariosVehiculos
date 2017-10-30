@@ -206,11 +206,10 @@ namespace ConcesionariosVehiculos
                     con.ConnectionString = CS;
                     con.Open();
 
-                    string query = "DELETE FROM Automovil WHERE Matricula = @matricula";
+                    string query = "DELETE FROM Vehiculos WHERE Chasis IN (@chasis)";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add(new SqlParameter("@matricula", cbxChasisBorrar.Text));
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("1 Automóvil Eliminado");
+                    cmd.Parameters.Add(new SqlParameter("@chasis", cbxChasisBorrar.Text));
+                    MessageBox.Show(cmd.ExecuteNonQuery()+" Automóvil Eliminado");
                     con.Close();
 
                     FillCarsChasis();
@@ -294,7 +293,7 @@ namespace ConcesionariosVehiculos
                         con.Close();
                     }
                     else {
-                        MessageBox.Show("Matrícula existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Chasis existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     con.Close();
                 }
@@ -393,6 +392,31 @@ namespace ConcesionariosVehiculos
             cbxEstado.SelectedIndex = -1;
             txtPrecio.Text = "";
             txtDescuento.Text = "";
+        }
+
+        private void cbxChasisEditar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxChasisEditar.SelectedIndex != -1)
+            {
+
+            }
+            else {
+                cbxCombustibleEditar.Enabled = false;
+                cbxMarcaEditar.Enabled = false;
+                cbxCilindradaEditar.Enabled = false;
+                cbxPotMaxEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+                cbxCombustibleEditar.Enabled = false;
+
+                txtPrecioEditar.ReadOnly = true;
+                txtDescuentoEditar.ReadOnly = true;
+            }
         }
     }
 }

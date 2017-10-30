@@ -67,7 +67,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxPotMaxEditar = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -618,7 +618,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbxPotMaxEditar);
             this.groupBox3.Controls.Add(this.label34);
             this.groupBox3.Controls.Add(this.label35);
             this.groupBox3.Controls.Add(this.label33);
@@ -657,12 +657,12 @@
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
-            // comboBox1
+            // cbxPotMaxEditar
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxPotMaxEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPotMaxEditar.Enabled = false;
+            this.cbxPotMaxEditar.FormattingEnabled = true;
+            this.cbxPotMaxEditar.Items.AddRange(new object[] {
             "100CV",
             "300CV",
             "500CV",
@@ -682,15 +682,15 @@
             "3300CV",
             "3500CV",
             "3700CV"});
-            this.comboBox1.Location = new System.Drawing.Point(134, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 41;
+            this.cbxPotMaxEditar.Location = new System.Drawing.Point(159, 170);
+            this.cbxPotMaxEditar.Name = "cbxPotMaxEditar";
+            this.cbxPotMaxEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxPotMaxEditar.TabIndex = 41;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(131, 102);
+            this.label34.Location = new System.Drawing.Point(159, 102);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(42, 13);
             this.label34.TabIndex = 42;
@@ -699,7 +699,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(131, 154);
+            this.label35.Location = new System.Drawing.Point(156, 154);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(88, 13);
             this.label35.TabIndex = 40;
@@ -716,7 +716,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(155, 390);
+            this.btnModificar.Location = new System.Drawing.Point(180, 391);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 28;
@@ -728,7 +728,7 @@
             this.cbxModeloEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxModeloEditar.Enabled = false;
             this.cbxModeloEditar.FormattingEnabled = true;
-            this.cbxModeloEditar.Location = new System.Drawing.Point(133, 120);
+            this.cbxModeloEditar.Location = new System.Drawing.Point(158, 120);
             this.cbxModeloEditar.Name = "cbxModeloEditar";
             this.cbxModeloEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxModeloEditar.TabIndex = 38;
@@ -736,7 +736,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(132, 290);
+            this.label22.Location = new System.Drawing.Point(157, 290);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(49, 13);
             this.label22.TabIndex = 14;
@@ -753,7 +753,7 @@
             "2WD",
             "4WD",
             "4WD Full Time"});
-            this.cbxTraccionEditar.Location = new System.Drawing.Point(134, 306);
+            this.cbxTraccionEditar.Location = new System.Drawing.Point(159, 306);
             this.cbxTraccionEditar.Name = "cbxTraccionEditar";
             this.cbxTraccionEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxTraccionEditar.TabIndex = 22;
@@ -811,7 +811,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(130, 247);
+            this.label24.Location = new System.Drawing.Point(158, 247);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(43, 13);
             this.label24.TabIndex = 12;
@@ -833,7 +833,7 @@
             "Dorado",
             "Marrón",
             "Rosado"});
-            this.cbxColorEditar.Location = new System.Drawing.Point(133, 216);
+            this.cbxColorEditar.Location = new System.Drawing.Point(158, 216);
             this.cbxColorEditar.Name = "cbxColorEditar";
             this.cbxColorEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxColorEditar.TabIndex = 36;
@@ -873,7 +873,7 @@
             this.cbxPuertasEditar.Items.AddRange(new object[] {
             "2",
             "4"});
-            this.cbxPuertasEditar.Location = new System.Drawing.Point(134, 263);
+            this.cbxPuertasEditar.Location = new System.Drawing.Point(159, 263);
             this.cbxPuertasEditar.Name = "cbxPuertasEditar";
             this.cbxPuertasEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxPuertasEditar.TabIndex = 23;
@@ -887,7 +887,7 @@
             "Gasolina",
             "Gasoil/Diesel",
             "Gas/GPL"});
-            this.cbxCombustibleEditar.Location = new System.Drawing.Point(134, 69);
+            this.cbxCombustibleEditar.Location = new System.Drawing.Point(159, 69);
             this.cbxCombustibleEditar.Name = "cbxCombustibleEditar";
             this.cbxCombustibleEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxCombustibleEditar.TabIndex = 34;
@@ -999,10 +999,11 @@
             this.cbxChasisEditar.Name = "cbxChasisEditar";
             this.cbxChasisEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxChasisEditar.TabIndex = 25;
+            this.cbxChasisEditar.SelectedIndexChanged += new System.EventHandler(this.cbxChasisEditar_SelectedIndexChanged);
             // 
             // txtPrecioEditar
             // 
-            this.txtPrecioEditar.Location = new System.Drawing.Point(133, 349);
+            this.txtPrecioEditar.Location = new System.Drawing.Point(158, 349);
             this.txtPrecioEditar.Name = "txtPrecioEditar";
             this.txtPrecioEditar.ReadOnly = true;
             this.txtPrecioEditar.Size = new System.Drawing.Size(121, 20);
@@ -1019,7 +1020,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(131, 54);
+            this.label26.Location = new System.Drawing.Point(156, 54);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(64, 13);
             this.label26.TabIndex = 10;
@@ -1028,7 +1029,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(130, 200);
+            this.label27.Location = new System.Drawing.Point(158, 200);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(31, 13);
             this.label27.TabIndex = 9;
@@ -1046,7 +1047,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(132, 333);
+            this.label29.Location = new System.Drawing.Point(160, 333);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(37, 13);
             this.label29.TabIndex = 7;
@@ -1232,6 +1233,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxPotMaxEditar;
     }
 }
