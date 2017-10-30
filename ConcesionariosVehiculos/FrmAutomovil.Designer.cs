@@ -35,6 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxPotMax = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.cbxColor = new System.Windows.Forms.ComboBox();
@@ -63,27 +67,32 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.cbxModeloEditar = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbxTraccionEditar = new System.Windows.Forms.ComboBox();
+            this.cbxTipoEditar = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.cbxMarcaEditar = new System.Windows.Forms.ComboBox();
+            this.cbxEstadoEditar = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.cbxColorEditar = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.cbxCilindradaEditar = new System.Windows.Forms.ComboBox();
+            this.cbxPuertasEditar = new System.Windows.Forms.ComboBox();
             this.cbxCombustibleEditar = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.cbxPasajerosEditar = new System.Windows.Forms.ComboBox();
             this.cbxAñoEditar = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.cbxPasajerosEditar = new System.Windows.Forms.ComboBox();
             this.cbxChasisEditar = new System.Windows.Forms.ComboBox();
-            this.cbxTipoEditar = new System.Windows.Forms.ComboBox();
-            this.cbxPuertasEditar = new System.Windows.Forms.ComboBox();
-            this.cbxTraccionEditar = new System.Windows.Forms.ComboBox();
             this.txtPrecioEditar = new System.Windows.Forms.TextBox();
             this.txtDescuentoEditar = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -92,19 +101,10 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cbxMatriculaBorrar = new System.Windows.Forms.ComboBox();
+            this.cbxChasisBorrar = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnBorrarAutomovil = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cbxEstadoEditar = new System.Windows.Forms.ComboBox();
-            this.cbxPotMax = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cbxEstado = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -146,17 +146,9 @@
             this.cbxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFilter.FormattingEnabled = true;
             this.cbxFilter.Items.AddRange(new object[] {
+            "Chasis",
             "Marca",
-            "Modelo",
-            "Descuento",
-            "Precio",
-            "Motor",
-            "Color",
-            "Combustible",
-            "Tipo",
-            "Puertas",
-            "Pasajeros",
-            "Tracción"});
+            "Modelo"});
             this.cbxFilter.Location = new System.Drawing.Point(213, 19);
             this.cbxFilter.Name = "cbxFilter";
             this.cbxFilter.Size = new System.Drawing.Size(147, 21);
@@ -222,6 +214,53 @@
             this.groupBox2.Size = new System.Drawing.Size(268, 429);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
+            // 
+            // cbxPotMax
+            // 
+            this.cbxPotMax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPotMax.FormattingEnabled = true;
+            this.cbxPotMax.Items.AddRange(new object[] {
+            "V2",
+            "V4",
+            "V6",
+            "V8",
+            "V10",
+            "V12",
+            "V16"});
+            this.cbxPotMax.Location = new System.Drawing.Point(133, 170);
+            this.cbxPotMax.Name = "cbxPotMax";
+            this.cbxPotMax.Size = new System.Drawing.Size(121, 21);
+            this.cbxPotMax.TabIndex = 41;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(132, 154);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 13);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "Potencia Maxima";
+            // 
+            // cbxEstado
+            // 
+            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxEstado.Location = new System.Drawing.Point(8, 349);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(121, 21);
+            this.cbxEstado.TabIndex = 39;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 333);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 13);
+            this.label13.TabIndex = 38;
+            this.label13.Text = "Estado";
             // 
             // cbxModelo
             // 
@@ -595,6 +634,59 @@
             this.groupBox3.TabIndex = 34;
             this.groupBox3.TabStop = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "V2",
+            "V4",
+            "V6",
+            "V8",
+            "V10",
+            "V12",
+            "V16"});
+            this.comboBox1.Location = new System.Drawing.Point(134, 170);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 41;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(131, 102);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(42, 13);
+            this.label34.TabIndex = 42;
+            this.label34.Text = "Modelo";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(131, 154);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(88, 13);
+            this.label35.TabIndex = 40;
+            this.label35.Text = "Potencia Maxima";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(7, 333);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(40, 13);
+            this.label33.TabIndex = 42;
+            this.label33.Text = "Estado";
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(155, 390);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 28;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
             // cbxModeloEditar
             // 
             this.cbxModeloEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -604,6 +696,58 @@
             this.cbxModeloEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxModeloEditar.TabIndex = 38;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(132, 290);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(49, 13);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "Tracción";
+            // 
+            // cbxTraccionEditar
+            // 
+            this.cbxTraccionEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTraccionEditar.Enabled = false;
+            this.cbxTraccionEditar.FormattingEnabled = true;
+            this.cbxTraccionEditar.Items.AddRange(new object[] {
+            "Trasera",
+            "Delantera",
+            "2WD",
+            "4WD",
+            "4WD Full Time"});
+            this.cbxTraccionEditar.Location = new System.Drawing.Point(134, 306);
+            this.cbxTraccionEditar.Name = "cbxTraccionEditar";
+            this.cbxTraccionEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxTraccionEditar.TabIndex = 22;
+            // 
+            // cbxTipoEditar
+            // 
+            this.cbxTipoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoEditar.Enabled = false;
+            this.cbxTipoEditar.FormattingEnabled = true;
+            this.cbxTipoEditar.Items.AddRange(new object[] {
+            "Sedán",
+            "Compacto",
+            "Jeepeta",
+            "Camioneta",
+            "Coupé/Sport",
+            "Caminon",
+            "Autobuses"});
+            this.cbxTipoEditar.Location = new System.Drawing.Point(7, 306);
+            this.cbxTipoEditar.Name = "cbxTipoEditar";
+            this.cbxTipoEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxTipoEditar.TabIndex = 24;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(4, 289);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(28, 13);
+            this.label25.TabIndex = 11;
+            this.label25.Text = "Tipo";
+            // 
             // cbxMarcaEditar
             // 
             this.cbxMarcaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -612,6 +756,27 @@
             this.cbxMarcaEditar.Name = "cbxMarcaEditar";
             this.cbxMarcaEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxMarcaEditar.TabIndex = 38;
+            // 
+            // cbxEstadoEditar
+            // 
+            this.cbxEstadoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEstadoEditar.FormattingEnabled = true;
+            this.cbxEstadoEditar.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbxEstadoEditar.Location = new System.Drawing.Point(6, 349);
+            this.cbxEstadoEditar.Name = "cbxEstadoEditar";
+            this.cbxEstadoEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxEstadoEditar.TabIndex = 39;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(130, 247);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(43, 13);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "Puertas";
             // 
             // cbxColorEditar
             // 
@@ -634,6 +799,15 @@
             this.cbxColorEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxColorEditar.TabIndex = 36;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(4, 249);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 13);
+            this.label23.TabIndex = 13;
+            this.label23.Text = "Pasajeros";
+            // 
             // cbxCilindradaEditar
             // 
             this.cbxCilindradaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -650,6 +824,19 @@
             this.cbxCilindradaEditar.Name = "cbxCilindradaEditar";
             this.cbxCilindradaEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxCilindradaEditar.TabIndex = 35;
+            // 
+            // cbxPuertasEditar
+            // 
+            this.cbxPuertasEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPuertasEditar.Enabled = false;
+            this.cbxPuertasEditar.FormattingEnabled = true;
+            this.cbxPuertasEditar.Items.AddRange(new object[] {
+            "2",
+            "4"});
+            this.cbxPuertasEditar.Location = new System.Drawing.Point(134, 263);
+            this.cbxPuertasEditar.Name = "cbxPuertasEditar";
+            this.cbxPuertasEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxPuertasEditar.TabIndex = 23;
             // 
             // cbxCombustibleEditar
             // 
@@ -673,6 +860,22 @@
             this.label17.Size = new System.Drawing.Size(38, 13);
             this.label17.TabIndex = 33;
             this.label17.Text = "Chasis";
+            // 
+            // cbxPasajerosEditar
+            // 
+            this.cbxPasajerosEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPasajerosEditar.Enabled = false;
+            this.cbxPasajerosEditar.FormattingEnabled = true;
+            this.cbxPasajerosEditar.Items.AddRange(new object[] {
+            "2",
+            "4",
+            "5",
+            "7",
+            "8"});
+            this.cbxPasajerosEditar.Location = new System.Drawing.Point(6, 263);
+            this.cbxPasajerosEditar.Name = "cbxPasajerosEditar";
+            this.cbxPasajerosEditar.Size = new System.Drawing.Size(121, 21);
+            this.cbxPasajerosEditar.TabIndex = 26;
             // 
             // cbxAñoEditar
             // 
@@ -748,31 +951,6 @@
             this.label19.TabIndex = 18;
             this.label19.Text = "Modificar";
             // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(155, 390);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 28;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // cbxPasajerosEditar
-            // 
-            this.cbxPasajerosEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPasajerosEditar.Enabled = false;
-            this.cbxPasajerosEditar.FormattingEnabled = true;
-            this.cbxPasajerosEditar.Items.AddRange(new object[] {
-            "2",
-            "4",
-            "5",
-            "7",
-            "8"});
-            this.cbxPasajerosEditar.Location = new System.Drawing.Point(6, 263);
-            this.cbxPasajerosEditar.Name = "cbxPasajerosEditar";
-            this.cbxPasajerosEditar.Size = new System.Drawing.Size(121, 21);
-            this.cbxPasajerosEditar.TabIndex = 26;
-            // 
             // cbxChasisEditar
             // 
             this.cbxChasisEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -781,53 +959,6 @@
             this.cbxChasisEditar.Name = "cbxChasisEditar";
             this.cbxChasisEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxChasisEditar.TabIndex = 25;
-            // 
-            // cbxTipoEditar
-            // 
-            this.cbxTipoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTipoEditar.Enabled = false;
-            this.cbxTipoEditar.FormattingEnabled = true;
-            this.cbxTipoEditar.Items.AddRange(new object[] {
-            "Sedán",
-            "Compacto",
-            "Jeepeta",
-            "Camioneta",
-            "Coupé/Sport",
-            "Caminon",
-            "Autobuses"});
-            this.cbxTipoEditar.Location = new System.Drawing.Point(7, 306);
-            this.cbxTipoEditar.Name = "cbxTipoEditar";
-            this.cbxTipoEditar.Size = new System.Drawing.Size(121, 21);
-            this.cbxTipoEditar.TabIndex = 24;
-            // 
-            // cbxPuertasEditar
-            // 
-            this.cbxPuertasEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPuertasEditar.Enabled = false;
-            this.cbxPuertasEditar.FormattingEnabled = true;
-            this.cbxPuertasEditar.Items.AddRange(new object[] {
-            "2",
-            "4"});
-            this.cbxPuertasEditar.Location = new System.Drawing.Point(134, 263);
-            this.cbxPuertasEditar.Name = "cbxPuertasEditar";
-            this.cbxPuertasEditar.Size = new System.Drawing.Size(121, 21);
-            this.cbxPuertasEditar.TabIndex = 23;
-            // 
-            // cbxTraccionEditar
-            // 
-            this.cbxTraccionEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTraccionEditar.Enabled = false;
-            this.cbxTraccionEditar.FormattingEnabled = true;
-            this.cbxTraccionEditar.Items.AddRange(new object[] {
-            "Trasera",
-            "Delantera",
-            "2WD",
-            "4WD",
-            "4WD Full Time"});
-            this.cbxTraccionEditar.Location = new System.Drawing.Point(134, 306);
-            this.cbxTraccionEditar.Name = "cbxTraccionEditar";
-            this.cbxTraccionEditar.Size = new System.Drawing.Size(121, 21);
-            this.cbxTraccionEditar.TabIndex = 22;
             // 
             // txtPrecioEditar
             // 
@@ -844,42 +975,6 @@
             this.txtDescuentoEditar.ReadOnly = true;
             this.txtDescuentoEditar.Size = new System.Drawing.Size(121, 20);
             this.txtDescuentoEditar.TabIndex = 19;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(132, 290);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(49, 13);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Tracción";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(4, 249);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(53, 13);
-            this.label23.TabIndex = 13;
-            this.label23.Text = "Pasajeros";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(130, 247);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(43, 13);
-            this.label24.TabIndex = 12;
-            this.label24.Text = "Puertas";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(4, 289);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(28, 13);
-            this.label25.TabIndex = 11;
-            this.label25.Text = "Tipo";
             // 
             // label26
             // 
@@ -946,7 +1041,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.cbxMatriculaBorrar);
+            this.groupBox4.Controls.Add(this.cbxChasisBorrar);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.btnBorrarAutomovil);
@@ -956,23 +1051,23 @@
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             // 
-            // cbxMatriculaBorrar
+            // cbxChasisBorrar
             // 
-            this.cbxMatriculaBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMatriculaBorrar.FormattingEnabled = true;
-            this.cbxMatriculaBorrar.Location = new System.Drawing.Point(184, 24);
-            this.cbxMatriculaBorrar.Name = "cbxMatriculaBorrar";
-            this.cbxMatriculaBorrar.Size = new System.Drawing.Size(202, 21);
-            this.cbxMatriculaBorrar.TabIndex = 34;
+            this.cbxChasisBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxChasisBorrar.FormattingEnabled = true;
+            this.cbxChasisBorrar.Location = new System.Drawing.Point(184, 24);
+            this.cbxChasisBorrar.Name = "cbxChasisBorrar";
+            this.cbxChasisBorrar.Size = new System.Drawing.Size(202, 21);
+            this.cbxChasisBorrar.TabIndex = 34;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(128, 27);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 33;
-            this.label12.Text = "Matrícula";
+            this.label12.Text = "Chasis";
             // 
             // label20
             // 
@@ -993,109 +1088,6 @@
             this.btnBorrarAutomovil.Text = "Borrar Automóvil";
             this.btnBorrarAutomovil.UseVisualStyleBackColor = true;
             this.btnBorrarAutomovil.Click += new System.EventHandler(this.btnBorrarAutomovil_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 333);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
-            this.label13.TabIndex = 38;
-            this.label13.Text = "Estado";
-            // 
-            // cbxEstadoEditar
-            // 
-            this.cbxEstadoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEstadoEditar.FormattingEnabled = true;
-            this.cbxEstadoEditar.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.cbxEstadoEditar.Location = new System.Drawing.Point(6, 349);
-            this.cbxEstadoEditar.Name = "cbxEstadoEditar";
-            this.cbxEstadoEditar.Size = new System.Drawing.Size(121, 21);
-            this.cbxEstadoEditar.TabIndex = 39;
-            // 
-            // cbxPotMax
-            // 
-            this.cbxPotMax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPotMax.FormattingEnabled = true;
-            this.cbxPotMax.Items.AddRange(new object[] {
-            "V2",
-            "V4",
-            "V6",
-            "V8",
-            "V10",
-            "V12",
-            "V16"});
-            this.cbxPotMax.Location = new System.Drawing.Point(133, 170);
-            this.cbxPotMax.Name = "cbxPotMax";
-            this.cbxPotMax.Size = new System.Drawing.Size(121, 21);
-            this.cbxPotMax.TabIndex = 41;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(132, 154);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(88, 13);
-            this.label21.TabIndex = 40;
-            this.label21.Text = "Potencia Maxima";
-            // 
-            // cbxEstado
-            // 
-            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.cbxEstado.Location = new System.Drawing.Point(8, 349);
-            this.cbxEstado.Name = "cbxEstado";
-            this.cbxEstado.Size = new System.Drawing.Size(121, 21);
-            this.cbxEstado.TabIndex = 39;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(7, 333);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(40, 13);
-            this.label33.TabIndex = 42;
-            this.label33.Text = "Estado";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(131, 102);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(42, 13);
-            this.label34.TabIndex = 42;
-            this.label34.Text = "Modelo";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(131, 154);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(88, 13);
-            this.label35.TabIndex = 40;
-            this.label35.Text = "Potencia Maxima";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "V2",
-            "V4",
-            "V6",
-            "V8",
-            "V10",
-            "V12",
-            "V16"});
-            this.comboBox1.Location = new System.Drawing.Point(134, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 41;
             // 
             // FrmAutomovil
             // 
@@ -1179,7 +1171,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox cbxMatriculaBorrar;
+        private System.Windows.Forms.ComboBox cbxChasisBorrar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnBorrarAutomovil;
