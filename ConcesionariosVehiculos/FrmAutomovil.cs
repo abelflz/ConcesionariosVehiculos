@@ -23,7 +23,7 @@ namespace ConcesionariosVehiculos
 
         private void FrmAutomovil_Load(object sender, EventArgs e)
         {
-            FillCarsMat();
+            FillCarsChasis();
             FillCarsDGV();
             FillCarMarks();
         }
@@ -78,7 +78,7 @@ namespace ConcesionariosVehiculos
                 string Filter = cbxFilter.Text;
                 string Value = txtValueFilter.Text;
 
-                string query = "SELECT * FROM vw_Automovil WHERE " + Filter + " LIKE ('%" + Value + "%') ";
+                string query = "SELECT * FROM vw_VEHICULOS WHERE " + Filter + " LIKE ('%" + Value + "%') ";
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
                 da.Fill(data);
@@ -110,7 +110,7 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
-        private void FillCarsMat()
+        private void FillCarsChasis()
         {
             try
             {
@@ -120,13 +120,13 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Matricula FROM Automovil";
+                string query = "SELECT Chasis FROM Vehiculos";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
-                    cbxChasisEditar.Items.Add(reader["Matricula"].ToString());
-                    cbxChasisBorrar.Items.Add(reader["Matricula"].ToString());
+                    cbxChasisEditar.Items.Add(reader["Chasis"].ToString());
+                    cbxChasisBorrar.Items.Add(reader["Chasis"].ToString());
                 }
             }
             catch (Exception msg)
@@ -156,7 +156,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM vw_Automovil";
+                string query = "SELECT *, Precio * (1 + Descuento) [Precio Calculado] FROM vw_VEHICULOS";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
@@ -194,7 +194,7 @@ namespace ConcesionariosVehiculos
         {
             if (string.IsNullOrEmpty(cbxChasisBorrar.Text))
             {
-                MessageBox.Show("Debe insertar una matrícula para a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar un chasis para a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbxChasisBorrar.Focus();
             }
             else
@@ -212,7 +212,7 @@ namespace ConcesionariosVehiculos
                     MessageBox.Show("1 Automóvil Eliminado");
                     con.Close();
 
-                    FillCarsMat();
+                    FillCarsChasis();
                     FillCarsDGV();
                 }
                 catch (Exception)
@@ -230,11 +230,12 @@ namespace ConcesionariosVehiculos
                 if (
                     string.IsNullOrEmpty(txtChasis.Text) || string.IsNullOrEmpty(cbxCombustible.Text) ||
                     string.IsNullOrEmpty(cbxMarca.Text) || string.IsNullOrEmpty(cbxModelo.Text) ||
-                    string.IsNullOrEmpty(txtDescuento.Text) || string.IsNullOrEmpty(txtPrecio.Text) ||
-                    string.IsNullOrEmpty(cbxCilindrada.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
-                    string.IsNullOrEmpty(cbxTipo.Text) ||
-                    string.IsNullOrEmpty(cbxPuertas.Text) || string.IsNullOrEmpty(cbxPasajeros.Text) ||
-                    string.IsNullOrEmpty(cbxTraccion.Text) || string.IsNullOrEmpty(txtChasis.Text)
+                    string.IsNullOrEmpty(cbxCilindrada.Text) || string.IsNullOrEmpty(cbxPotMax.Text) ||
+                    string.IsNullOrEmpty(cbxAño.Text) || string.IsNullOrEmpty(cbxColor.Text) ||
+                    string.IsNullOrEmpty(cbxPasajeros.Text) || string.IsNullOrEmpty(cbxPuertas.Text) ||
+                    string.IsNullOrEmpty(cbxTipo.Text) || string.IsNullOrEmpty(cbxTraccion.Text) ||
+                    string.IsNullOrEmpty(cbxEstado.Text) || string.IsNullOrEmpty(txtPrecio.Text) ||
+                    string.IsNullOrEmpty(txtDescuento.Text)
                     )
                 {
                     MessageBox.Show("Todos los campos deben de ser llenados");
