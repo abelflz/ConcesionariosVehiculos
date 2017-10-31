@@ -105,6 +105,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnBorrarAutomovil = new System.Windows.Forms.Button();
+            this.btnEquipamiento = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1082,6 +1083,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnEquipamiento);
             this.groupBox4.Controls.Add(this.cbxChasisBorrar);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label20);
@@ -1096,15 +1098,15 @@
             // 
             this.cbxChasisBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxChasisBorrar.FormattingEnabled = true;
-            this.cbxChasisBorrar.Location = new System.Drawing.Point(184, 24);
+            this.cbxChasisBorrar.Location = new System.Drawing.Point(136, 24);
             this.cbxChasisBorrar.Name = "cbxChasisBorrar";
-            this.cbxChasisBorrar.Size = new System.Drawing.Size(202, 21);
+            this.cbxChasisBorrar.Size = new System.Drawing.Size(142, 21);
             this.cbxChasisBorrar.TabIndex = 34;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(128, 27);
+            this.label12.Location = new System.Drawing.Point(92, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 33;
@@ -1122,13 +1124,23 @@
             // 
             // btnBorrarAutomovil
             // 
-            this.btnBorrarAutomovil.Location = new System.Drawing.Point(392, 22);
+            this.btnBorrarAutomovil.Location = new System.Drawing.Point(284, 22);
             this.btnBorrarAutomovil.Name = "btnBorrarAutomovil";
             this.btnBorrarAutomovil.Size = new System.Drawing.Size(109, 23);
             this.btnBorrarAutomovil.TabIndex = 29;
             this.btnBorrarAutomovil.Text = "Borrar Automóvil";
             this.btnBorrarAutomovil.UseVisualStyleBackColor = true;
             this.btnBorrarAutomovil.Click += new System.EventHandler(this.btnBorrarAutomovil_Click);
+            // 
+            // btnEquipamiento
+            // 
+            this.btnEquipamiento.Location = new System.Drawing.Point(399, 20);
+            this.btnEquipamiento.Name = "btnEquipamiento";
+            this.btnEquipamiento.Size = new System.Drawing.Size(91, 23);
+            this.btnEquipamiento.TabIndex = 35;
+            this.btnEquipamiento.Text = "Equipamientos";
+            this.btnEquipamiento.UseVisualStyleBackColor = true;
+            this.btnEquipamiento.Click += new System.EventHandler(this.btnEquipamiento_Click);
             // 
             // FrmAutomovil
             // 
@@ -1234,5 +1246,6 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ComboBox cbxPotMaxEditar;
+        private System.Windows.Forms.Button btnEquipamiento;
     }
 }

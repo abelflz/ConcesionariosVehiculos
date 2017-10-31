@@ -418,5 +418,12 @@ namespace ConcesionariosVehiculos
                 txtDescuentoEditar.ReadOnly = true;
             }
         }
+
+        private void btnEquipamiento_Click(object sender, EventArgs e)
+        {
+            FrmAutoxEquipamiento auto = new FrmAutoxEquipamiento();
+            this.Hide();
+            auto.ShowDialog();
+        }
     }
 }
