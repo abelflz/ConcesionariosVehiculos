@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,9 @@ namespace ConcesionariosVehiculos
 {
     public partial class FrmMenu : Form
     {
+        //Conexion a la Base de datos
+        private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+
         public FrmMenu()
         {
             InitializeComponent();
@@ -39,6 +43,26 @@ namespace ConcesionariosVehiculos
         {
             FrmVentaAuto VA = new FrmVentaAuto();
             VA.ShowDialog();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            FillDGVSold();
+            FillDGVNotSold();
+        }
+
+        public void FillDGVSold()
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CS;
+            con.Open();
+
+            String query = 
+        }
+
+        public void FillDGVNotSold()
+        {
+
         }
     }
 }
