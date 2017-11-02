@@ -21,6 +21,7 @@ namespace ConcesionariosVehiculos
         private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
         private void FrmServiciosOficiales_Load(object sender, EventArgs e)
+            //Metodos ha utilizar 
         {
             FillServOfic();
             FillServOficNIF();
@@ -232,7 +233,9 @@ namespace ConcesionariosVehiculos
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
+            //Este Boton se utiliza para borrar los registros a partir del NIF(Numero de Indentificacion Fiscal)
         {
+            //Validacion de que no se encuentre vacio el Combobox
             if (string.IsNullOrEmpty(cbxNIFBorrar.Text))
             {
                 MessageBox.Show("Debe Seleccionar un NIF para poder eliminar el Registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,10 +245,12 @@ namespace ConcesionariosVehiculos
             {
                 try
                 {
+                    //Conexion a la base de datos 
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
                     con.Open();
 
+                    //Ejecucion de query a partir del parametro tomado del combobox
                     string query = "DELETE FROM ServiciosOFiciales WHERE NIF = @NIF";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@NIF", cbxNIFBorrar.Text));
@@ -258,6 +263,7 @@ namespace ConcesionariosVehiculos
                 }
                 catch (Exception)
                 {
+                    //En caso de error se presenta lo siguiente y reinicia el combobox a su valor por defecto
                     MessageBox.Show("Debe eliminar los registros anidados a este Servicio oficial para Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cbxNIFBorrar.SelectedIndex = -1;
                 }
@@ -265,6 +271,7 @@ namespace ConcesionariosVehiculos
         }
 
         private void txtNIF_TextChanged(object sender, EventArgs e)
+            //Validacion de campo para introducir solo numero
         {
             if (!Regex.IsMatch(txtNIF.Text, @"(^([0-9]*|\d*\d{1}?\d*)$)"))
             {
