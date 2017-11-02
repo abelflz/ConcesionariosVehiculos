@@ -171,8 +171,7 @@ namespace ConcesionariosVehiculos
                     con.ConnectionString = CS;
                     con.Open();
 
-                    string query = "INSERT INTO Ventas VALUES(@fecha,(SELECT VendedorId FROM Vendedores WHERE Nombres IN(@nombreVendedor)),"+
-                        " @tipopago, (SELECT VehiculoId FROM Vehiculos WHERE Chasis IN(@chasis)), @totalmonto)";
+                    string query = "INSERT INTO Ventas VALUES(@fecha,(SELECT VendedorId FROM Vendedores WHERE Nombres IN(@nombreVendedor)),@tipopago, (SELECT VehiculoId FROM Vehiculos WHERE Chasis IN(@chasis)), @totalmonto)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@fecha",Convert.ToDateTime(dtpFechaVenta.Text)));

@@ -425,8 +425,8 @@ namespace ConcesionariosVehiculos
 
                 MessageBox.Show("Se ha modificado un vendedor satisfactoriamente");
 
-                txtNombreModificar.Text = txtApellidoModificar.Text =
-                cbxServOficEditar.Text = cbCedula.Text = "";
+                txtNombreModificar.Text = txtApellidoModificar.Text = cbCedula.Text =  "";
+                cbxServOficEditar.SelectedIndex = -1;
 
                 txtApellidoModificar.ReadOnly = txtNombreModificar.ReadOnly = true;
 

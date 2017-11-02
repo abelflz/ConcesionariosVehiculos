@@ -212,7 +212,7 @@
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(40, 13);
             this.lblFechaNacimiento.TabIndex = 3;
-            this.lblFechaNacimiento.Text = "Cedula";
+            this.lblFechaNacimiento.Text = "Cédula";
             // 
             // lblDomicilio
             // 
@@ -375,7 +375,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Cedula";
+            this.label6.Text = "Cédula";
             // 
             // label7
             // 
