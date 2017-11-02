@@ -33,12 +33,12 @@
             this.btnVentAuto = new System.Windows.Forms.Button();
             this.btnServOfic = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAutosVendidos = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.dgvAutosNoVendidos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutosVendidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutosNoVendidos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAutomovil
@@ -91,16 +91,16 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Concesionario";
             // 
-            // dataGridView1
+            // dgvAutosVendidos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 137);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 257);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvAutosVendidos.AllowUserToAddRows = false;
+            this.dgvAutosVendidos.AllowUserToDeleteRows = false;
+            this.dgvAutosVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAutosVendidos.Location = new System.Drawing.Point(12, 137);
+            this.dgvAutosVendidos.Name = "dgvAutosVendidos";
+            this.dgvAutosVendidos.ReadOnly = true;
+            this.dgvAutosVendidos.Size = new System.Drawing.Size(300, 257);
+            this.dgvAutosVendidos.TabIndex = 5;
             // 
             // label2
             // 
@@ -122,16 +122,16 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Automóviles no Vendidos";
             // 
-            // dataGridView2
+            // dgvAutosNoVendidos
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(318, 137);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(300, 257);
-            this.dataGridView2.TabIndex = 7;
+            this.dgvAutosNoVendidos.AllowUserToAddRows = false;
+            this.dgvAutosNoVendidos.AllowUserToDeleteRows = false;
+            this.dgvAutosNoVendidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAutosNoVendidos.Location = new System.Drawing.Point(318, 137);
+            this.dgvAutosNoVendidos.Name = "dgvAutosNoVendidos";
+            this.dgvAutosNoVendidos.ReadOnly = true;
+            this.dgvAutosNoVendidos.Size = new System.Drawing.Size(300, 257);
+            this.dgvAutosNoVendidos.TabIndex = 7;
             // 
             // FrmMenu
             // 
@@ -139,9 +139,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 406);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvAutosNoVendidos);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAutosVendidos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnServOfic);
             this.Controls.Add(this.btnVentAuto);
@@ -149,8 +149,9 @@
             this.Controls.Add(this.btnAutomovil);
             this.Name = "FrmMenu";
             this.Text = "Menú Principal";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutosVendidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutosNoVendidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,9 +164,9 @@
         private System.Windows.Forms.Button btnVentAuto;
         private System.Windows.Forms.Button btnServOfic;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAutosVendidos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvAutosNoVendidos;
     }
 }
