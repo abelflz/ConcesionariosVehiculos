@@ -60,15 +60,15 @@
             this.groupBox2.Controls.Add(this.cbxVendedores);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(282, 214);
+            this.groupBox2.Size = new System.Drawing.Size(338, 212);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
             // dtpFechaVenta
             // 
-            this.dtpFechaVenta.Location = new System.Drawing.Point(18, 108);
+            this.dtpFechaVenta.Location = new System.Drawing.Point(12, 108);
             this.dtpFechaVenta.Name = "dtpFechaVenta";
-            this.dtpFechaVenta.Size = new System.Drawing.Size(121, 20);
+            this.dtpFechaVenta.Size = new System.Drawing.Size(183, 20);
             this.dtpFechaVenta.TabIndex = 43;
             // 
             // label1
@@ -87,16 +87,17 @@
             this.cbxChasis.Items.AddRange(new object[] {
             "Contado",
             "Financiado"});
-            this.cbxChasis.Location = new System.Drawing.Point(18, 64);
+            this.cbxChasis.Location = new System.Drawing.Point(12, 64);
             this.cbxChasis.Name = "cbxChasis";
-            this.cbxChasis.Size = new System.Drawing.Size(121, 21);
+            this.cbxChasis.Size = new System.Drawing.Size(183, 21);
             this.cbxChasis.TabIndex = 41;
+            this.cbxChasis.SelectedIndexChanged += new System.EventHandler(this.cbxChasis_SelectedIndexChanged);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(85, 173);
+            this.btnGuardar.Location = new System.Drawing.Point(94, 177);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(110, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(157, 23);
             this.btnGuardar.TabIndex = 29;
             this.btnGuardar.Text = "Realizar Venta";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -114,7 +115,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(82, 16);
+            this.label14.Location = new System.Drawing.Point(116, 16);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(113, 18);
             this.label14.TabIndex = 16;
@@ -123,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(142, 91);
+            this.label5.Location = new System.Drawing.Point(198, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 13);
             this.label5.TabIndex = 8;
@@ -140,9 +141,10 @@
             // 
             // txtMontoTotal
             // 
-            this.txtMontoTotal.Location = new System.Drawing.Point(18, 147);
+            this.txtMontoTotal.Enabled = false;
+            this.txtMontoTotal.Location = new System.Drawing.Point(12, 147);
             this.txtMontoTotal.Name = "txtMontoTotal";
-            this.txtMontoTotal.Size = new System.Drawing.Size(121, 20);
+            this.txtMontoTotal.Size = new System.Drawing.Size(310, 20);
             this.txtMontoTotal.TabIndex = 16;
             // 
             // cbxModoPago
@@ -152,7 +154,7 @@
             this.cbxModoPago.Items.AddRange(new object[] {
             "Contado",
             "Financiado"});
-            this.cbxModoPago.Location = new System.Drawing.Point(145, 107);
+            this.cbxModoPago.Location = new System.Drawing.Point(201, 107);
             this.cbxModoPago.Name = "cbxModoPago";
             this.cbxModoPago.Size = new System.Drawing.Size(121, 21);
             this.cbxModoPago.TabIndex = 25;
@@ -160,7 +162,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(142, 49);
+            this.label7.Location = new System.Drawing.Point(198, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 10;
@@ -170,7 +172,7 @@
             // 
             this.cbxVendedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxVendedores.FormattingEnabled = true;
-            this.cbxVendedores.Location = new System.Drawing.Point(145, 64);
+            this.cbxVendedores.Location = new System.Drawing.Point(201, 64);
             this.cbxVendedores.Name = "cbxVendedores";
             this.cbxVendedores.Size = new System.Drawing.Size(121, 21);
             this.cbxVendedores.TabIndex = 30;
@@ -179,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 231);
+            this.ClientSize = new System.Drawing.Size(362, 236);
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmVentaAuto";
             this.Text = "FrmVentaAuto";
