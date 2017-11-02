@@ -73,6 +73,7 @@ namespace ConcesionariosVehiculos
             }
         }
         private void FillServOficNIF()
+            // Metedo utilizado para el llenar los combo box con los datos de la BD
         {
             try
             {
@@ -113,6 +114,7 @@ namespace ConcesionariosVehiculos
         }
 
         private void ClearValues()
+            //Metodo para Limpiar los campo en el lado de Creacion
         {
             txtNIF.Text = "";
             txtNombre.Text = "";
@@ -120,6 +122,7 @@ namespace ConcesionariosVehiculos
 
         }
         private void ClearValuesModificar()
+        // Metodo para Limpiar los campo en el lado de modificacion 
         {
             txtNombreModificar.Text = "";
             txtDomilicioModificar.Text = "";
@@ -127,6 +130,7 @@ namespace ConcesionariosVehiculos
 
         }
         private void BlockValuesModificar()
+            //metodo para bloqueo de campos para editar
         {
             txtNombreModificar.ReadOnly = true;
             txtDomilicioModificar.ReadOnly = true;
@@ -180,6 +184,7 @@ namespace ConcesionariosVehiculos
             }
 
         private void btnCrear_Click(object sender, EventArgs e)
+            //Desarrollo de boton crear, con validacion de de campos no vacios
         {
             try
             {
@@ -292,6 +297,7 @@ namespace ConcesionariosVehiculos
         }
 
         private void cbxNIFModificar_SelectedIndexChanged(object sender, EventArgs e)
+            //metodo para el autollenado de campos para el caso de edicion de Servicios Oficiales
         {
             if (cbxNIFModificar.SelectedIndex != -1)
             {
@@ -337,6 +343,7 @@ namespace ConcesionariosVehiculos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            //Desarrollo del boton Modificar con validacion de Cambios vacios, donde se sobreescriben los campo modificados
             try
             {
                 if (
