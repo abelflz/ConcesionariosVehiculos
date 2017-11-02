@@ -150,6 +150,7 @@
     <Content Include="obj\Debug\ConcesionariosVehiculos.csproj.FileListAbsolute.txt" />
     <Content Include="Planificación\Documentos\Diagrama.PNG" />
     <Content Include="Planificación\Documentos\Notas.txt" />
+    <Content Include="Planificación\Query\2-11-17.sql" />
     <Content Include="Planificación\Query\2dbn29-oct-2017.sql" />
     <Content Include="Planificación\Query\Obsoleto\db 25-oct-2017 7pm.sql" />
     <Content Include="Planificación\Query\Obsoleto\db 25-oct-2017.sql" />
