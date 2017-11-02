@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutoxEquipamiento));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbEquipamientos = new System.Windows.Forms.Label();
+            this.txtEquipamientos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotalPrecio = new System.Windows.Forms.TextBox();
             this.lbChasis = new System.Windows.Forms.Label();
             this.cbxChasis = new System.Windows.Forms.ComboBox();
-            this.txtEquipamientos = new System.Windows.Forms.TextBox();
-            this.lbEquipamientos = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,25 @@
             this.groupBox1.Size = new System.Drawing.Size(379, 226);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // lbEquipamientos
+            // 
+            this.lbEquipamientos.AutoSize = true;
+            this.lbEquipamientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEquipamientos.Location = new System.Drawing.Point(138, 51);
+            this.lbEquipamientos.Name = "lbEquipamientos";
+            this.lbEquipamientos.Size = new System.Drawing.Size(136, 24);
+            this.lbEquipamientos.TabIndex = 9;
+            this.lbEquipamientos.Text = "Equipamientos";
+            // 
+            // txtEquipamientos
+            // 
+            this.txtEquipamientos.Location = new System.Drawing.Point(9, 80);
+            this.txtEquipamientos.Multiline = true;
+            this.txtEquipamientos.Name = "txtEquipamientos";
+            this.txtEquipamientos.ReadOnly = true;
+            this.txtEquipamientos.Size = new System.Drawing.Size(364, 114);
+            this.txtEquipamientos.TabIndex = 8;
             // 
             // label2
             // 
@@ -90,25 +110,6 @@
             this.cbxChasis.TabIndex = 0;
             this.cbxChasis.SelectedIndexChanged += new System.EventHandler(this.cbxChasis_SelectedIndexChanged);
             // 
-            // txtEquipamientos
-            // 
-            this.txtEquipamientos.Location = new System.Drawing.Point(9, 80);
-            this.txtEquipamientos.Multiline = true;
-            this.txtEquipamientos.Name = "txtEquipamientos";
-            this.txtEquipamientos.ReadOnly = true;
-            this.txtEquipamientos.Size = new System.Drawing.Size(364, 114);
-            this.txtEquipamientos.TabIndex = 8;
-            // 
-            // lbEquipamientos
-            // 
-            this.lbEquipamientos.AutoSize = true;
-            this.lbEquipamientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEquipamientos.Location = new System.Drawing.Point(138, 51);
-            this.lbEquipamientos.Name = "lbEquipamientos";
-            this.lbEquipamientos.Size = new System.Drawing.Size(136, 24);
-            this.lbEquipamientos.TabIndex = 9;
-            this.lbEquipamientos.Text = "Equipamientos";
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(154, 264);
@@ -126,6 +127,7 @@
             this.ClientSize = new System.Drawing.Size(403, 306);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAutoxEquipamiento";
             this.Text = "Equipamientos Especiales por Vehículos";
             this.Load += new System.EventHandler(this.FrmAutoxEquipamiento_Load);

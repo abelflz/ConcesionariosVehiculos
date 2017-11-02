@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutomovil));
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvAutomovil = new System.Windows.Forms.DataGridView();
@@ -101,11 +102,11 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnEquipamiento = new System.Windows.Forms.Button();
             this.cbxChasisBorrar = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnBorrarAutomovil = new System.Windows.Forms.Button();
-            this.btnEquipamiento = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutomovil)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1094,6 +1095,16 @@
             this.groupBox4.TabIndex = 35;
             this.groupBox4.TabStop = false;
             // 
+            // btnEquipamiento
+            // 
+            this.btnEquipamiento.Location = new System.Drawing.Point(399, 20);
+            this.btnEquipamiento.Name = "btnEquipamiento";
+            this.btnEquipamiento.Size = new System.Drawing.Size(91, 23);
+            this.btnEquipamiento.TabIndex = 35;
+            this.btnEquipamiento.Text = "Equipamientos";
+            this.btnEquipamiento.UseVisualStyleBackColor = true;
+            this.btnEquipamiento.Click += new System.EventHandler(this.btnEquipamiento_Click);
+            // 
             // cbxChasisBorrar
             // 
             this.cbxChasisBorrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1132,16 +1143,6 @@
             this.btnBorrarAutomovil.UseVisualStyleBackColor = true;
             this.btnBorrarAutomovil.Click += new System.EventHandler(this.btnBorrarAutomovil_Click);
             // 
-            // btnEquipamiento
-            // 
-            this.btnEquipamiento.Location = new System.Drawing.Point(399, 20);
-            this.btnEquipamiento.Name = "btnEquipamiento";
-            this.btnEquipamiento.Size = new System.Drawing.Size(91, 23);
-            this.btnEquipamiento.TabIndex = 35;
-            this.btnEquipamiento.Text = "Equipamientos";
-            this.btnEquipamiento.UseVisualStyleBackColor = true;
-            this.btnEquipamiento.Click += new System.EventHandler(this.btnEquipamiento_Click);
-            // 
             // FrmAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1151,6 +1152,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAutomovil";
             this.Text = "Automoviles";
             this.Load += new System.EventHandler(this.FrmAutomovil_Load);
