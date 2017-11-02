@@ -94,6 +94,8 @@ namespace ConcesionariosVehiculos
                     cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
                     //cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
                 }
+
+                cbCedula.Items.AddRange(cbxCedulaBorrar.Items.Cast<string>().ToArray());
             }
             catch (Exception msg)
             {
@@ -125,7 +127,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT * FROM vw_Vendedores";
+                string query = "SELECT *, (select count(*) from [Concesionarios].[dbo].[Ventas] as t2 where t2.[VendedorId] = t.VendedorId) as VentasRealizadas FROM vw_Vendedores as t";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
@@ -140,7 +142,7 @@ namespace ConcesionariosVehiculos
                 cbCedula.Items.Clear();
 
                 for (var x = 0; x < dgvVendedores.RowCount; x++)
-                    cbCedula.Items.Add(dgvVendedores.Rows[x].Cells[3].Value);
+                    cbCedula.Items.Add(dgvVendedores.Rows[x].Cells["Cedula"].Value);
 
                 con.Close();
             }
@@ -368,11 +370,11 @@ namespace ConcesionariosVehiculos
         private void cbCedula_SelectedIndexChanged(object sender, EventArgs e)
         {
             for (var x = 0; x < dgvVendedores.RowCount; x++)
-                if (dgvVendedores.Rows[x].Cells[3].Value.ToString() == cbCedula.Items[cbCedula.SelectedIndex].ToString())
+                if (dgvVendedores.Rows[x].Cells["Cedula"].Value.ToString() == cbCedula.Items[cbCedula.SelectedIndex].ToString())
                 {
-                    txtNombreModificar.Text = dgvVendedores.Rows[x].Cells[0].Value.ToString();
-                    txtApellidoModificar.Text = dgvVendedores.Rows[x].Cells[1].Value.ToString();
-                    servOfcEdit.SelectedIndex = servOfcEdit.Items.IndexOf(dgvVendedores.Rows[x].Cells[2].Value.ToString());
+                    txtNombreModificar.Text = dgvVendedores.Rows[x].Cells["Nombres"].Value.ToString();
+                    txtApellidoModificar.Text = dgvVendedores.Rows[x].Cells["Apellidos"].Value.ToString();
+                    servOfcEdit.SelectedIndex = servOfcEdit.Items.IndexOf(dgvVendedores.Rows[x].Cells["ServicioOficial"].Value.ToString());
 
                     txtNombreModificar.ReadOnly =
                     txtApellidoModificar.ReadOnly =
@@ -425,7 +427,7 @@ namespace ConcesionariosVehiculos
 
                 FillVendedoresDVG();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
