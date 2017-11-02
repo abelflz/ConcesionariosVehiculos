@@ -139,6 +139,8 @@ namespace ConcesionariosVehiculos
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            if(!string.IsNullOrEmpty(cbxFilter.Text))
+            {
                 try
                 {
                     //desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
@@ -180,8 +182,12 @@ namespace ConcesionariosVehiculos
 
                     con.Close();
                 }
-
             }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un criterio a filtrar", "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         private void btnCrear_Click(object sender, EventArgs e)
             //Desarrollo de boton crear, con validacion de de campos no vacios
@@ -209,13 +215,13 @@ namespace ConcesionariosVehiculos
                     cmd.Parameters.Add(new SqlParameter("@NIF", txtNIF.Text));
 
                     MessageBox.Show(cmd.ExecuteNonQuery() + " Servicio Oficial Agregado");
+
+
                     FillServOfic();
                     ClearValues();
-
+                    FillServOficNIF();
 
                     con.Close();
-
-
                 }
             }catch(Exception msg)
             {
@@ -264,7 +270,8 @@ namespace ConcesionariosVehiculos
                     con.Close();
 
                     FillServOfic();
-                              
+                    FillServOficNIF();
+
                 }
                 catch (Exception)
                 {
