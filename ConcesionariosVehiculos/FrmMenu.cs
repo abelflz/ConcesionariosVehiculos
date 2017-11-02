@@ -60,39 +60,81 @@ namespace ConcesionariosVehiculos
         //Método desarrollado para llenar el data grid view de vehículos vendidos.
         public void FillDGVSold()
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CS;
-            con.Open();
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+                con.Open();
 
-            String query = "SELECT * FROM vw_CarSold";;
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable data = new DataTable();
-            da.Fill(data);
+                String query = "SELECT * FROM vw_CarSold"; ;
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                DataTable data = new DataTable();
+                da.Fill(data);
 
-            dgvAutosVendidos.DataSource = data;
-            dgvAutosVendidos.Refresh();
-            dgvAutosVendidos.Update();
+                dgvAutosVendidos.DataSource = data;
+                dgvAutosVendidos.Refresh();
+                dgvAutosVendidos.Update();
 
-            con.Close();
+                con.Close();
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
         }
 
         //Método desarrollado para llenar el data grid view de vehículos no vendidos.
         public void FillDGVNotSold()
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CS;
-            con.Open();
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+                con.Open();
 
-            String query = "SELECT * FROM vw_CarNotSold"; ;
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable data = new DataTable();
-            da.Fill(data);
+                String query = "SELECT * FROM vw_CarNotSold"; ;
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                DataTable data = new DataTable();
+                da.Fill(data);
 
-            dgvAutosNoVendidos.DataSource = data;
-            dgvAutosNoVendidos.Refresh();
-            dgvAutosNoVendidos.Update();
+                dgvAutosNoVendidos.DataSource = data;
+                dgvAutosNoVendidos.Refresh();
+                dgvAutosNoVendidos.Update();
 
-            con.Close();
+                con.Close();
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
