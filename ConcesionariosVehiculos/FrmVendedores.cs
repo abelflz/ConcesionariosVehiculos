@@ -86,17 +86,16 @@ namespace ConcesionariosVehiculos
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
-                
+
                 string query = "SELECT Cedula FROM vw_Vendedores";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString())
+                    cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
+                    cbCedula.Items.AddRange(cbxCedulaBorrar.Items.Cast<string>().ToArray());
                 }
-
-                cbCedula.Items.AddRange(cbxCedulaBorrar.Items.Cast<string>().ToArray());
             }
             catch (Exception msg)
             {

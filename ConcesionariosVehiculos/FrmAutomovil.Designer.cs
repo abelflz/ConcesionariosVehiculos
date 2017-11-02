@@ -724,6 +724,7 @@
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // cbxModeloEditar
             // 
@@ -796,6 +797,7 @@
             this.cbxMarcaEditar.Name = "cbxMarcaEditar";
             this.cbxMarcaEditar.Size = new System.Drawing.Size(121, 21);
             this.cbxMarcaEditar.TabIndex = 38;
+            this.cbxMarcaEditar.SelectedIndexChanged += new System.EventHandler(this.cbxMarcaEditar_SelectedIndexChanged);
             // 
             // cbxEstadoEditar
             // 
@@ -1010,6 +1012,7 @@
             this.txtPrecioEditar.ReadOnly = true;
             this.txtPrecioEditar.Size = new System.Drawing.Size(121, 20);
             this.txtPrecioEditar.TabIndex = 20;
+            this.txtPrecioEditar.TextChanged += new System.EventHandler(this.txtPrecioEditar_TextChanged);
             // 
             // txtDescuentoEditar
             // 
@@ -1018,6 +1021,7 @@
             this.txtDescuentoEditar.ReadOnly = true;
             this.txtDescuentoEditar.Size = new System.Drawing.Size(121, 20);
             this.txtDescuentoEditar.TabIndex = 19;
+            this.txtDescuentoEditar.TextChanged += new System.EventHandler(this.txtDescuentoEditar_TextChanged);
             // 
             // label26
             // 
