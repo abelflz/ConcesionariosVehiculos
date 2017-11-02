@@ -34,6 +34,8 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbxServOficEditar = new System.Windows.Forms.ComboBox();
+            this.cbCedula = new System.Windows.Forms.ComboBox();
             this.txtApellidoModificar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -59,8 +61,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbCedula = new System.Windows.Forms.ComboBox();
-            this.servOfcEdit = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendedores)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -124,7 +124,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.servOfcEdit);
+            this.groupBox2.Controls.Add(this.cbxServOficEditar);
             this.groupBox2.Controls.Add(this.cbCedula);
             this.groupBox2.Controls.Add(this.txtApellidoModificar);
             this.groupBox2.Controls.Add(this.label3);
@@ -139,6 +139,26 @@
             this.groupBox2.Size = new System.Drawing.Size(162, 342);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
+            // 
+            // cbxServOficEditar
+            // 
+            this.cbxServOficEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxServOficEditar.Enabled = false;
+            this.cbxServOficEditar.FormattingEnabled = true;
+            this.cbxServOficEditar.Location = new System.Drawing.Point(9, 188);
+            this.cbxServOficEditar.Name = "cbxServOficEditar";
+            this.cbxServOficEditar.Size = new System.Drawing.Size(147, 21);
+            this.cbxServOficEditar.TabIndex = 26;
+            // 
+            // cbCedula
+            // 
+            this.cbCedula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCedula.FormattingEnabled = true;
+            this.cbCedula.Location = new System.Drawing.Point(9, 147);
+            this.cbCedula.Name = "cbCedula";
+            this.cbCedula.Size = new System.Drawing.Size(147, 21);
+            this.cbCedula.TabIndex = 25;
+            this.cbCedula.SelectedIndexChanged += new System.EventHandler(this.cbCedula_SelectedIndexChanged);
             // 
             // txtApellidoModificar
             // 
@@ -376,26 +396,6 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Vendedores";
             // 
-            // cbCedula
-            // 
-            this.cbCedula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCedula.FormattingEnabled = true;
-            this.cbCedula.Location = new System.Drawing.Point(9, 147);
-            this.cbCedula.Name = "cbCedula";
-            this.cbCedula.Size = new System.Drawing.Size(147, 21);
-            this.cbCedula.TabIndex = 25;
-            this.cbCedula.SelectedIndexChanged += new System.EventHandler(this.cbCedula_SelectedIndexChanged);
-            // 
-            // servOfcEdit
-            // 
-            this.servOfcEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.servOfcEdit.Enabled = false;
-            this.servOfcEdit.FormattingEnabled = true;
-            this.servOfcEdit.Location = new System.Drawing.Point(9, 188);
-            this.servOfcEdit.Name = "servOfcEdit";
-            this.servOfcEdit.Size = new System.Drawing.Size(147, 21);
-            this.servOfcEdit.TabIndex = 26;
-            // 
             // FrmVendedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,6 +457,6 @@
         private System.Windows.Forms.ComboBox cbxFilter;
         private System.Windows.Forms.ComboBox cbxServicioOficial;
         private System.Windows.Forms.ComboBox cbCedula;
-        private System.Windows.Forms.ComboBox servOfcEdit;
+        private System.Windows.Forms.ComboBox cbxServOficEditar;
     }
 }

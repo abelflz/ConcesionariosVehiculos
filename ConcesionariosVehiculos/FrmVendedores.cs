@@ -23,6 +23,7 @@ namespace ConcesionariosVehiculos
 
         private void FrmVendedores_Load_1(object sender, EventArgs e)
         {
+            //Metodos para rellanr los Combobox
             FillVendedorCedula();
             FillVendedoresDVG();
             FillServiciosOficiales();
@@ -33,7 +34,7 @@ namespace ConcesionariosVehiculos
 
             try
             {
-                //desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
+                //Desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
@@ -76,6 +77,7 @@ namespace ConcesionariosVehiculos
 
 
         private void FillVendedorCedula()
+            //Metodo para llenar el combobox de cedula 
         {
             try
             {
@@ -84,15 +86,14 @@ namespace ConcesionariosVehiculos
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
-
+                
                 string query = "SELECT Cedula FROM vw_Vendedores";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
-                    //cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
+                    cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString())
                 }
 
                 cbCedula.Items.AddRange(cbxCedulaBorrar.Items.Cast<string>().ToArray());
@@ -168,11 +169,12 @@ namespace ConcesionariosVehiculos
 
 
         private void FillServiciosOficiales()
+            //Metodo para llenar el combobox de Servicios 
         {
             try
             {
                 cbxServicioOficial.Items.Clear();
-                cbxServicioOficial.Items.Clear();
+                cbxServOficEditar.Items.Clear();
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
@@ -184,10 +186,10 @@ namespace ConcesionariosVehiculos
                 while (reader.Read())
                 {
                     cbxServicioOficial.Items.Add(reader["Nombre"].ToString());
-                    //cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
+                    cbxServOficEditar.Items.Add(reader["Nombre"].ToString());
                 }
 
-                servOfcEdit.Items.AddRange(cbxServicioOficial.Items.Cast<string>().ToArray());
+                cbxServOficEditar.Items.AddRange(cbxServicioOficial.Items.Cast<string>().ToArray());
             }
             catch (Exception msg)
             {
@@ -211,6 +213,7 @@ namespace ConcesionariosVehiculos
 
 
         private void btnBorrarVendedor_Click_1(object sender, EventArgs e)
+            //Desarrollo del boton borrar, con validacion de campos vacios
         {
             if (string.IsNullOrEmpty(cbxCedulaBorrar.Text))
             {
@@ -244,6 +247,7 @@ namespace ConcesionariosVehiculos
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
+            //Desarrollo del boton Crear, con validacion de campos vacios, Caracteres incorrectos y Addicion de los campos a la base de datos
         {
             try
             {
@@ -318,7 +322,7 @@ namespace ConcesionariosVehiculos
                     // ClearCreateValues();
 
                     con.Close();
-                    //
+                    
                 }
 
             }
@@ -343,6 +347,8 @@ namespace ConcesionariosVehiculos
         }
 
         public static bool validaCedula(string pCedula)
+            //Metodo para validacion de Cedula, donde se recore el string de la cedula y se validan los nuemeros uno a uno
+
         {
             int vnTotal = 0;
             string vcCedula = pCedula.Replace("-", "");
@@ -368,19 +374,21 @@ namespace ConcesionariosVehiculos
         }
 
         private void cbCedula_SelectedIndexChanged(object sender, EventArgs e)
+            //Metodo para habilitar y llenar los campos del area de modificar, a partir de la cedula
+
         {
             for (var x = 0; x < dgvVendedores.RowCount; x++)
                 if (dgvVendedores.Rows[x].Cells["Cedula"].Value.ToString() == cbCedula.Items[cbCedula.SelectedIndex].ToString())
                 {
                     txtNombreModificar.Text = dgvVendedores.Rows[x].Cells["Nombres"].Value.ToString();
                     txtApellidoModificar.Text = dgvVendedores.Rows[x].Cells["Apellidos"].Value.ToString();
-                    servOfcEdit.SelectedIndex = servOfcEdit.Items.IndexOf(dgvVendedores.Rows[x].Cells["ServicioOficial"].Value.ToString());
+                    cbxServOficEditar.SelectedIndex = cbxServOficEditar.Items.IndexOf(dgvVendedores.Rows[x].Cells["ServicioOficial"].Value.ToString());
 
                     txtNombreModificar.ReadOnly =
                     txtApellidoModificar.ReadOnly =
                         false;
 
-                    servOfcEdit.Enabled = true;
+                    cbxServOficEditar.Enabled = true;
 
                     break;
                 }
@@ -406,7 +414,7 @@ namespace ConcesionariosVehiculos
                 
                 con.ConnectionString = CS;
                 
-                var script = $"update vendedores set [Nombres] = '{txtNombreModificar.Text}', [Apellidos] = '{txtApellidoModificar.Text}', [ServOficialId] = {servOfcEdit.SelectedIndex + 1} where [Cedula] = '{cbCedula.Text}'";
+                var script = $"update vendedores set [Nombres] = '{txtNombreModificar.Text}', [Apellidos] = '{txtApellidoModificar.Text}', [ServOficialId] = {cbxServOficEditar.SelectedIndex + 1} where [Cedula] = '{cbCedula.Text}'";
 
                 con.Open();
 
@@ -419,11 +427,11 @@ namespace ConcesionariosVehiculos
                 MessageBox.Show("Se ha modificado un vendedor satisfactoriamente");
 
                 txtNombreModificar.Text = txtApellidoModificar.Text =
-                servOfcEdit.Text = cbCedula.Text = "";
+                cbxServOficEditar.Text = cbCedula.Text = "";
 
                 txtApellidoModificar.ReadOnly = txtNombreModificar.ReadOnly = true;
 
-                servOfcEdit.Enabled = false;
+                cbxServOficEditar.Enabled = false;
 
                 FillVendedoresDVG();
             }
