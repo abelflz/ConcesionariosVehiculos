@@ -149,7 +149,7 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
-        private void FillCarsDGV() {
+        public void FillCarsDGV() {
             try
             {
                 //Ejecucucion de Query para mostrar los datos de la Vista de Automoviles en el DataGrid
@@ -422,7 +422,6 @@ namespace ConcesionariosVehiculos
         private void btnEquipamiento_Click(object sender, EventArgs e)
         {
             FrmAutoxEquipamiento auto = new FrmAutoxEquipamiento();
-            this.Hide();
             auto.ShowDialog();
         }
     }

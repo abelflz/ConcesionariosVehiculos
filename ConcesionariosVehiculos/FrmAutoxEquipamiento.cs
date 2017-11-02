@@ -143,13 +143,13 @@ namespace ConcesionariosVehiculos
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Equipamientos registrados satisfactoriamente.");
-
-                    this.Hide();
-                    FrmMenu menu = new FrmMenu();
-                    menu.Closed += (s, args) => this.Close();
-                    menu.Show();
-
                     con.Close();
+
+                    FrmAutomovil automovil = (FrmAutomovil)Application.OpenForms["FrmAutomovil"];
+                    automovil.Show();
+                    automovil.FillCarsDGV();
+                    automovil.Refresh();
+                    this.Close();                    
                 }
                 else
                 {
