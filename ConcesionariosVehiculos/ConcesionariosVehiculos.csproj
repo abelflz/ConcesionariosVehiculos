@@ -123,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\ConcesionariosVehiculos.exe.config" />
     <None Include="bin\Debug\ConcesionariosVehiculos.vshost.exe.config" />
@@ -160,6 +161,13 @@
     <Content Include="Planificación\Query\Obsoleto\db 30-oct-2017.sql" />
     <Content Include="Planificación\Query\Obsoleto\dbn29-oct-2017.sql" />
     <Content Include="Planificación\Query\Obsoleto\Query Concesionario.sql" />
+    <None Include="Resources\carro.png" />
+    <Content Include="Resources\icon.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\carrito-de-la-compra.png" />
+    <None Include="Resources\tienda-online.png" />
+    <None Include="Resources\coche.png" />
+    <None Include="Resources\vendedor.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

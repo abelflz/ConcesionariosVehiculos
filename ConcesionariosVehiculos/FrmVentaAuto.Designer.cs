@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentaAuto));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtpFechaVenta = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@
             this.groupBox2.Controls.Add(this.cbxVendedores);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 212);
+            this.groupBox2.Size = new System.Drawing.Size(338, 223);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
@@ -95,11 +96,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(94, 177);
+            this.btnGuardar.Image = global::ConcesionariosVehiculos.Properties.Resources.carro;
+            this.btnGuardar.Location = new System.Drawing.Point(119, 177);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(157, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(101, 40);
             this.btnGuardar.TabIndex = 29;
-            this.btnGuardar.Text = "Realizar Venta";
+            this.btnGuardar.Text = "Vender";
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -182,8 +185,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 236);
+            this.ClientSize = new System.Drawing.Size(362, 247);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmVentaAuto";
             this.Text = "FrmVentaAuto";
             this.Load += new System.EventHandler(this.FrmVentaAuto_Load);
