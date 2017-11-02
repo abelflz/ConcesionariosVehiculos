@@ -149,6 +149,7 @@
             this.Controls.Add(this.btnAutomovil);
             this.Name = "FrmMenu";
             this.Text = "Menú Principal";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
