@@ -57,12 +57,34 @@ namespace ConcesionariosVehiculos
             con.ConnectionString = CS;
             con.Open();
 
-            String query = 
+            String query = "SELECT * FROM vw_CarSold";;
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            DataTable data = new DataTable();
+            da.Fill(data);
+
+            dgvAutosVendidos.DataSource = data;
+            dgvAutosVendidos.Refresh();
+            dgvAutosVendidos.Update();
+
+            con.Close();
         }
 
         public void FillDGVNotSold()
         {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = CS;
+            con.Open();
 
+            String query = "SELECT * FROM vw_CarNotSold"; ;
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            DataTable data = new DataTable();
+            da.Fill(data);
+
+            dgvAutosNoVendidos.DataSource = data;
+            dgvAutosNoVendidos.Refresh();
+            dgvAutosNoVendidos.Update();
+
+            con.Close();
         }
     }
 }

@@ -72,7 +72,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Chasis FROM Vehiculos";
+                string query = "SELECT Chasis FROM vw_CarNotSold";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
@@ -157,7 +157,7 @@ namespace ConcesionariosVehiculos
                         " @tipopago, (SELECT VehiculoId FROM Vehiculos WHERE Chasis IN(@chasis)), @totalmonto)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.Add(new SqlParameter("@fecha",dtpFechaVenta.Text));
+                    cmd.Parameters.Add(new SqlParameter("@fecha",Convert.ToDateTime(dtpFechaVenta.Text)));
                     cmd.Parameters.Add(new SqlParameter("@nombreVendedor",cbxVendedores.Text));
                     cmd.Parameters.Add(new SqlParameter("@tipopago",cbxModoPago.Text));
                     cmd.Parameters.Add(new SqlParameter("@chasis",cbxChasis.Text));
@@ -170,7 +170,8 @@ namespace ConcesionariosVehiculos
 
                     FrmMenu menu = (FrmMenu)Application.OpenForms["FrmMenu"];
                     menu.Show();
-                    //menu.
+                    menu.FillDGVSold();
+                    menu.FillDGVNotSold();
                     menu.Refresh();
                     this.Close();
                 }
