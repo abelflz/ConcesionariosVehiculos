@@ -34,25 +34,18 @@
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtValueFilter = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtCedulaEditar = new System.Windows.Forms.TextBox();
-            this.txtServOficEditar = new System.Windows.Forms.TextBox();
-            this.txtVentasRealizadasModificar = new System.Windows.Forms.TextBox();
             this.txtApellidoModificar = new System.Windows.Forms.TextBox();
-            this.cbxNIF = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtNombreModificar = new System.Windows.Forms.TextBox();
             this.lblConcensionario = new System.Windows.Forms.Label();
-            this.lblVentaRealizada = new System.Windows.Forms.Label();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.lblDomicilio = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.lblNIF = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBorrarVendedor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
-            this.txtVentaRealizada = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbxCedulaBorrar = new System.Windows.Forms.ComboBox();
@@ -61,14 +54,13 @@
             this.cbxServicioOficial = new System.Windows.Forms.ComboBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtNIF = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.cbCedula = new System.Windows.Forms.ComboBox();
+            this.servOfcEdit = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendedores)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -132,67 +124,29 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtCedulaEditar);
-            this.groupBox2.Controls.Add(this.txtServOficEditar);
-            this.groupBox2.Controls.Add(this.txtVentasRealizadasModificar);
+            this.groupBox2.Controls.Add(this.servOfcEdit);
+            this.groupBox2.Controls.Add(this.cbCedula);
             this.groupBox2.Controls.Add(this.txtApellidoModificar);
-            this.groupBox2.Controls.Add(this.cbxNIF);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnModificar);
             this.groupBox2.Controls.Add(this.txtNombreModificar);
             this.groupBox2.Controls.Add(this.lblConcensionario);
-            this.groupBox2.Controls.Add(this.lblVentaRealizada);
             this.groupBox2.Controls.Add(this.lblFechaNacimiento);
             this.groupBox2.Controls.Add(this.lblDomicilio);
             this.groupBox2.Controls.Add(this.lblNombre);
-            this.groupBox2.Controls.Add(this.lblNIF);
             this.groupBox2.Location = new System.Drawing.Point(572, 39);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(162, 342);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // txtCedulaEditar
-            // 
-            this.txtCedulaEditar.Location = new System.Drawing.Point(9, 191);
-            this.txtCedulaEditar.Name = "txtCedulaEditar";
-            this.txtCedulaEditar.ReadOnly = true;
-            this.txtCedulaEditar.Size = new System.Drawing.Size(147, 20);
-            this.txtCedulaEditar.TabIndex = 23;
-            // 
-            // txtServOficEditar
-            // 
-            this.txtServOficEditar.Location = new System.Drawing.Point(9, 234);
-            this.txtServOficEditar.Name = "txtServOficEditar";
-            this.txtServOficEditar.ReadOnly = true;
-            this.txtServOficEditar.Size = new System.Drawing.Size(147, 20);
-            this.txtServOficEditar.TabIndex = 24;
-            // 
-            // txtVentasRealizadasModificar
-            // 
-            this.txtVentasRealizadasModificar.Location = new System.Drawing.Point(9, 275);
-            this.txtVentasRealizadasModificar.Name = "txtVentasRealizadasModificar";
-            this.txtVentasRealizadasModificar.ReadOnly = true;
-            this.txtVentasRealizadasModificar.Size = new System.Drawing.Size(147, 20);
-            this.txtVentasRealizadasModificar.TabIndex = 23;
-            // 
             // txtApellidoModificar
             // 
-            this.txtApellidoModificar.Location = new System.Drawing.Point(9, 150);
+            this.txtApellidoModificar.Location = new System.Drawing.Point(9, 105);
             this.txtApellidoModificar.Name = "txtApellidoModificar";
             this.txtApellidoModificar.ReadOnly = true;
             this.txtApellidoModificar.Size = new System.Drawing.Size(147, 20);
             this.txtApellidoModificar.TabIndex = 22;
-            // 
-            // cbxNIF
-            // 
-            this.cbxNIF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxNIF.Enabled = false;
-            this.cbxNIF.FormattingEnabled = true;
-            this.cbxNIF.Location = new System.Drawing.Point(9, 71);
-            this.cbxNIF.Name = "cbxNIF";
-            this.cbxNIF.Size = new System.Drawing.Size(147, 21);
-            this.cbxNIF.TabIndex = 16;
             // 
             // label3
             // 
@@ -206,16 +160,17 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(44, 312);
+            this.btnModificar.Location = new System.Drawing.Point(44, 222);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtNombreModificar
             // 
-            this.txtNombreModificar.Location = new System.Drawing.Point(9, 111);
+            this.txtNombreModificar.Location = new System.Drawing.Point(9, 66);
             this.txtNombreModificar.Name = "txtNombreModificar";
             this.txtNombreModificar.ReadOnly = true;
             this.txtNombreModificar.Size = new System.Drawing.Size(147, 20);
@@ -224,25 +179,16 @@
             // lblConcensionario
             // 
             this.lblConcensionario.AutoSize = true;
-            this.lblConcensionario.Location = new System.Drawing.Point(6, 218);
+            this.lblConcensionario.Location = new System.Drawing.Point(6, 173);
             this.lblConcensionario.Name = "lblConcensionario";
             this.lblConcensionario.Size = new System.Drawing.Size(77, 13);
             this.lblConcensionario.TabIndex = 5;
             this.lblConcensionario.Text = "Servicio Oficial";
             // 
-            // lblVentaRealizada
-            // 
-            this.lblVentaRealizada.AutoSize = true;
-            this.lblVentaRealizada.Location = new System.Drawing.Point(6, 259);
-            this.lblVentaRealizada.Name = "lblVentaRealizada";
-            this.lblVentaRealizada.Size = new System.Drawing.Size(95, 13);
-            this.lblVentaRealizada.TabIndex = 4;
-            this.lblVentaRealizada.Text = "Ventas Realizadas";
-            // 
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(6, 175);
+            this.lblFechaNacimiento.Location = new System.Drawing.Point(6, 130);
             this.lblFechaNacimiento.Name = "lblFechaNacimiento";
             this.lblFechaNacimiento.Size = new System.Drawing.Size(40, 13);
             this.lblFechaNacimiento.TabIndex = 3;
@@ -251,7 +197,7 @@
             // lblDomicilio
             // 
             this.lblDomicilio.AutoSize = true;
-            this.lblDomicilio.Location = new System.Drawing.Point(6, 134);
+            this.lblDomicilio.Location = new System.Drawing.Point(6, 89);
             this.lblDomicilio.Name = "lblDomicilio";
             this.lblDomicilio.Size = new System.Drawing.Size(44, 13);
             this.lblDomicilio.TabIndex = 2;
@@ -260,20 +206,11 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(6, 95);
+            this.lblNombre.Location = new System.Drawing.Point(6, 50);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre";
-            // 
-            // lblNIF
-            // 
-            this.lblNIF.AutoSize = true;
-            this.lblNIF.Location = new System.Drawing.Point(6, 56);
-            this.lblNIF.Name = "lblNIF";
-            this.lblNIF.Size = new System.Drawing.Size(24, 13);
-            this.lblNIF.TabIndex = 0;
-            this.lblNIF.Text = "NIF";
             // 
             // label2
             // 
@@ -307,27 +244,20 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(44, 312);
+            this.btnCrear.Location = new System.Drawing.Point(44, 222);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(75, 23);
-            this.btnCrear.TabIndex = 2;
+            this.btnCrear.TabIndex = 5;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
-            // txtVentaRealizada
-            // 
-            this.txtVentaRealizada.Location = new System.Drawing.Point(6, 275);
-            this.txtVentaRealizada.Name = "txtVentaRealizada";
-            this.txtVentaRealizada.Size = new System.Drawing.Size(149, 20);
-            this.txtVentaRealizada.TabIndex = 11;
-            // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(6, 150);
+            this.txtApellido.Location = new System.Drawing.Point(6, 105);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(149, 20);
-            this.txtApellido.TabIndex = 8;
+            this.txtApellido.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -364,12 +294,8 @@
             this.groupBox4.Controls.Add(this.cbxServicioOficial);
             this.groupBox4.Controls.Add(this.txtCedula);
             this.groupBox4.Controls.Add(this.txtNombre);
-            this.groupBox4.Controls.Add(this.txtNIF);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.txtVentaRealizada);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.btnCrear);
@@ -385,63 +311,38 @@
             // 
             this.cbxServicioOficial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxServicioOficial.FormattingEnabled = true;
-            this.cbxServicioOficial.Location = new System.Drawing.Point(7, 233);
+            this.cbxServicioOficial.Location = new System.Drawing.Point(7, 188);
             this.cbxServicioOficial.Name = "cbxServicioOficial";
             this.cbxServicioOficial.Size = new System.Drawing.Size(147, 21);
-            this.cbxServicioOficial.TabIndex = 23;
+            this.cbxServicioOficial.TabIndex = 3;
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(6, 192);
+            this.txtCedula.Location = new System.Drawing.Point(6, 147);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(149, 20);
-            this.txtCedula.TabIndex = 22;
+            this.txtCedula.TabIndex = 2;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(6, 111);
+            this.txtNombre.Location = new System.Drawing.Point(6, 66);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(149, 20);
-            this.txtNombre.TabIndex = 16;
-            // 
-            // txtNIF
-            // 
-            this.txtNIF.Location = new System.Drawing.Point(6, 72);
-            this.txtNIF.Name = "txtNIF";
-            this.txtNIF.Size = new System.Drawing.Size(149, 20);
-            this.txtNIF.TabIndex = 16;
+            this.txtNombre.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 218);
+            this.label4.Location = new System.Drawing.Point(3, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 21;
             this.label4.Text = "Servicio Oficial";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 56);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "NIF";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 259);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Ventas Realizadas";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 95);
+            this.label8.Location = new System.Drawing.Point(3, 50);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 17;
@@ -450,7 +351,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 176);
+            this.label6.Location = new System.Drawing.Point(3, 131);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 19;
@@ -459,7 +360,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 134);
+            this.label7.Location = new System.Drawing.Point(3, 89);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 18;
@@ -474,6 +375,26 @@
             this.label10.Size = new System.Drawing.Size(140, 27);
             this.label10.TabIndex = 22;
             this.label10.Text = "Vendedores";
+            // 
+            // cbCedula
+            // 
+            this.cbCedula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCedula.FormattingEnabled = true;
+            this.cbCedula.Location = new System.Drawing.Point(9, 147);
+            this.cbCedula.Name = "cbCedula";
+            this.cbCedula.Size = new System.Drawing.Size(147, 21);
+            this.cbCedula.TabIndex = 25;
+            this.cbCedula.SelectedIndexChanged += new System.EventHandler(this.cbCedula_SelectedIndexChanged);
+            // 
+            // servOfcEdit
+            // 
+            this.servOfcEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.servOfcEdit.Enabled = false;
+            this.servOfcEdit.FormattingEnabled = true;
+            this.servOfcEdit.Location = new System.Drawing.Point(9, 188);
+            this.servOfcEdit.Name = "servOfcEdit";
+            this.servOfcEdit.Size = new System.Drawing.Size(147, 21);
+            this.servOfcEdit.TabIndex = 26;
             // 
             // FrmVendedores
             // 
@@ -513,12 +434,9 @@
         private System.Windows.Forms.Button btnBorrarVendedor;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Label lblConcensionario;
-        private System.Windows.Forms.Label lblVentaRealizada;
         private System.Windows.Forms.Label lblFechaNacimiento;
         private System.Windows.Forms.Label lblDomicilio;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblNIF;
-        private System.Windows.Forms.TextBox txtVentaRealizada;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombreModificar;
         private System.Windows.Forms.Label label3;
@@ -527,23 +445,18 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtNIF;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtServOficEditar;
-        private System.Windows.Forms.TextBox txtVentasRealizadasModificar;
         private System.Windows.Forms.TextBox txtApellidoModificar;
-        private System.Windows.Forms.ComboBox cbxNIF;
         private System.Windows.Forms.ComboBox cbxCedulaBorrar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCedulaEditar;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.ComboBox cbxFilter;
         private System.Windows.Forms.ComboBox cbxServicioOficial;
+        private System.Windows.Forms.ComboBox cbCedula;
+        private System.Windows.Forms.ComboBox servOfcEdit;
     }
 }

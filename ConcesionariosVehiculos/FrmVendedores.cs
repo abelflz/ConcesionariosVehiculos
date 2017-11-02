@@ -137,6 +137,11 @@ namespace ConcesionariosVehiculos
                 dgvVendedores.Refresh();
                 dgvVendedores.Update();
 
+                cbCedula.Items.Clear();
+
+                for (var x = 0; x < dgvVendedores.RowCount; x++)
+                    cbCedula.Items.Add(dgvVendedores.Rows[x].Cells[3].Value);
+
                 con.Close();
             }
             catch (Exception msg)
@@ -179,6 +184,8 @@ namespace ConcesionariosVehiculos
                     cbxServicioOficial.Items.Add(reader["Nombre"].ToString());
                     //cbxCedulaBorrar.Items.Add(reader["Cedula"].ToString());
                 }
+
+                servOfcEdit.Items.AddRange(cbxServicioOficial.Items.Cast<string>().ToArray());
             }
             catch (Exception msg)
             {
@@ -238,47 +245,78 @@ namespace ConcesionariosVehiculos
         {
             try
             {
-                if (
-                        string.IsNullOrEmpty(txtNIF.Text) || string.IsNullOrEmpty(txtNombre.Text) ||
-                        string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(txtCedula.Text) ||
-                        string.IsNullOrEmpty(cbxServicioOficial.Text) || string.IsNullOrEmpty(txtVentaRealizada.Text)
-                        )
+                if (string.IsNullOrEmpty(txtNombre.Text)
+                    || string.IsNullOrEmpty(txtApellido.Text)
+                    || string.IsNullOrEmpty(txtCedula.Text)
+                    || string.IsNullOrEmpty(cbxServicioOficial.Text))
                 {
                     MessageBox.Show("Todos los campos deben de ser llenados");
+                    return;
                 }
 
-                else
+                else if (System.Text.RegularExpressions.Regex.IsMatch(txtNombre.Text, @"\d"))
                 {
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = CS;
+                    MessageBox.Show("Nombre incorrecto");
+                    return;
+                }
 
-                    con.Open();
+                else if (System.Text.RegularExpressions.Regex.IsMatch(txtApellido.Text, @"\d"))
+                {
+                    MessageBox.Show("Apellido incorrecto");
+                    return;
+                }
 
-                    string query = "SELECT COUNT(*) FROM concesionarios.dbo.Vendedores WHERE Cedula IN(@Cedula)";
-                    SqlCommand validacmd = new SqlCommand(query, con);
-                    validacmd.Parameters.Add(new SqlParameter("@cedula", txtCedula.Text));
-                    var cantidad = validacmd.ExecuteScalar().ToString();
+                else if (!validaCedula(txtCedula.Text))
+                {
+                    MessageBox.Show("Cédula incorrecta");
+                    return;
+                }
 
-
-                    if (int.Parse(cantidad) == 0)
+                for (var x = 0; x < dgvVendedores.RowCount; x++)
+                    if (dgvVendedores.Rows[x].Cells[3].Value.ToString() == txtCedula.Text)
                     {
-
-                        string query2 = "INSERT INTO VENDEDORES VALUES(@Nombres, @Apellidos, (SELECT ServOficialId FROM ServiciosOficiales WHERE Nombre IN(@ServicioOficial)), @Cedula, @VentasRealizadas, @NIF)";
-                        SqlCommand cmd = new SqlCommand(query2, con);
-                        cmd.Parameters.Add(new SqlParameter("@Nombres", txtNombre.Text));
-                        cmd.Parameters.Add(new SqlParameter("@Apellidos", txtApellido.Text));
-                        cmd.Parameters.Add(new SqlParameter("@ServicioOficial", cbxServicioOficial.Text));
-                        cmd.Parameters.Add(new SqlParameter("@Cedula", txtCedula.Text));
-                        cmd.Parameters.Add(new SqlParameter("@VentasRealizadas", txtVentaRealizada.Text));
-                        cmd.Parameters.Add(new SqlParameter("@NIF", txtNIF.Text));
-                        MessageBox.Show(" Se ha agregado un vendedor satisfactoriamente");
-
-                        FillVendedoresDVG();
-                        // ClearCreateValues();
-
-                        con.Close();
-                        //
+                        MessageBox.Show("La cédula ya existe");
+                        return;
                     }
+
+                //else if (cbxServicioOficial.SelectedIndex)
+                //{
+                //    MessageBox.Show("Nombre incorrecto");
+                //    return;
+                //}
+
+
+
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                con.Open();
+
+                string query = "SELECT COUNT(*) FROM concesionarios.dbo.Vendedores WHERE Cedula IN(@Cedula)";
+                SqlCommand validacmd = new SqlCommand(query, con);
+                validacmd.Parameters.Add(new SqlParameter("@cedula", txtCedula.Text));
+                var cantidad = validacmd.ExecuteScalar().ToString();
+
+
+                if (int.Parse(cantidad) == 0)
+                {
+
+                    string query2 = "INSERT INTO VENDEDORES([Nombres], [Apellidos], [ServOficialId], [Cedula]) VALUES(@Nombres, @Apellidos, (SELECT ServOficialId FROM ServiciosOficiales WHERE Nombre IN(@ServicioOficial)), @Cedula)";
+                    SqlCommand cmd = new SqlCommand(query2, con);
+                    cmd.Parameters.Add(new SqlParameter("@Nombres", txtNombre.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Apellidos", txtApellido.Text));
+                    cmd.Parameters.Add(new SqlParameter("@ServicioOficial", cbxServicioOficial.Text));
+                    cmd.Parameters.Add(new SqlParameter("@Cedula", txtCedula.Text));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show(" Se ha agregado un vendedor satisfactoriamente");
+
+                    FillVendedoresDVG();
+                    // ClearCreateValues();
+
+                    con.Close();
+                    //
                 }
 
             }
@@ -299,6 +337,97 @@ namespace ConcesionariosVehiculos
                 cmd.ExecuteNonQuery();
 
                 con.Close();
+            }
+        }
+
+        public static bool validaCedula(string pCedula)
+        {
+            int vnTotal = 0;
+            string vcCedula = pCedula.Replace("-", "");
+            int pLongCed = vcCedula.Trim().Length;
+            int[] digitoMult = new int[11] { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+
+            if (pLongCed < 11 || pLongCed > 11 || vcCedula == "00000000000")
+                return false;
+
+            for (int vDig = 1; vDig <= pLongCed; vDig++)
+            {
+                int vCalculo = Int32.Parse(vcCedula.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
+                if (vCalculo < 10)
+                    vnTotal += vCalculo;
+                else
+                    vnTotal += Int32.Parse(vCalculo.ToString().Substring(0, 1)) + Int32.Parse(vCalculo.ToString().Substring(1, 1));
+            }
+
+            if (vnTotal % 10 == 0)
+                return true;
+            else
+                return false;
+        }
+
+        private void cbCedula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (var x = 0; x < dgvVendedores.RowCount; x++)
+                if (dgvVendedores.Rows[x].Cells[3].Value.ToString() == cbCedula.Items[cbCedula.SelectedIndex].ToString())
+                {
+                    txtNombreModificar.Text = dgvVendedores.Rows[x].Cells[0].Value.ToString();
+                    txtApellidoModificar.Text = dgvVendedores.Rows[x].Cells[1].Value.ToString();
+                    servOfcEdit.SelectedIndex = servOfcEdit.Items.IndexOf(dgvVendedores.Rows[x].Cells[2].Value.ToString());
+
+                    txtNombreModificar.ReadOnly =
+                    txtApellidoModificar.ReadOnly =
+                        false;
+
+                    servOfcEdit.Enabled = true;
+
+                    break;
+                }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (System.Text.RegularExpressions.Regex.IsMatch(txtNombreModificar.Text, @"\d"))
+                {
+                    MessageBox.Show("Nombre incorrecto");
+                    return;
+                }
+
+                else if (System.Text.RegularExpressions.Regex.IsMatch(txtApellidoModificar.Text, @"\d"))
+                {
+                    MessageBox.Show("Apellido incorrecto");
+                    return;
+                }
+
+                var con = new SqlConnection();
+                
+                con.ConnectionString = CS;
+                
+                var script = $"update vendedores set [Nombres] = '{txtNombreModificar.Text}', [Apellidos] = '{txtApellidoModificar.Text}', [ServOficialId] = {servOfcEdit.SelectedIndex + 1} where [Cedula] = '{cbCedula.Text}'";
+
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand(script, con);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+                MessageBox.Show("Se ha modificado un vendedor satisfactoriamente");
+
+                txtNombreModificar.Text = txtApellidoModificar.Text =
+                servOfcEdit.Text = cbCedula.Text = "";
+
+                txtApellidoModificar.ReadOnly = txtNombreModificar.ReadOnly = true;
+
+                servOfcEdit.Enabled = false;
+
+                FillVendedoresDVG();
+            }
+            catch(Exception ex)
+            {
+
             }
         }
     }

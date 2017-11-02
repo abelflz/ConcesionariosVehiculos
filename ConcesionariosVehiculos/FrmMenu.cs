@@ -57,7 +57,7 @@ namespace ConcesionariosVehiculos
             con.ConnectionString = CS;
             con.Open();
 
-            String query = 
+            //String query = 
         }
 
         public void FillDGVNotSold()
