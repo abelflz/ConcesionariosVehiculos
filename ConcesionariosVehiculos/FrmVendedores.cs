@@ -31,48 +31,54 @@ namespace ConcesionariosVehiculos
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-
-            try
+            if (!string.IsNullOrEmpty(cbxFilter.Text))
             {
-                //Desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CS;
-                con.Open();
+                try
+                {
+                    //Desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+                    con.Open();
 
-                string Filter = cbxFilter.Text;
-                string Value = txtValueFilter.Text;
+                    string Filter = cbxFilter.Text;
+                    string Value = txtValueFilter.Text;
 
-                string query = "SELECT * FROM Concesionarios.dbo.vw_Vendedores WHERE " + Filter + " LIKE ('%" + Value + "%') ";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                DataTable data = new DataTable();
-                da.Fill(data);
+                    string query = "SELECT DISTINCT * FROM Concesionarios.dbo.vw_Vendedores WHERE " + Filter + " LIKE ('%" + Value + "%') ";
+                    SqlDataAdapter da = new SqlDataAdapter(query, con);
+                    DataTable data = new DataTable();
+                    da.Fill(data);
 
-                dgvVendedores.DataSource = data;
-                dgvVendedores.AutoResizeColumns();
+                    dgvVendedores.DataSource = data;
+                    dgvVendedores.AutoResizeColumns();
 
-                dgvVendedores.Refresh();
-                dgvVendedores.Update();
+                    dgvVendedores.Refresh();
+                    dgvVendedores.Update();
 
-                con.Close();
+                    con.Close();
+                }
+                catch (Exception msg)
+                {
+                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                    SqlConnection con = new SqlConnection();
+                    con.ConnectionString = CS;
+
+                    string eMessage = msg.ToString();
+                    con.Open();
+
+                    string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                    MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
+                }
             }
-            catch (Exception msg)
+            else
             {
-                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = CS;
-
-                string eMessage = msg.ToString();
-                con.Open();
-
-                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
-                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
+                MessageBox.Show("Debe de seleccionar un critero para filtrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }          
         }
 
         //Metodo para llenar el combobox de cedula 
@@ -86,7 +92,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT Cedula FROM vw_Vendedores";
+                string query = "SELECT DISTINCT Cedula FROM vw_Vendedores";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
