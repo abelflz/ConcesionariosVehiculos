@@ -171,7 +171,8 @@ namespace ConcesionariosVehiculos
                     con.ConnectionString = CS;
                     con.Open();
 
-                    string query = "INSERT INTO Ventas VALUES(@fecha,(SELECT VendedorId FROM Vendedores WHERE Nombres IN(@nombreVendedor)),@tipopago, (SELECT VehiculoId FROM Vehiculos WHERE Chasis IN(@chasis)), @totalmonto)";
+                    string query = "INSERT INTO Ventas VALUES(@fecha,(SELECT VendedorId FROM Vendedores WHERE Nombres IN(@nombreVendedor)),"+
+                        " @tipopago,@totalmonto, (SELECT VehiculoId FROM Vehiculos WHERE Chasis IN(@chasis)))";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.Add(new SqlParameter("@fecha",Convert.ToDateTime(dtpFechaVenta.Text)));
@@ -195,6 +196,7 @@ namespace ConcesionariosVehiculos
                 }
                 catch (Exception msg)
                 {
+                    MessageBox.Show(""+msg);
                     //En caso de Error, tomar datos y insertarlos en la entidad de Logs.
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
