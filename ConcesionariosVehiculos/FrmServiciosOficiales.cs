@@ -21,7 +21,7 @@ namespace ConcesionariosVehiculos
         private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
         private void FrmServiciosOficiales_Load(object sender, EventArgs e)
-            //Metodos ha utilizar 
+            //Metodos a utilizar 
         {
             FillServOfic();
             FillServOficNIF();

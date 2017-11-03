@@ -236,6 +236,8 @@ namespace ConcesionariosVehiculos
 
                     FillVendedorCedula();
                     FillVendedoresDVG();
+
+                    cbxCedulaBorrar.SelectedIndex = -1;
                 }
                 catch (Exception)
                 {
@@ -318,10 +320,15 @@ namespace ConcesionariosVehiculos
                     MessageBox.Show(" Se ha agregado un vendedor satisfactoriamente");
 
                     FillVendedoresDVG();
+                    FillVendedorCedula();
                     // ClearCreateValues();
 
                     con.Close();
-                    
+
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtCedula.Text = "";
+                    cbxServicioOficial.Text = "";
                 }
 
             }

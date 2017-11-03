@@ -171,7 +171,7 @@
             "NIF",
             "Nombre",
             "Domicilio"});
-            this.cbxFilter.Location = new System.Drawing.Point(131, 18);
+            this.cbxFilter.Location = new System.Drawing.Point(130, 19);
             this.cbxFilter.Name = "cbxFilter";
             this.cbxFilter.Size = new System.Drawing.Size(103, 21);
             this.cbxFilter.TabIndex = 38;
@@ -197,7 +197,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(240, 19);
+            this.btnBuscar.Location = new System.Drawing.Point(240, 18);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(96, 23);
             this.btnBuscar.TabIndex = 1;
