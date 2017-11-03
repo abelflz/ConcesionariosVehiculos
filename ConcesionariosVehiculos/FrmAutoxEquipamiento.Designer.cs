@@ -58,7 +58,7 @@
             // 
             this.lbEquipamientos.AutoSize = true;
             this.lbEquipamientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEquipamientos.Location = new System.Drawing.Point(138, 51);
+            this.lbEquipamientos.Location = new System.Drawing.Point(130, 51);
             this.lbEquipamientos.Name = "lbEquipamientos";
             this.lbEquipamientos.Size = new System.Drawing.Size(136, 24);
             this.lbEquipamientos.TabIndex = 9;

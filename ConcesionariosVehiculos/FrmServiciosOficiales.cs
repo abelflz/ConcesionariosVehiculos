@@ -18,10 +18,12 @@ namespace ConcesionariosVehiculos
         {
             InitializeComponent();
         }
+
+        //Conexión a base de datos.
         private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
+        //Métodos a utilizar en la cargar del formulario.
         private void FrmServiciosOficiales_Load(object sender, EventArgs e)
-            //Metodos a utilizar 
         {
             FillServOfic();
             FillServOficNIF();
@@ -33,65 +35,24 @@ namespace ConcesionariosVehiculos
 
         private void FillServOfic(){
             try { 
-
-            //Ejecucucion de Query para mostrar los datos de la Vista de Servicios Oficiales en el DataGrid
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = CS;
-            con.Open();
-
-            string query = "SELECT * FROM vw_ServOfic";
-
-            SqlDataAdapter da = new SqlDataAdapter(query, con);
-            DataTable data = new DataTable();
-            da.Fill(data);
-
-            dgvServOfic.DataSource = data;
-            dgvServOfic.AutoResizeColumns();
-
-            dgvServOfic.Refresh();
-            dgvServOfic.Update();
-
-            con.Close();
-        }
-            catch (Exception msg)
-            {
-                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
-                SqlConnection con = new SqlConnection();
-        con.ConnectionString = CS;
-
-                string eMessage = msg.ToString();
-        con.Open();
-
-                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
-        SqlCommand cmd = new SqlCommand(query, con);
-        cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
-                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-        }
-        private void FillServOficNIF()
-            // Metedo utilizado para el llenar los combo box con los datos de la BD
-        {
-            try
-            {
-                cbxNIFBorrar.Items.Clear();
-                cbxNIFModificar.Items.Clear();
+                //Ejecucucion de Query para mostrar los datos de la Vista de Servicios Oficiales en el DataGrid
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT NIF FROM vw_ServOfic";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader reader = cmd.ExecuteReader();
+                string query = "SELECT * FROM vw_ServOfic";
 
-                while (reader.Read())
-                {
-                    cbxNIFBorrar.Items.Add(reader["NIF"].ToString());
-                    cbxNIFModificar.Items.Add(reader["NIF"].ToString());
-                }
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                DataTable data = new DataTable();
+                da.Fill(data);
+
+                dgvServOfic.DataSource = data;
+                dgvServOfic.AutoResizeColumns();
+
+                dgvServOfic.Refresh();
+                dgvServOfic.Update();
+
+                con.Close();
             }
             catch (Exception msg)
             {
@@ -113,24 +74,67 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para el llenar los combo box con los datos de la BD.
+        private void FillServOficNIF()
+        {
+            try
+            {
+                cbxNIFBorrar.Items.Clear();
+                cbxNIFModificar.Items.Clear();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+                con.Open();
+
+                string query = "SELECT NIF FROM vw_ServOfic";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cbxNIFBorrar.Items.Add(reader["NIF"].ToString());
+                    cbxNIFModificar.Items.Add(reader["NIF"].ToString());
+                }
+            }
+            catch (Exception msg)
+            {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos.
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
+
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+        }
+
+        //Metodo para Limpiar los campo en el lado de Creación.
         private void ClearValues()
-            //Metodo para Limpiar los campo en el lado de Creacion
         {
             txtNIF.Text = "";
             txtNombre.Text = "";
             txtDomicilio.Text = "";
 
         }
+
+        // Método para Limpiar los campo en el lado de modificación. 
         private void ClearValuesModificar()
-        // Metodo para Limpiar los campo en el lado de modificacion 
         {
             txtNombreModificar.Text = "";
             txtDomilicioModificar.Text = "";
             cbxNIFModificar.SelectedIndex = -1;
 
         }
+
+        //Método para bloqueo de campos para editar.
         private void BlockValuesModificar()
-            //metodo para bloqueo de campos para editar
         {
             txtNombreModificar.ReadOnly = true;
             txtDomilicioModificar.ReadOnly = true;
@@ -143,7 +147,7 @@ namespace ConcesionariosVehiculos
             {
                 try
                 {
-                    //desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
+                    //desarrollo de Código para el boton buscar, utilizando parámetros de búsqueda.
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
                     con.Open();
@@ -166,7 +170,7 @@ namespace ConcesionariosVehiculos
                 }
                 catch (Exception msg)
                 {
-                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                    //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos.
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
 
@@ -189,8 +193,8 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Desarrollo de botón crear, con validación de de campos no vacíos
         private void btnCrear_Click(object sender, EventArgs e)
-            //Desarrollo de boton crear, con validacion de de campos no vacios
         {
             try
             {
@@ -198,7 +202,8 @@ namespace ConcesionariosVehiculos
                     string.IsNullOrEmpty(txtNIF.Text) ||
                     string.IsNullOrEmpty(txtNombre.Text) ||
                     string.IsNullOrEmpty(txtDomicilio.Text)
-                    ) {
+                    )
+                {
                     MessageBox.Show("Todos los campos deben ser llenados");
                 }
                 else
@@ -243,10 +248,10 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Este Botón se utiliza para borrar los registros a partir del NIF (Número de Indentificación Fiscal)
         private void btnBorrar_Click(object sender, EventArgs e)
-            //Este Boton se utiliza para borrar los registros a partir del NIF(Numero de Indentificacion Fiscal)
         {
-            //Validacion de que no se encuentre vacio el Combobox
+            //Validación de que no se encuentre vacío el Combobox
             if (string.IsNullOrEmpty(cbxNIFBorrar.Text))
             {
                 MessageBox.Show("Debe Seleccionar un NIF para poder eliminar el Registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -256,7 +261,7 @@ namespace ConcesionariosVehiculos
             {
                 try
                 {
-                    //Conexion a la base de datos 
+                    //Conexión a la base de datos 
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
                     con.Open();
@@ -271,7 +276,6 @@ namespace ConcesionariosVehiculos
 
                     FillServOfic();
                     FillServOficNIF();
-
                 }
                 catch (Exception)
                 {
@@ -282,8 +286,8 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Validación de campo para introducir solo número
         private void txtNIF_TextChanged(object sender, EventArgs e)
-            //Validacion de campo para introducir solo numero
         {
             if (!Regex.IsMatch(txtNIF.Text, @"(^([0-9]*|\d*\d{1}?\d*)$)"))
             {
@@ -303,8 +307,8 @@ namespace ConcesionariosVehiculos
             return Valor;
         }
 
+        //Método para el autollenado de campos para el caso de edicion de Servicios Oficiales
         private void cbxNIFModificar_SelectedIndexChanged(object sender, EventArgs e)
-            //metodo para el autollenado de campos para el caso de edicion de Servicios Oficiales
         {
             if (cbxNIFModificar.SelectedIndex != -1)
             {
@@ -319,8 +323,6 @@ namespace ConcesionariosVehiculos
                     
                     query = "SELECT Direccion FROM ServiciosOficiales WHERE NIF = '" + cbxNIFModificar.Text + "'";
                     txtDomilicioModificar.Text = AutoEdit(query);
-
-
                 }
                 catch(Exception msgex)
                 {
@@ -340,7 +342,6 @@ namespace ConcesionariosVehiculos
 
                     con.Close();
                 }
-                
             }
             else
             {
@@ -348,14 +349,12 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Desarrollo del boton Modificar con validacion de Cambios vacios, donde se sobreescriben los campo modificados
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //Desarrollo del boton Modificar con validacion de Cambios vacios, donde se sobreescriben los campo modificados
             try
             {
-                if (
-                    string.IsNullOrEmpty(txtDomilicioModificar.Text) || string.IsNullOrEmpty(txtNombreModificar.Text)
-                    )
+                if (string.IsNullOrEmpty(txtDomilicioModificar.Text) || string.IsNullOrEmpty(txtNombreModificar.Text))
                 {
                     MessageBox.Show("Todos los campos deben ser llenados");
                 }
@@ -378,7 +377,6 @@ namespace ConcesionariosVehiculos
                     ClearValuesModificar();
                     BlockValuesModificar();
                     con.Close();
-                    
                 }
             }
             catch (Exception msg)

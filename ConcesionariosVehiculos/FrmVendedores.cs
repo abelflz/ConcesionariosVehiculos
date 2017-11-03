@@ -75,9 +75,8 @@ namespace ConcesionariosVehiculos
             }
         }
 
-
+        //Metodo para llenar el combobox de cedula 
         private void FillVendedorCedula()
-            //Metodo para llenar el combobox de cedula 
         {
             try
             {
@@ -116,7 +115,6 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
-
 
         private void FillVendedoresDVG()
         {
@@ -166,9 +164,8 @@ namespace ConcesionariosVehiculos
             }
         }
 
-
+        //Metodo para llenar el combobox de Servicios 
         private void FillServiciosOficiales()
-            //Metodo para llenar el combobox de Servicios 
         {
             try
             {
@@ -187,7 +184,6 @@ namespace ConcesionariosVehiculos
                     cbxServicioOficial.Items.Add(reader["Nombre"].ToString());
                     cbxServOficEditar.Items.Add(reader["Nombre"].ToString());
                 }
-
                 cbxServOficEditar.Items.AddRange(cbxServicioOficial.Items.Cast<string>().ToArray());
             }
             catch (Exception msg)
@@ -210,9 +206,8 @@ namespace ConcesionariosVehiculos
             }
         }
 
-
+        //Desarrollo del boton borrar, con validacion de campos vacios
         private void btnBorrarVendedor_Click_1(object sender, EventArgs e)
-            //Desarrollo del boton borrar, con validacion de campos vacios
         {
             if (string.IsNullOrEmpty(cbxCedulaBorrar.Text))
             {
@@ -247,15 +242,12 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Desarrollo del boton Crear, con validacion de campos vacios, Caracteres incorrectos y Adicion de los campos a la base de datos
         private void btnCrear_Click(object sender, EventArgs e)
-            //Desarrollo del boton Crear, con validacion de campos vacios, Caracteres incorrectos y Addicion de los campos a la base de datos
         {
             try
             {
-                if (string.IsNullOrEmpty(txtNombre.Text)
-                    || string.IsNullOrEmpty(txtApellido.Text)
-                    || string.IsNullOrEmpty(txtCedula.Text)
-                    || string.IsNullOrEmpty(cbxServicioOficial.Text))
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(txtCedula.Text) || string.IsNullOrEmpty(cbxServicioOficial.Text))
                 {
                     MessageBox.Show("Todos los campos deben de ser llenados");
                     return;
@@ -286,14 +278,6 @@ namespace ConcesionariosVehiculos
                         return;
                     }
 
-                //else if (cbxServicioOficial.SelectedIndex)
-                //{
-                //    MessageBox.Show("Nombre incorrecto");
-                //    return;
-                //}
-
-
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
 
@@ -304,10 +288,8 @@ namespace ConcesionariosVehiculos
                 validacmd.Parameters.Add(new SqlParameter("@cedula", txtCedula.Text));
                 var cantidad = validacmd.ExecuteScalar().ToString();
 
-
                 if (int.Parse(cantidad) == 0)
                 {
-
                     string query2 = "INSERT INTO VENDEDORES([Nombres], [Apellidos], [ServOficialId], [Cedula]) VALUES(@Nombres, @Apellidos, (SELECT ServOficialId FROM ServiciosOficiales WHERE Nombre IN(@ServicioOficial)), @Cedula)";
                     SqlCommand cmd = new SqlCommand(query2, con);
                     cmd.Parameters.Add(new SqlParameter("@Nombres", txtNombre.Text));
@@ -321,7 +303,6 @@ namespace ConcesionariosVehiculos
 
                     FillVendedoresDVG();
                     FillVendedorCedula();
-                    // ClearCreateValues();
 
                     con.Close();
 
@@ -352,9 +333,8 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Metodo para validacion de Cedula, donde se recore el string de la cedula y se validan los numeros uno a uno
         public static bool validaCedula(string pCedula)
-            //Metodo para validacion de Cedula, donde se recore el string de la cedula y se validan los nuemeros uno a uno
-
         {
             int vnTotal = 0;
             string vcCedula = pCedula.Replace("-", "");
@@ -379,9 +359,8 @@ namespace ConcesionariosVehiculos
                 return false;
         }
 
+        //Metodo para habilitar y llenar los campos del area de modificar, a partir de la cedula
         private void cbCedula_SelectedIndexChanged(object sender, EventArgs e)
-            //Metodo para habilitar y llenar los campos del area de modificar, a partir de la cedula
-
         {
             for (var x = 0; x < dgvVendedores.RowCount; x++)
                 if (dgvVendedores.Rows[x].Cells["Cedula"].Value.ToString() == cbCedula.Items[cbCedula.SelectedIndex].ToString())
@@ -392,7 +371,7 @@ namespace ConcesionariosVehiculos
 
                     txtNombreModificar.ReadOnly =
                     txtApellidoModificar.ReadOnly =
-                        false;
+                    false;
 
                     cbxServOficEditar.Enabled = true;
 
@@ -441,9 +420,23 @@ namespace ConcesionariosVehiculos
 
                 FillVendedoresDVG();
             }
-            catch(Exception)
+            catch(Exception msg)
             {
+                //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = CS;
 
+                string eMessage = msg.ToString();
+                con.Open();
+
+                string query = "INSERT INTO LOGS VALUES(@logInfo, GETDATE())";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.Add(new SqlParameter("@logInfo", eMessage));
+                MessageBox.Show("No se pudo completar solicitud, favor contactar al proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
             }
         }
     }

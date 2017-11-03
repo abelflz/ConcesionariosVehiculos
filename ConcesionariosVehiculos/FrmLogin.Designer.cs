@@ -85,7 +85,7 @@
             // 
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLogin.Image = global::ConcesionariosVehiculos.Properties.Resources.login;
-            this.btnLogin.Location = new System.Drawing.Point(110, 84);
+            this.btnLogin.Location = new System.Drawing.Point(90, 90);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(78, 32);
             this.btnLogin.TabIndex = 2;
