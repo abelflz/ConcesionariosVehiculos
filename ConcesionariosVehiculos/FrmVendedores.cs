@@ -127,7 +127,7 @@ namespace ConcesionariosVehiculos
                 con.ConnectionString = CS;
                 con.Open();
 
-                string query = "SELECT *, (select count(*) from [Concesionarios].[dbo].[Ventas] as t2 where t2.[VendedorId] = t.VendedorId) as [Ventas Realizadas] FROM vw_Vendedores as t";
+                string query = "SELECT DISTINCT *, (select count(*) from [Concesionarios].[dbo].[Ventas] as t2 where t2.[VendedorId] = t.VendedorId) as [Ventas Realizadas] FROM vw_Vendedores as t";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
