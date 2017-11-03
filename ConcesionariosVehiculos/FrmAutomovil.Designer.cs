@@ -462,7 +462,7 @@
             this.cbxCombustible.Items.AddRange(new object[] {
             "Gasolina",
             "Gasoil/Diesel",
-            "Gas/GPL"});
+            "Gas/GLP"});
             this.cbxCombustible.Location = new System.Drawing.Point(133, 69);
             this.cbxCombustible.Name = "cbxCombustible";
             this.cbxCombustible.Size = new System.Drawing.Size(121, 21);
@@ -890,7 +890,7 @@
             this.cbxCombustibleEditar.Items.AddRange(new object[] {
             "Gasolina",
             "Gasoil/Diesel",
-            "Gas/GPL"});
+            "Gas/GLP"});
             this.cbxCombustibleEditar.Location = new System.Drawing.Point(159, 69);
             this.cbxCombustibleEditar.Name = "cbxCombustibleEditar";
             this.cbxCombustibleEditar.Size = new System.Drawing.Size(121, 21);
