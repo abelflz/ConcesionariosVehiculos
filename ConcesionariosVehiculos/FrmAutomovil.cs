@@ -19,9 +19,10 @@ namespace ConcesionariosVehiculos
             InitializeComponent();
         }
 
-        //Conexion a la Base de datos
+        //Conexion a la Base de datos.
         private string CS = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
+        //Método para cargar formulario.
         private void FrmAutomovil_Load(object sender, EventArgs e)
         {
             FillCarsChasis();
@@ -29,10 +30,14 @@ namespace ConcesionariosVehiculos
             FillCarMarks();
         }
 
+        //Método para llenar comboboxes de marcas de carros.
         private void FillCarMarks() {
             try {
+                //Limpiar combo boxes.
                 cbxMarca.Items.Clear();
                 cbxMarcaEditar.Items.Clear();
+
+                //Defino consulta a realizar y conexión.
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
                 string query = "SELECT MarcaDescripcion FROM Marcas";
@@ -41,13 +46,15 @@ namespace ConcesionariosVehiculos
                 SqlCommand cmd = new SqlCommand(query,con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
+                //Mientras se trae la data se va agregando en los combo boxes correspondientes.
                 while (reader.Read())
                 {
                     cbxMarca.Items.Add(reader["MarcaDescripcion"].ToString());
                     cbxMarcaEditar.Items.Add(reader["MarcaDescripcion"].ToString());
                 }
                 con.Close();
-            } catch (Exception msg)
+            }
+            catch (Exception msg)
             {
                 //En caso de Error, tomar datos y insertarlos en la entidad que corresponde a estos
                 SqlConnection con = new SqlConnection();
@@ -67,25 +74,31 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para buscar y filtrar grid.
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (!(string.IsNullOrEmpty(cbxFilter.Text)))
             {
                 try
                 {
-                    //desarrollo de Codigo para el boton buscar, utilizando parametros de busqueda 
+                    //Desarrollo de Código para el boton buscar, utilizando parámetros de búsqueda 
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
+
+                    //Apertura de conexión.
                     con.Open();
 
+                    //Definición de variables de filtro.
                     string Filter = cbxFilter.Text;
                     string Value = txtValueFilter.Text;
 
+                    //Definición y ejecución de consulta.
                     string query = "SELECT * FROM vw_VEHICULOS2 WHERE " + Filter + " LIKE ('%" + Value + "%') ";
                     SqlDataAdapter da = new SqlDataAdapter(query, con);
                     DataTable data = new DataTable();
                     da.Fill(data);
 
+                    //Llenar el data grid view.
                     dgvAutomovil.DataSource = data;
                     dgvAutomovil.AutoResizeColumns();
 
@@ -115,23 +128,31 @@ namespace ConcesionariosVehiculos
             }
             else
             {
-                MessageBox.Show("Campos valor a filtrar, y criterio para filtrar, son requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Criterio para filtrar es requerido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        //Método utilizado para llenar/actualizar comboboxes de Chasis de carros.
         private void FillCarsChasis()
         {
             try
             {
+                //Limpiar combo boxes.
                 cbxChasisBorrar.Items.Clear();
                 cbxChasisEditar.Items.Clear();
+
+                //Definición de consulta y ejecución.
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
+
+                //Apertura de conexión.
                 con.Open();
 
                 string query = "SELECT Chasis FROM Vehiculos";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();
 
+                //Llenado de combo boxes.
                 while (reader.Read()) {
                     cbxChasisEditar.Items.Add(reader["Chasis"].ToString());
                     cbxChasisBorrar.Items.Add(reader["Chasis"].ToString());
@@ -156,20 +177,24 @@ namespace ConcesionariosVehiculos
                 con.Close();
             }
         }
+
+        //Método utilizado para llenar/actualizar el data grid view de carros.
         public void FillCarsDGV() {
             try
             {
-                //Ejecucucion de Query para mostrar los datos de la Vista de Automoviles en el DataGrid
+                //Ejecución de Query para mostrar los datos de la Vista de Automoviles en el DataGrid.
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = CS;
-                con.Open();
 
+                //Ejecución de consulta.
+                con.Open();
                 string query = "SELECT * FROM vw_VEHICULOS2";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable data = new DataTable();
                 da.Fill(data);
 
+                //Llenado de datagridview.
                 dgvAutomovil.DataSource = data;
                 dgvAutomovil.AutoResizeColumns();
 
@@ -198,6 +223,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para borrar un automóvil.
         private void btnBorrarAutomovil_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbxChasisBorrar.Text))
@@ -209,6 +235,7 @@ namespace ConcesionariosVehiculos
             {
                 try
                 {
+                    //Apertura de conexión y ejecución de consulta, para eliminación de vehículos.
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
                     con.Open();
@@ -230,6 +257,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para agregar un automóvil.
         private void btnCrear_Click(object sender, EventArgs e)
         {
             try
@@ -248,11 +276,14 @@ namespace ConcesionariosVehiculos
                     MessageBox.Show("Todos los campos deben de ser llenados");
                 }
                 else {
+                    //Creación de conexión.
                     SqlConnection con = new SqlConnection();
                     con.ConnectionString = CS;
 
+                    //Apertura de conexión.
                     con.Open();
 
+                    //Validar que no existe chasis igual.
                     string query = "SELECT COUNT(*) FROM VEHICULOS WHERE CHASIS IN(@chasis)";
                     SqlCommand validacmd = new SqlCommand(query, con);
                     validacmd.Parameters.Add(new SqlParameter("@chasis", txtChasis.Text));
@@ -260,6 +291,7 @@ namespace ConcesionariosVehiculos
 
                     if (int.Parse(cantidad) == 0)
                     {
+                        //En caso de ser nuevo, proceder al guardado del nuevo vehículo.
                         int Estado;
                         float descuento;
 
@@ -294,6 +326,7 @@ namespace ConcesionariosVehiculos
 
                         MessageBox.Show(cmd.ExecuteNonQuery() + " automóvil agregado satisfactoriamente");
 
+                        //Actualización de DataGridsViews y Combo Boxes.
                         FillCarsDGV();
                         ClearCreateValues();
                         FillCarsChasis();
@@ -301,6 +334,7 @@ namespace ConcesionariosVehiculos
                         con.Close();
                     }
                     else {
+                        //Informar al usuario en caso de que el chasis ingresado ya existe.
                         MessageBox.Show("Chasis existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     con.Close();
@@ -326,6 +360,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método creado para buscar los modelos a partir de una marca.
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             try {
@@ -368,6 +403,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Métodos que validan si el valor ingresado es un número, o si es inválido.
         private void txtDescuento_TextChanged(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(txtDescuento.Text,@"(^([0-9]*|\d*\d{1}?\d*)$)"))
@@ -375,7 +411,6 @@ namespace ConcesionariosVehiculos
                 txtDescuento.Text = string.Empty;
             }
         }
-
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(txtPrecio.Text, @"(^([0-9]*|\d*\d{1}?\d*)$)"))
@@ -384,6 +419,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método que ejecuta las sentencias para el llenado de información de un carro a partir de su chasis (para editar la información del mismo).
         private string AutoEdit(string query)
         {
             SqlConnection con = new SqlConnection();
@@ -397,6 +433,7 @@ namespace ConcesionariosVehiculos
             return Valor;
         }
 
+        //Método creado para borrar componentes del formulario luego de añadir un vehículo de forma satisfactoria.
         private void ClearCreateValues() {
             txtChasis.Text = "";
             cbxCombustible.SelectedIndex = -1;
@@ -415,6 +452,7 @@ namespace ConcesionariosVehiculos
             txtDescuento.Text = "";
         }
 
+        //Método creado para definir los queries para llenar los campos de un vehículo a editar a partir de su chasis.
         private void cbxChasisEditar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxChasisEditar.SelectedIndex != -1)
@@ -514,12 +552,14 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para abrir formulario de equipamientos de vehículos.
         private void btnEquipamiento_Click(object sender, EventArgs e)
         {
             FrmAutoxEquipamiento auto = new FrmAutoxEquipamiento();
             auto.ShowDialog();
         }
 
+        //Método utilizado para llenar los modelos al seleccionar una marca de un vehículo a editar.
         private void cbxMarcaEditar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxMarcaEditar.SelectedIndex != 1)
@@ -577,6 +617,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para validar que el dato ingresado a este componente sea únicamente números.
         private void txtDescuentoEditar_TextChanged(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(txtDescuentoEditar.Text, @"[09]+(\.[09][09]?)?"))
@@ -585,6 +626,7 @@ namespace ConcesionariosVehiculos
             }
         }
 
+        //Método utilizado para actualizar información en la base de datos (modificar vehículos).
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
